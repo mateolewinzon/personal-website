@@ -1,7 +1,14 @@
-function Portfolio(){
-    return <div>
-        <h2>Portfolio home</h2>
+import PortfolioList from "../../components/portfolio/PortfolioList";
+import { getPortfolio } from "../../mocks/portfolio";
+
+function Portfolio() {
+  const portfolioData = getPortfolio();
+
+  return (
+    <div>
+      <PortfolioList items={portfolioData} />
     </div>
+  );
 }
 
-export default Portfolio
+export default Portfolio;

@@ -15,4 +15,6 @@ const portfolio = [
   },
 ];
 
-export const { getPortfolio } = () => portfolio;
+const getPortfolio = () => portfolio;
+
+export { getPortfolio };

@@ -15,4 +15,6 @@ const experience = [
   },
 ];
 
-export const { getExperience } = () => experience;
+const getExperience = () => experience;
+
+export { getExperience };
