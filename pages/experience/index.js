@@ -1,4 +1,4 @@
-import JobsList from "../../components/experience/JobsList";
+import JobsList from "../../components/experience/jobs-list";
 import { getExperience } from "../../mocks/experience";
 
 function Experience() {
