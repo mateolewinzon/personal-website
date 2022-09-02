@@ -1,12 +1,26 @@
-import styles from '../styles/Home.module.css'
+import { Container, Row } from "react-bootstrap";
+import styles from "../styles/Home.module.css";
 
 function Home() {
   return (
-    <div className={styles.container}>
-      <h1>About mateo</h1>
-    </div>
-  )
+    <Container>
+      <Row className="">
+        <Row
+          className={` ${styles.topContainer} ${styles.title} `}
+        >
+          software developer.
+        </Row>
+        <Row
+          className={` ${styles.titleBlue} ${styles.title}`}
+        >
+          react, react native
+        </Row>
+        <Row className={` `}>
+          <hr className={styles.hr} />
+        </Row>
+      </Row>
+    </Container>
+  );
 }
 
-
-export default Home
+export default Home;

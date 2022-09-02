@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import Router from 'next/router'
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./header";
+
 
 function Layout({ children }) {
   return (
     <>
-      header
+      <Header />
       {children}
-      footer
+      footers
     </>
   );
 }
