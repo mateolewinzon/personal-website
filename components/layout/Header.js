@@ -17,8 +17,8 @@ function Header() {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="ms-auto">
-            {pages.map((page) => (
-              <NavItem>
+            {pages.map((page, key) => (
+              <NavItem key={key}>
                 <Link passHref href={page.path}>
                   <Nav.Link active={pathname === page.path} className={styles.links}>
                     {page.title["en"]}

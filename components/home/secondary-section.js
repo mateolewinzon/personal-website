@@ -24,8 +24,8 @@ function SecondarySection() {
                 name: "This blog will load really fast. But why?",
                 date: "2022-03-09",
               })
-              .map((post) => (
-                <span className={styles.blogsItem}>
+              .map((post, key) => (
+                <span key={key} className={styles.blogsItem}>
                   {post.date} {post.name}
                 </span>
               ))}
