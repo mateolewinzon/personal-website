@@ -1,0 +1,28 @@
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .10em solid rgb(0, 0, 0); /* The typwriter cursor */
+  /* white-space: nowrap; */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+  width: auto;
+}
+
+
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: inherit;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .typewriter{
+    font-size: 40px!important;
+  }
+}
