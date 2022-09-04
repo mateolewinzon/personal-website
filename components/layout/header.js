@@ -2,7 +2,8 @@ import Link from "next/link";
 import {useRouter} from "next/router"
 import { Navbar, Container, Nav, NavItem } from "react-bootstrap";
 import { pages } from "../../config/pageList";
-import styles from "./header.module.css";
+import text from "../../config/text";
+import styles from "../../styles/header.module.css";
 
 function Header() {
 
@@ -21,7 +22,7 @@ function Header() {
               <NavItem key={key}>
                 <Link passHref href={page.path}>
                   <Nav.Link active={pathname === page.path} className={styles.links}>
-                    {page.title["en"]}
+                    {text["en"][page.id]}
                   </Nav.Link>
                 </Link>
               </NavItem>
