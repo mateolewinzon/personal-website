@@ -14,3 +14,68 @@ a {
 .row{
   justify-content: center;
 }
+
+.top-section {
+  height: 500px;
+  align-items: center;
+  align-content: center;
+}
+
+.dark-section {
+  background-color: rgb(54, 54, 54);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  min-height: 400px;
+}
+
+.blogsTitle {
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.blogsItem {
+  padding-bottom: 15px;
+}
+
+.titleBlue {
+  color: #1e6dff;
+}
+
+.btn,
+.btn:hover {
+  background-color: rgb(54, 54, 54) !important;
+  font-size: 20px;
+  color: #1e6dff;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: rgb(54, 54, 54) !important;
+  color: #0b5ed7;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+hr.hr {
+  color: black;
+  border: 1px solid black;
+  opacity: 100;
+  width: 500px;
+}
+
+.title,
+.description,
+.secondaryText {
+  text-align: center;
+}
+
+.secondaryText {
+  font-size: larger;
+  font-weight: 400;
+}
