@@ -1,24 +1,14 @@
-import { Container, Row } from "react-bootstrap";
-import styles from "../styles/Home.module.css";
+import { Col, Container, Row } from "react-bootstrap";
+import Button from "../components/common/Button";
+import SecondarySection from "../components/home/secondary-section";
+import TopSection from "../components/home/top-section";
+import text_file from "../config/text";
 
 function Home() {
   return (
-    <Container>
-      <Row className="">
-        <Row
-          className={` ${styles.topContainer} ${styles.title} `}
-        >
-          software developer.
-        </Row>
-        <Row
-          className={` ${styles.titleBlue} ${styles.title}`}
-        >
-          react, react native
-        </Row>
-        <Row className={` `}>
-          <hr className={styles.hr} />
-        </Row>
-      </Row>
+    <Container fluid>
+      <TopSection/>
+      <SecondarySection/>
     </Container>
   );
 }

@@ -1,7 +1,42 @@
+.topContainer {
+  height: 500px;
+  align-items: center;
+  align-content: center;
+}
+
+.secondRow {
+  background-color: rgb(54, 54, 54);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center !important;
+  min-height: 400px;
+}
+
+.blogsTitle {
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+.blogsItem {
+  padding-bottom: 15px;
+}
+
 .titleBlue {
   color: #1e6dff;
 }
 
+.btn,
+.btn:hover {
+  background-color: rgb(54, 54, 54) !important;
+  color: #1e6dff;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: rgb(54, 54, 54) !important;
+  color: #0b5ed7;
+}
 
 .title {
   margin: 0;
@@ -9,7 +44,7 @@
   font-size: 4rem;
 }
 
-hr.hr{
+hr.hr {
   color: black;
   border: 1px solid black;
   opacity: 100;
@@ -17,6 +52,12 @@ hr.hr{
 }
 
 .title,
-.description {
+.description,
+.welcomeText {
   text-align: center;
+}
+
+.welcomeText {
+  font-size: larger;
+  font-weight: 400;
 }
