@@ -24,7 +24,7 @@ const en = {
     "From an early age, I've always been atracted to the practicalities of software UIs, and curious about programming. Starting as a hobby, I became interested in building full stack apps in 2020.",
     "I learned React and Node by taking courses and applying the knowledge in personal projects. Later in 2021, I built my first mobile app with React Native, and became confident with exploring and implementing new libraries by reading documentation.",
     "Starting 2022, I heard about Alkemy.org, an acceleration program offering apprenticeship to trainees. Determined to take a leap and become a professional software developer, I submitted the admission challenge and was accepted.",
-    "Under the leadership and mentorship of a senior MercadoLibre engineer, my team and I built a modern UI for an ONG. This was a great, valuable experience. Working under a simulated realistic environment, I became familiar with Agile methodologies, its workflow and its tools. During this process, I enjoyed helping the others and saw myself as a team-player. Besides, having my code reviewed by an experienced developer significantly improved my code quality.",
+    "Alkemy was a great, valuable experience. Under the leadership and mentorship of a senior MercadoLibre engineer, my team and I built a modern UI for an ONG. Working under a simulated realistic environment, I became familiar with Agile methodologies, its workflow and its tools. During this process, I enjoyed helping the others and saw myself as a team-player. Besides, having my code reviewed by an experienced developer significantly improved my code quality.",
   ],
   my_skills: 'Skills' 
 };
@@ -53,7 +53,7 @@ const es = {
     "Desde una edad temprana, siempre me interesó la practicalidad de las UIs de software, y tuve curiosidad por la programación. Como hobby, empecé a aprender desarrollo web en 2020.",
     "Aprendí React y Node tomando cursos online y aplicando el conocimiento en proyectos personales. Más adelante en 2021, desarrollé mi primer aplicación con React Native, y logré una facilidad para explorar y aprender nuevas nuevas librerías y tecnologías leyendo documentación.",
     "Al inicio de 2022, escuché acerca de Alkemy.org, un programa de aceleración que ofrece apprenticeship a trainees. Determinado a dar el salto y convertirme en un desarrollador profesional, envié el challenge de admisión y fui aceptado.",
-    "Bajo el liderazgo y mentoreo de un ingeniero senior de MercadoLibre, mi equipo y yo contruimos una UI moderna para una ONG. Fue una experiencia muy valiosa. Trabajando en un entorno de equipo realista, aprendí a trabajar con methdologías ágiles, su workflow y sus herramientas. Durante este proceso, disfruté ayudar a mis compañeros y me vi a mí mismo como un jugador de equipo. Por otro lado, al tener mi código revisado por un desarrollador experimentado, pude mejorar significativamente la calidad de mi código.",
+    "Alkemy fue una experiencia muy valiosa. Bajo el liderazgo y mentoreo de un ingeniero senior de MercadoLibre, mi equipo y yo contruimos una UI moderna para una ONG. Trabajando en un entorno de equipo realista, aprendí a trabajar con methdologías ágiles, su workflow y sus herramientas. Durante este proceso, disfruté ayudar a mis compañeros y me vi a mí mismo como un jugador de equipo. Por otro lado, al tener mi código revisado por un desarrollador experimentado, pude mejorar significativamente la calidad de mi código.",
   ],
   my_skills: 'Skills' 
 };
