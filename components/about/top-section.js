@@ -7,7 +7,7 @@ function AboutMe() {
 
   return (
     <Row className='top-section'>
-      <Row className="p-4">
+      <Row className="pb-4">
         <span className='title'>
           <span>{about}</span>{" "}
           <span className={`${typewriter} titleBlue`}>{me}</span>
