@@ -1,17 +1,15 @@
 import { Container, Row } from "react-bootstrap";
 import text from "../../config/text";
+import { typewriter } from "../../styles/typing-effect.module.css";
 
 function Skills() {
-  const { about, me, about_description } = text["en"];
+  const { my_journey_paragraphs, my_journey} = text["en"];
 
   return (
-        <Row>
-          <span className="secondaryText">My Journey</span>
-          <span className="description">
-            I started developing websites as a hobby in 2020.
-          </span>
-        </Row>
-
+    <Row className="pt-5 pb-5">
+      <span className='semititle pb-4'>{my_journey}</span>
+        {my_journey_paragraphs.map((text)=> <p>{text}</p>)}
+    </Row>
   );
 }
 
