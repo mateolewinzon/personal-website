@@ -45,14 +45,15 @@ a {
 
 .btn,
 .btn:hover {
-  background-color: rgb(54, 54, 54) !important;
+  width: auto;
+  background-color: rgb(255, 255, 255) !important;
   font-size: 20px;
   color: #1e6dff;
 }
 
 .btn:hover,
 .btn:active {
-  background-color: rgb(54, 54, 54) !important;
+  background-color: rgb(255, 255, 255) !important;
   color: #0b5ed7;
 }
 
