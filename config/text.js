@@ -11,7 +11,7 @@ const en = {
   blog: "Blog",
   recent_posts: "Recent posts",
   about_description:
-    "A good career and life, as I believe, is one in which you voluntarily face bigger responsibilities every day. I consider myself a proactive person, with a restless curiosity and always ready to solve new problems.  I'm looking forward to devoting myself to meaningful projects and growing in the industry.",
+    "A good career and life, as I believe, is one in which you voluntarily face bigger responsibilities every day. I consider myself a proactive person, with a restless curiosity and always ready to solve new challenges.  I'm looking forward to devoting myself to meaningful projects and growing in the industry.",
   technologies: "Stack and tools",
   react:
     "I've built several user interfaces with ReactJs and React Native, applying modern techniques for state management (Redux, Context), integrating APIs, authentication and testing (React-Testing-Library with Jest). I'm also familiar with creating React apps using NextJs for pre-fetching and server-side rendering.",
@@ -40,7 +40,7 @@ const es = {
   me: "mí,",
   recent_posts: "Posts recientes",
   about_description:
-    "Una buena carrera y vida, según creo yo, es una en la que voluntariamente enfrentás responsabilidades más grandes cada día. Me considero una persona proactiva, con una curiosidad incesante, y siempre dispuesto a solucionar problemas. Busco ser parte de un proyecto valioso y desarrollarme en la industria. ",
+    "Una buena carrera y vida, según creo yo, es una en la que voluntariamente enfrentás responsabilidades más grandes cada día. Me considero una persona proactiva, con una curiosidad incesante, y siempre dispuesto a resolver nuevos desafíos. Busco ser parte de un proyecto valioso y desarrollarme en la industria. ",
   tecnologies: "Tecnologías",
   react:
     "Desarrollé interfaces de usuario utilizando ReactJs y React Native, aplicando técnicas modernas de manejo de estado (Redux, Context), integración de APIs, autenticación y testing (React-Testing-Library). También estoy familiarizado con NextJs para crear apliaciones React con pre-fetching y server-side rendering.",
