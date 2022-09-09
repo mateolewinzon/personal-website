@@ -1,15 +1,14 @@
-import { Row, Col, Container } from "react-bootstrap";
-import Button from "../common/Button";
-import text from "../../config/text";
+import { useI18n } from "next-localization";
+import { Row, Col } from "react-bootstrap";
 
 function SecondarySection() {
-  const { recent_posts, learn_more } = text["es"];
+  const i18n = useI18n()
 
   return (
     <Row className="dark-section text-center">
       <Col xs="auto">
         <Row>
-          <div className="blogsTitle">{recent_posts}</div>
+          <div className="blogsTitle">{i18n.t('home.recent_posts')}</div>
         </Row>
         <Row>
           {Array(5)

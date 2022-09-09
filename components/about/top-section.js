@@ -1,21 +1,21 @@
+import { useI18n } from "next-localization";
 import { Row } from "react-bootstrap";
-import text from "../../config/text";
 import { typewriter } from "../../styles/typing-effect.module.css";
 
 function AboutMe() {
-  const { about, me, about_description } = text["en"];
+  const i18n = useI18n()
 
   return (
     <Row className='top-section'>
       <Row className="pb-4">
         <span className='title'>
-          <span>{about}</span>{" "}
-          <span className={`${typewriter} titleBlue`}>{me}</span>
+          <span>{i18n.t('about.about')}</span>{" "}
+          <span className={`${typewriter} titleBlue`}>{i18n.t('about.me')}</span>
         </span>
       </Row>
       <Row className="pb-4"><hr className="hr"/></Row>
       <Row>
-        <span className="secondaryText">{about_description}</span>
+        <span className="secondaryText">{i18n.t('about.about_description')}</span>
       </Row>
     </Row>
   );

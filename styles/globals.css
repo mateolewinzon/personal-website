@@ -6,27 +6,25 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.hide-mobile{
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-.row{
-  justify-content: center;
-}
+
 
 .top-section {
-  height: 500px;
-  align-items: center;
+  min-height: 500px;
   align-content: center;
 }
 
 .dark-section {
-  background-color: rgb(54, 54, 54);
-  color: white;
-  display: flex;
+  background-color: rgb(221, 229, 255);
   align-items: center;
-  justify-content: center !important;
   min-height: 400px;
 }
 
@@ -43,12 +41,21 @@ a {
   color: #1e6dff;
 }
 
-.btn,
-.btn:hover {
+.btn {
   width: auto;
   background-color: rgb(255, 255, 255) !important;
   font-size: 20px;
-  color: #1e6dff;
+  color: #1e6dff!important;
+  border-color: #1e6dff!important;
+  margin: 10px;
+}
+.btn:hover {
+  color: #1a5bd4!important;
+  border-color: #1a5bd4!important;
+}
+
+.navbar{
+  margin-left: 10px;
 }
 
 .btn:hover,
@@ -69,20 +76,19 @@ a {
   font-size: 3rem;
 }
 
-hr.hr {
-  color: black;
-  border: 1px solid black;
-  opacity: 100;
-  width: 500px;
-}
-
 .title,
 .description,
 .secondaryText {
-  text-align: center;
+  text-align: left;
 }
 
 .secondaryText {
   font-size: larger;
   font-weight: 400;
+}
+
+.dropdown-menu {
+  min-width: 0px!important;
+  right: 0 !important;
+  left: auto !important;
 }
