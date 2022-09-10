@@ -5,10 +5,15 @@ import { Navbar, Container, Nav, NavItem, NavDropdown } from "react-bootstrap";
 import { pages } from "../../config/pageList";
 import { langs } from "../../config/i18n";
 import styles from "../../styles/header.module.css";
+import LocaleSelector from "./locale-selector";
 
 function Header() {
-  const { pathname, locale } = useRouter();
+  const { asPath, locale, query } = useRouter();
   const i18n = useI18n();
+
+  if (asPath.includes("/blog/")) {
+    var alternative = i18n.t(`blogs.articles.${query.slug}.${locale}`);
+  }
 
   return (
     <Navbar className={styles.navbar}>
@@ -18,7 +23,7 @@ function Header() {
             <NavItem key={key}>
               <Link passHref href={page.path}>
                 <Nav.Link
-                  active={pathname === page.path}
+                  active={asPath === page.path}
                   className={styles.links}
                 >
                   {i18n.t(`navbar.${page.id}`)}
@@ -28,23 +33,11 @@ function Header() {
           ))}
         </Nav>
         <Nav>
-          <NavItem>
-            <NavDropdown
-              className={`${styles.links} ${styles.navbar_drop_item} ms-auto dropdown-menu-left`}
-              title={locale.toLocaleUpperCase()}
-            >
-              {langs.map(
-                (l) =>
-                  l.locale !== locale && (
-                    <Link key={l} passHref href={pathname} locale={l.locale}>
-                      <NavDropdown.Item className={styles.navbar_drop_item}>
-                        {i18n.t(`navbar.${l.name}`)}
-                      </NavDropdown.Item>
-                    </Link>
-                  )
-              )}
-            </NavDropdown>
-          </NavItem>
+          <LocaleSelector
+            asPath={asPath}
+            currentLocale={locale}
+            query={query}
+          />
         </Nav>
       </Container>
     </Navbar>

@@ -1,11 +1,11 @@
 import { Container, Row } from "react-bootstrap";
 import SecondarySection from "../components/home/secondary-section";
 import TopSection from "../components/home/top-section";
-import { getAllMetadata } from "../config/mdx";
+import { getMetadata } from "../config/mdx";
 
 function Home() {
   return (
-    <div>
+    <>
       <Container>
       <TopSection />
 
@@ -13,16 +13,16 @@ function Home() {
       <Container fluid>
       <SecondarySection />
       </Container>
-    </div>
+    </>
   );
 }
 
 export async function getStaticProps({ locale }) {
-  const posts = await getAllMetadata();
+  const { currentLocaleFiles } = await getMetadata(locale);
   const { default: lngDict = {} } = await import(`../locales/${locale}.json`);
 
   return {
-    props: { posts, lngDict },
+    props: { posts: currentLocaleFiles, lngDict },
   };
 }
 

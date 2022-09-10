@@ -23,7 +23,8 @@ a {
 }
 
 .dark-section {
-  background-color: rgb(221, 229, 255);
+  background: rgb(204,212,236);
+background: linear-gradient(240deg, rgba(204,212,236,1) 0%, rgba(236,241,255,1) 100%);
   align-items: center;
   min-height: 400px;
 }

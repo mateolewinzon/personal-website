@@ -33,5 +33,9 @@
     ],
     "my_skills": "Skills"
   },
-  "blogs": {}
+  "blogs": {
+    "articles": {
+      "test-blog": {"es": "prueba-blog"}
+    }
+  }
 }

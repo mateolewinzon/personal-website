@@ -33,5 +33,9 @@
     ],
     "my_skills": "Habilidades"
   },
-  "blogs": {}
+  "blogs": {
+    "articles": {
+      "prueba-blog": {"en": "test-blog"}
+    }
+  }
 }
