@@ -40,7 +40,7 @@ export const getMetadata = (locale) => {
     { en: [], es: [] }
   );
 
-  const currentLocaleFiles = filesByLocale[locale];
+  const currentLocaleFiles = filesByLocale[locale]
 
   return { filesByLocale, currentLocaleFiles };
 };

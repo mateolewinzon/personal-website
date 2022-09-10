@@ -11,10 +11,6 @@ function Header() {
   const { asPath, locale, query } = useRouter();
   const i18n = useI18n();
 
-  if (asPath.includes("/blog/")) {
-    var alternative = i18n.t(`blogs.articles.${query.slug}.${locale}`);
-  }
-
   return (
     <Navbar className={styles.navbar}>
       <Container>

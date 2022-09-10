@@ -35,7 +35,9 @@
   },
   "blogs": {
     "articles": {
-      "prueba-blog": {"en": "test-blog"}
-    }
+      "mi-camino": { "en": "my-journey" },
+      "mis-habilidades": { "en": "my-skills" }
+    },
+    "recent_posts": "Artículos recientes"
   }
 }
