@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import formatDate from "../../utils/date";
 
-export default function ({ item }) {
+export default function PostItemBox({ item }) {
   const { locale } = useRouter();
 
   return (
