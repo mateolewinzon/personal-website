@@ -1,10 +1,7 @@
 import { useI18n } from "next-localization";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { Navbar, Container, Nav, NavItem, NavDropdown } from "react-bootstrap";
+import NavLink from "./NavLink";
 import { pages } from "../../config/pageList";
-import { langs } from "../../config/i18n";
-import styles from "../../styles/header.module.css";
 import LocaleSelector from "./locale-selector";
 
 function Header() {
@@ -12,31 +9,45 @@ function Header() {
   const i18n = useI18n();
 
   return (
-    <Navbar className={styles.navbar}>
-      <Container>
-        <Nav>
+    <nav>
+      <div className="flex justify-between items-center max-w-3x1 py-2 my-0 md:my-4">
+        <div>
           {pages.map((page, key) => (
-            <NavItem key={key}>
-              <Link passHref href={page.path}>
-                <Nav.Link
-                  active={asPath === page.path}
-                  className={styles.links}
-                >
-                  {i18n.t(`navbar.${page.id}`)}
-                </Nav.Link>
-              </Link>
-            </NavItem>
+            <NavLink key={key} isActive={asPath === page.path} href={page.path}>
+              {i18n.t(`navbar.${page.id}`)}
+            </NavLink>
           ))}
-        </Nav>
-        <Nav>
+        </div>
+        <div className="flex">
           <LocaleSelector
             asPath={asPath}
             currentLocale={locale}
             query={query}
           />
-        </Nav>
-      </Container>
-    </Navbar>
+        </div>
+      </div>
+    </nav>
+    // <Navbar className={styles.navbar}>
+    //   <Container>
+    //     <Nav>
+    //       {pages.map((page, key) => (
+    //         <NavItem key={key}>
+    //           <Link passHref href={page.path}>
+    //             <Nav.Link
+    //               active={asPath === page.path}
+    //               className={styles.links}
+    //             >
+    //               {i18n.t(`navbar.${page.id}`)}
+    //             </Nav.Link>
+    //           </Link>
+    //         </NavItem>
+    //       ))}
+    //     </Nav>
+    //     <Nav>
+    //
+    //     </Nav>
+    //   </Container>
+    // </Navbar>
   );
 }
 

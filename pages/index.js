@@ -1,18 +1,12 @@
-import { Container, Row } from "react-bootstrap";
 import SecondarySection from "../components/home/secondary-section";
 import TopSection from "../components/home/top-section";
 import { getMetadata } from "../config/mdx";
 
-function Home() {
+function Home({ posts }) {
   return (
     <>
-      <Container>
       <TopSection />
-
-      </Container>
-      <Container fluid>
-      <SecondarySection />
-      </Container>
+      <SecondarySection posts={posts}/>
     </>
   );
 }

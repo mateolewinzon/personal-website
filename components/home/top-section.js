@@ -1,34 +1,34 @@
 import { useI18n } from "next-localization";
-import Image from 'next/image'
-import { Col, Container, Row,  } from "react-bootstrap";
+import Image from "next/image";
+import Link from "next/link";
+
 import { typewriter } from "../../styles/typing-effect.module.css";
-import Button from "../common/Button";
 
 function TopSection() {
   const i18n = useI18n();
 
   return (
-    <Row className="top-section">
-      <Col className="d-none d-lg-inline" lg='4' xl='3' xxl='3'>
-        <Image width={300} height={300} src="/images/mateo_mountains.jpg" />
-      </Col>
-      <Col xs='12' lg='8' xl='9' xxl='9'>
-        <Row className="pb-4">
-          <span className="title">{i18n.t("home.title")}</span>
-          <span className={`title titleBlue ${typewriter}`}>
-            <span>{i18n.t("home.subtitle")}</span>
-          </span>
-        </Row>
-        <Row className="pb-4">
-          <span className="secondaryText">{i18n.t("home.welcome_text")}</span>
-        </Row>
-        <Row className="pb-4">
-          <Button className="btn" href={"/about"}>
-            {i18n.t("home.learn_more")}
-          </Button>
-        </Row>
-      </Col>
-    </Row>
+    <div className="flex min-h-500 justify-between items-center px-4">
+      <div>
+        <div className="text-6xl text-black  pb-4">{i18n.t("home.title")}</div>
+        <div className={`text-6xl text-blue  pb-6 ${typewriter}`}>
+          {i18n.t("home.subtitle")}
+        </div>
+        <div className="text-gray-dark  pb-9 text-xl">
+          {i18n.t("home.welcome_text")}
+        </div>
+        <div>
+          <Link href="/about">
+            <a className="rounded-md text-blue p-2.5 outline outline-blue hover:text-blue-dark hover:outline-blue-dark outline-2  font-semibold">
+              {i18n.t("home.learn_more")}
+            </a>
+          </Link>
+        </div>
+      </div>
+      <div className="hidden md:inline flex-none">
+        <Image width={300} height={300} src="/images/mateo_mountains2.jpg" />
+      </div>
+    </div>
   );
 }
 

@@ -3,6 +3,10 @@
     box-shadow: none;
 }
 
+.dropdown{
+    color: green;
+}
+
 .brand{
     color: rgb(80, 80, 80);
     font-weight: 600;

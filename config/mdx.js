@@ -5,29 +5,29 @@ import { serialize } from "next-mdx-remote/serialize";
 
 const root = process.cwd();
 
-export const getFiles = () => fs.readdirSync(path.join(root, "blog"));
+export const getFiles = async() => fs.readdirSync(path.join(root, "blog"));
 
 export const getFileBySlug = async (slug) => {
   const mdx = fs.readFileSync(path.join(root, "blog", `${slug}.mdx`), "utf-8");
   const { data, content } = await matter(mdx);
-  const src = await serialize(content, {});
+  const source = await serialize(content, {});
 
   return {
-    src,
+    source,
     data: {
-      ...data,
       slug,
+      ...data,
     },
   };
 };
 
-export const getMetadata = (locale) => {
-  const files = getFiles();
+export const getMetadata = async (locale) => {
+  const files = await getFiles();
 
   const filesByLocale = files.reduce(
     (allPosts, postSlug) => {
-      const src = fs.readFileSync(path.join(root, "blog", postSlug), "utf-8");
-      const { data } = matter(src);
+      const source = fs.readFileSync(path.join(root, "blog", postSlug), "utf-8");
+      const { data } = matter(source);
 
       return {
         ...allPosts,

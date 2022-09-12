@@ -1,3 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face {
+  font-family: ;
+  src: url();
+} */
+
+
 html,
 body {
   padding: 0;
@@ -6,7 +16,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.hide-mobile{
+.hide-mobile {
   display: none;
 }
 
@@ -15,16 +25,18 @@ a {
   text-decoration: none;
 }
 
-
-
 .top-section {
   min-height: 500px;
   align-content: center;
 }
 
 .dark-section {
-  background: rgb(204,212,236);
-background: linear-gradient(240deg, rgba(204,212,236,1) 0%, rgba(236,241,255,1) 100%);
+  background: rgb(204, 212, 236);
+  background: linear-gradient(
+    240deg,
+    rgba(204, 212, 236, 1) 0%,
+    rgba(236, 241, 255, 1) 100%
+  );
   align-items: center;
   min-height: 400px;
 }
@@ -46,16 +58,16 @@ background: linear-gradient(240deg, rgba(204,212,236,1) 0%, rgba(236,241,255,1) 
   width: auto;
   background-color: rgb(255, 255, 255) !important;
   font-size: 20px;
-  color: #1e6dff!important;
-  border-color: #1e6dff!important;
+  color: #1e6dff !important;
+  border-color: #1e6dff !important;
   margin: 10px;
 }
 .btn:hover {
-  color: #1a5bd4!important;
-  border-color: #1a5bd4!important;
+  color: #1a5bd4 !important;
+  border-color: #1a5bd4 !important;
 }
 
-.navbar{
+.navbar {
   margin-left: 10px;
 }
 
@@ -89,7 +101,7 @@ background: linear-gradient(240deg, rgba(204,212,236,1) 0%, rgba(236,241,255,1) 
 }
 
 .dropdown-menu {
-  min-width: 0px!important;
+  min-width: 0px !important;
   right: 0 !important;
   left: auto !important;
 }
