@@ -8,10 +8,10 @@ function TopSection() {
   const i18n = useI18n();
 
   return (
-    <div className="flex min-h-500 justify-between items-center px-4">
+    <div className="flex min-h-400 justify-between items-center p-2">
       <div>
-        <div className="text-6xl text-black  pb-4">{i18n.t("home.title")}</div>
-        <div className={`text-6xl text-blue  pb-6 ${typewriter}`}>
+        <div className="text-5xl font-bold text-black  pb-4">{i18n.t("home.title")}</div>
+        <div className={`text-4xl text-blue   pb-6 ${typewriter}`}>
           {i18n.t("home.subtitle")}
         </div>
         <div className="text-gray-dark  pb-9 text-xl">

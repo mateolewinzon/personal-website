@@ -20,9 +20,3 @@
     border-color: inherit;
   }
 }
-
-@media screen and (max-width: 800px) {
-  .typewriter{
-    font-size: 40px!important;
-  }
-}

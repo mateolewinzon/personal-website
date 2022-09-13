@@ -1,19 +1,24 @@
 import { useI18n } from "next-localization";
-import BlogsList from "../../components/blogs/blogs-list";
+import PostItem from "../../components/blogs/PostItem";
 import { getMetadata } from "../../config/mdx";
-import {typewriter} from "../../styles/typing-effect.module.css";
-
+import { typewriter } from "../../styles/typing-effect.module.css";
 
 export default function Blogs({ posts }) {
   const i18n = useI18n();
 
   return (
-    <div className="flex flex-col">
-      <div className="py-4">
-        <span className={`text-6xl text-red-dark font-semibold ${typewriter}`}>{i18n.t('blogs.recent_posts')}</span>
+    <div className="flex min-h-400 justify-center items-center flex-col">
+      <div className="pt-10 pb-4">
+        <span
+          className={`text-4xl text-center text-black font-bold ${typewriter}`}
+        >
+          {i18n.t("blogs.recent_posts")}
+        </span>
       </div>
-      <div className="pb-4">
-        <BlogsList items={posts} />
+      <div className="pb-4 flex flex-col items-center">
+        {posts.map((item) => (
+          <PostItem key={item.slug} item={item} />
+        ))}
       </div>
     </div>
   );

@@ -5,13 +5,13 @@ function SecondarySection({ posts }) {
   const i18n = useI18n();
 
   return (
-    <div className="flex px-4 flex-col min-h-500">
-      <div className="pb-4">
-        <div className="text-4xl text-red-dark font-semibold">
+    <div className="flex p-2 items-center flex-col min-h-500">
+      <div className="py-8">
+        <div className="text-4xl font-bold">
           {i18n.t("home.recent_posts")}
         </div>
       </div>
-      <div className="flex flex-row items-center flex-wrap justify-between">
+      <div className="flex flex-row items-center flex-wrap">
         {posts.map((post) => (
           <PostItemBox key={post.slug} item={post} />
         ))}

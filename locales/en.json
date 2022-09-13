@@ -36,7 +36,8 @@
   "blogs": {
     "articles": {
       "my-journey": { "es": "mi-camino" },
-      "my-skills": { "es": "mis-habilidades" }
+      "my-skills": { "es": "mis-habilidades" },
+      "fast-loading-blog": { "es": "blog-carga-rapido" }
     },
     "recent_posts": "Recent posts"
   }

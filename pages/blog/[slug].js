@@ -4,9 +4,8 @@ import MDXComponents from "../../components/blogs/MDXComponents";
 
 function Blog({ source, data }) {
   return (
-    <article>
-      <MDXRemote {...source} components={MDXComponents} />
-    </article>
+    <article className="prose">
+      <MDXRemote components={MDXComponents} {...source}  /></article>
   );
 }
 

@@ -4,6 +4,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./blog/*.mdx"
   ],
   theme: {
     container: {
@@ -16,15 +17,15 @@ module.exports = {
       },
     },
     extend: {
-      minHeight: { 500: "500px" },
+      minHeight: { 500: "500px", 400: "400px", 300: "300px" },
 
       colors: {
-        'blue': '#1fb6ff',
-        'purple': '#7e5bef',
-        'pink': '#ff49db',
-        'orange': '#ff7849',
-        'green': '#13ce66',
-        'yellow': '#ffc82c',
+        blue: "#1fb6ff",
+        purple: "#7e5bef",
+        pink: "#ff49db",
+        orange: "#ff7849",
+        green: "#13ce66",
+        yellow: "#ffc82c",
         "gray-100": "#f2f2ff",
         "gray-light": "#e6e6e6",
         gray: "#AAAABC",
@@ -39,5 +40,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

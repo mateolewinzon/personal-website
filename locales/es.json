@@ -7,9 +7,9 @@
     "spanish": "Español"
   },
   "home": {
-    "title": "software developer.",
-    "subtitle": "react, react native, ",
-    "welcome_text": "Desarrollador fullstack de rápido aprendizaje, orientado a entregar el mejor resultado.",
+    "title": "¡Hola! Soy Mateo",
+    "subtitle": "desarrollador react,",
+    "welcome_text": "Developer Jr de rápido aprendizaje, orientado a entregar el mejor resultado.",
     "learn_more": "Más acerca de mí",
     "about": "Acerca de",
     "me": "mí,",
@@ -36,7 +36,8 @@
   "blogs": {
     "articles": {
       "mi-camino": { "en": "my-journey" },
-      "mis-habilidades": { "en": "my-skills" }
+      "mis-habilidades": { "en": "my-skills" },
+      "blog-carga-rapido": {"en":"fast-loading-blog"}
     },
     "recent_posts": "Artículos recientes"
   }
