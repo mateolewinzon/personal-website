@@ -27,27 +27,6 @@ function Header() {
         </div>
       </div>
     </nav>
-    // <Navbar className={styles.navbar}>
-    //   <Container>
-    //     <Nav>
-    //       {pages.map((page, key) => (
-    //         <NavItem key={key}>
-    //           <Link passHref href={page.path}>
-    //             <Nav.Link
-    //               active={asPath === page.path}
-    //               className={styles.links}
-    //             >
-    //               {i18n.t(`navbar.${page.id}`)}
-    //             </Nav.Link>
-    //           </Link>
-    //         </NavItem>
-    //       ))}
-    //     </Nav>
-    //     <Nav>
-    //
-    //     </Nav>
-    //   </Container>
-    // </Navbar>
   );
 }
 

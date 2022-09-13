@@ -1,5 +1,4 @@
-// import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Footer from "./footer";
 import Header from "./header";
 
