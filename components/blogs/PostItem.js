@@ -6,7 +6,7 @@ export default function PostItem({ item }) {
   const { locale } = useRouter();
 
   return (
-    <div className="flex flex-col outline outline-1 outline-gray-light p-4 m-4 md:w-3/4 rem py-5">
+    <div className="flex flex-col outline outline-1 rounded-md outline-gray-light hover:outline-gray p-4 m-4 w-full md:w-3/4 rem py-5">
       <Link href={`/blog/${item.slug}`}>
         <a className="">
           <div className="pb-3">
@@ -14,7 +14,7 @@ export default function PostItem({ item }) {
               {item.title}
             </div>
           </div>
-          <div className="pb-4">
+          <div className="pb-4 text-gray-dark hover:text-black">
             {item.description}
           </div>
           <div className="flex flex-row">

@@ -8,7 +8,7 @@ export default function PostItemBox({ item }) {
   return (
     <Link href={`/blog/${item.slug}`}>
       <a className="">
-        <div className="flex flex-col m-2 text-center outline outline-1  outline-gray-light hover:outline-gray p-3 pb-6">
+        <div className="flex flex-col m-2 outline outline-1 rounded-md outline-gray-light hover:outline-gray p-2 pb-6">
           <div className="pb-2">
             <div className="text-gray-dark hover:text-black font-semibold text-2xl">
               {item.title}
@@ -16,11 +16,11 @@ export default function PostItemBox({ item }) {
           </div>
           <div className="flex flex-row">
             <div>
-              <div className="text-gray ">{formatDate(locale, item.date)}</div>
+              <div className="text-gray font-light">{formatDate(locale, item.date)}</div>
             </div>
             <div className="px-2">
               {item.tags.map((item) => (
-                <div key={item} className="inline text-gray-dark hover:text-black  m-2 ">
+                <div key={item} className="inline text text-gray-dark hover:text-black  m-2 ">
                   #{item}
                 </div>
               ))}
