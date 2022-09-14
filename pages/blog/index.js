@@ -1,5 +1,6 @@
 import { useI18n } from "next-localization";
 import PostItem from "../../components/blogs/PostItem";
+import Heading from "../../components/common/Heading";
 import { getMetadata } from "../../config/mdx";
 import { typewriter } from "../../styles/typing-effect.module.css";
 
@@ -9,11 +10,11 @@ export default function Blogs({ posts }) {
   return (
     <div className="flex min-h-400 justify-center items-center flex-col">
       <div className="pt-10 pb-4">
-        <span
-          className={`text-4xl text-center text-black font-bold ${typewriter}`}
+        <Heading
+          className={typewriter}
         >
           {i18n.t("blogs.recent_posts")}
-        </span>
+        </Heading>
       </div>
       <div className="pb-4 flex flex-col items-center">
         {posts.map((item) => (

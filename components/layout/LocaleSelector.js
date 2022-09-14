@@ -22,13 +22,13 @@ export default function LocaleSelector({ currentLocale, asPath, query }) {
   return (
     <Menu>
       {({ isOpen }) => (
-        <>
-          <MenuButton className="flex flex-row">
+        <div className="pl-4">
+          <MenuButton className="flex flex-row items-center">
             {langs.find((i) => i.locale === currentLocale).flag}
             {isOpen ? (
-              <BiChevronUp className="text-black" />
+              <BiChevronUp className="text-black dark:text-white" />
             ) : (
-              <BiChevronDown className="text-gray hover:text-black" />
+              <BiChevronDown className="text-gray dark:text-white hover:text-black dark:hover:text-gray-light" />
             )}
           </MenuButton>
           <MenuList>
@@ -39,13 +39,12 @@ export default function LocaleSelector({ currentLocale, asPath, query }) {
                     name={i18n.t(`navbar.${lang.name}`)}
                     lang={lang}
                     key={lang.locale}
-                    className=""
                     href={isArticle ? getAlternativeHref(lang.locale) : asPath}
                   />
                 )
             )}
           </MenuList>
-        </>
+        </div>
       )}
     </Menu>
   );

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import formatDate from "../../utils/date";
+import SpanSecondary from "../common/SpanSecondary";
+import SubHeading from "../common/SubHeading";
 
 export default function PostItemBox({ item }) {
   const { locale } = useRouter();
@@ -8,21 +10,24 @@ export default function PostItemBox({ item }) {
   return (
     <Link href={`/blog/${item.slug}`}>
       <a className="">
-        <div className="flex flex-col m-2 outline outline-1 rounded-md outline-gray-light hover:outline-gray p-2 pb-6">
+        <div className="flex flex-col m-2 outline outline-1 rounded outline-gray-light hover:outline-gray dark:outline-black-800 dark:hover:outline-gray-dark p-2 pb-6">
           <div className="pb-2">
-            <div className="text-gray-dark hover:text-black font-semibold text-2xl">
+            <SubHeading className="hover:text-black font-semibold text-2xl">
               {item.title}
-            </div>
+            </SubHeading>
           </div>
           <div className="flex flex-row">
-            <div>
-              <div className="text-gray font-light">{formatDate(locale, item.date)}</div>
-            </div>
+            <SpanSecondary className="font-light text-gray dark:text-gray">
+              <div className="">{formatDate(locale, item.date)}</div>
+            </SpanSecondary>
             <div className="px-2">
               {item.tags.map((item) => (
-                <div key={item} className="inline text text-gray-dark hover:text-black  m-2 ">
+                <SpanSecondary
+                  key={item}
+                  className="inline text text-gray-dark hover:text-black  m-2 "
+                >
                   #{item}
-                </div>
+                </SpanSecondary>
               ))}
             </div>
           </div>

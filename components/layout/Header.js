@@ -2,7 +2,8 @@ import { useI18n } from "next-localization";
 import { useRouter } from "next/router";
 import NavLink from "./NavLink";
 import { pages } from "../../config/pageList";
-import LocaleSelector from "./locale-selector";
+import LocaleSelector from "./LocaleSelector";
+import ThemeButton from "./ThemeButton";
 
 function Header() {
   const { asPath, locale, query } = useRouter();
@@ -10,7 +11,7 @@ function Header() {
 
   return (
     <nav>
-      <div className="flex justify-between items-center max-w-3x1 py-2 my-0 md:my-4">
+      <div className="flex justify-between items-center max-w-3x1 py-2 my-0 md:py-4">
         <div>
           {pages.map((page, key) => (
             <NavLink key={key} isActive={asPath === page.path} href={page.path}>
@@ -19,11 +20,12 @@ function Header() {
           ))}
         </div>
         <div className="flex">
-          <LocaleSelector
-            asPath={asPath}
-            currentLocale={locale}
-            query={query}
-          />
+            <ThemeButton />
+            <LocaleSelector
+              asPath={asPath}
+              currentLocale={locale}
+              query={query}
+            />
         </div>
       </div>
     </nav>

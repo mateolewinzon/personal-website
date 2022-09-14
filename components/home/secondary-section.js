@@ -1,4 +1,5 @@
 import { useI18n } from "next-localization";
+import SubHeading from "../common/SubHeading";
 import PostItemBox from "./PostItemBox";
 
 function SecondarySection({ posts }) {
@@ -7,9 +8,9 @@ function SecondarySection({ posts }) {
   return (
     <div className="flex flex-col items-center min-h-500">
       <div className="py-8">
-        <div className="text-4xl font-bold">
+        <SubHeading className="font-bold">
           {i18n.t("home.recent_posts")}
-        </div>
+        </SubHeading>
       </div>
       <div className="flex flex-col lg:flex-row">
         {posts.map((post) => (

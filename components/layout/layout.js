@@ -4,13 +4,13 @@ import Header from "./header";
 
 function Layout({ children }) {
   return (
-    <main className="bg-white">
+    <div className="bg-white dark:bg-black min-h-max">
       <div className="container mx-auto">
         <Header />
         {children}
         <Footer />
       </div>
-    </main>
+    </div>
   );
 }
 

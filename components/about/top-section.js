@@ -1,6 +1,8 @@
 import { useI18n } from "next-localization";
 import Image from "next/image";
 import { typewriter } from "../../styles/typing-effect.module.css";
+import Heading from "../common/Heading";
+import Span from "../common/Span";
 
 function AboutMe() {
   const i18n = useI18n();
@@ -10,16 +12,16 @@ function AboutMe() {
         <div>
           <div className="pb-4">
             <div className="text-black text-6xl">
-              <span>{i18n.t("about.about")}</span>{" "}
-              <span className={`${typewriter} text-blue`}>
+              <Heading>{i18n.t("about.about")}</Heading>{" "}
+              <Heading className={`text-blue dark:text-blue ${typewriter}`}>
                 {i18n.t("about.me")}
-              </span>
+              </Heading>
             </div>
           </div>
           <div>
-            <div className="text-black text-xl">
+            <Span className="text-black text-xl">
               {i18n.t("about.about_description")}
-            </div>
+            </Span>
           </div>
         </div>
         <div className="hidden md:inline flex-none ">
