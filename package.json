@@ -26,7 +26,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-svg": "^15.1.7",
-    "remark-breaks": "^3.0.2"
+    "remark-breaks": "^3.0.2",
+    "tailwind-merge": "^1.6.0"
   },
   "devDependencies": {
     "@testing-library/react": "^13.3.0",

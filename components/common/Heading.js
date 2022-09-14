@@ -10,10 +10,4 @@ export default function Heading({ children, className, ...props }) {
       {children}
     </TextComponent>
   );
-  // <span
-  //   className={`${className} text-5xl font-bold text-black dark:text-white`}
-  //   {...props}
-  // >
-  //   {children}
-  // </span>
 }
