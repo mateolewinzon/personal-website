@@ -4,17 +4,18 @@ export default function TextComponent({
   children,
   defaultStyles,
   overrideStyles,
+  as: Component = 'span',
   ...props
 }) {
 
   const classes = twMerge(`${defaultStyles} ${overrideStyles ?? ""}`);
-
+  
   return (
-    <span
+    <Component
       className={classes}
       {...props}
     >
       {children}
-    </span>
+    </Component>
   );
 }

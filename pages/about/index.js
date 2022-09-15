@@ -2,9 +2,7 @@ import TopSection from "../../components/about/top-section";
 
 function About() {
   return (
-    <div>
       <TopSection />
-    </div>
   );
 }
 

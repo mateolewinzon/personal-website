@@ -1,5 +1,5 @@
 import { useI18n } from "next-localization";
-import PostItem from "../../components/blogs/PostItem";
+import PostItem from "../../components/blogs/PostListItem";
 import Heading from "../../components/common/Heading";
 import { getMetadata } from "../../config/mdx";
 import { typewriter } from "../../styles/typing-effect.module.css";

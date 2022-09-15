@@ -13,7 +13,7 @@ function TopSection() {
   return (
     <div className="flex min-h-400 justify-between items-center p-2">
       <div className="flex flex-col">
-        <Heading className="pb-2 ">{i18n.t("home.title")}</Heading>
+        <Heading className="pb-2">{i18n.t("home.title")}</Heading>
         <SubHeading className={`${typewriter} text-blue dark:text-blue pb-2`}>
           {i18n.t("home.subtitle")}
         </SubHeading>
