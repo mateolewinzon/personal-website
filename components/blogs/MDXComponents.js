@@ -1,5 +1,12 @@
+import Heading from "../common/Heading"
+import SubHeading from "../common/SubHeading"
+import Span from "../common/Span"
+
+
 export default {
-    h1: ({children})=> <h1 className="font-semibold text-3xl text-black">{children}</h1>,
-    h2: ({children})=> <h1 className="text-xl">{children}</h1> 
+    h1: ({children, ...props})=> <Heading className='my-5' {...props}>{children}</Heading>,
+    h2: ({children, ...props})=> <SubHeading className='my-5' {...props}>{children}</SubHeading>,
+    p: ({children, ...props}) => <Span className='my-5' {...props}>{children}</Span>,
+
 
 }

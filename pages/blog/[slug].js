@@ -1,11 +1,36 @@
-import { getMetadata, getFileBySlug } from "../../config/mdx";
 import { MDXRemote } from "next-mdx-remote";
+import { useRouter } from "next/router";
+
 import MDXComponents from "../../components/blogs/MDXComponents";
+import Heading from "../../components/common/Heading";
+import Span from "../../components/common/Span";
+import PostTags from "../../components/blogs/PostTags";
+import formatDate from "../../utils/date";
+import { getMetadata, getFileBySlug } from "../../config/mdx";
+import SpanSecondary from "../../components/common/SpanSecondary";
+import { useI18n } from "next-localization";
 
 function Blog({ source, data }) {
+  const { locale } = useRouter();
+  const i18n = useI18n();
+
   return (
-    <article className="prose">
-      <MDXRemote components={MDXComponents} {...source}  /></article>
+    <div className="flex justify-center">
+      <article className="flex flex-col md:w-[75%]">
+        <Heading className="my-6">{data.title}</Heading>
+        <div className="my-3 flex justify-between">
+          <SpanSecondary className="font-light text-sm">
+            {`${i18n.t("blogs.author")} / ${i18n.t(
+              "blogs.published_on"
+            )} ${formatDate(locale, data.date)}`}
+          </SpanSecondary>
+          <div>
+            <PostTags tags={data.tags} />
+          </div>
+        </div>
+        <MDXRemote components={MDXComponents} {...source} />
+      </article>
+    </div>
   );
 }
 

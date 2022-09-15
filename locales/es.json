@@ -39,6 +39,8 @@
       "mis-habilidades": { "en": "my-skills" },
       "blog-carga-rapido": {"en":"fast-loading-blog"}
     },
-    "recent_posts": "Artículos recientes"
+    "recent_posts": "Artículos recientes",
+    "author": "Por: Mateo Lewinzon",
+    "published_on": "Publicado el"
   }
 }

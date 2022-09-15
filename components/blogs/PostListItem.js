@@ -4,6 +4,7 @@ import formatDate from "../../utils/date";
 import Span from "../common/Span";
 import SpanSecondary from "../common/SpanSecondary";
 import SubHeading from "../common/SubHeading";
+import PostTags from "./PostTags";
 
 export default function PostItem({ item }) {
   const { locale } = useRouter();
@@ -21,17 +22,8 @@ export default function PostItem({ item }) {
             <SpanSecondary className="font-light text-gray-dark">
               {formatDate(locale, item.date)}
             </SpanSecondary>
-            <div className="px-2">
-              {item.tags.map((item) => (
-                <SpanSecondary
-                  key={item}
-                  className="inline text-black rounded-xl m-2 bg-gray-100 dark:text-gray dark:bg-black-800 p-1.5"
-                >
-                  {item}
-                </SpanSecondary>
-              ))}
-            </div>
-          </div>
+            <PostTags className='ml-4' tags={item.tags}/>
+           </div>
         </a>
       </Link>
     </div>

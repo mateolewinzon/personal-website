@@ -9,13 +9,9 @@ export default function Blogs({ posts }) {
 
   return (
     <div className="flex min-h-400 justify-center items-center flex-col">
-      <div className="pt-10 pb-4">
-        <Heading
-          className={typewriter}
-        >
-          {i18n.t("blogs.recent_posts")}
-        </Heading>
-      </div>
+      <Heading className={`my-8 ${typewriter}`}>
+        {i18n.t("blogs.recent_posts")}
+      </Heading>
       <div className="pb-4 flex flex-col items-center">
         {posts.map((item) => (
           <PostItem key={item.slug} item={item} />
