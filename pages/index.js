@@ -1,4 +1,4 @@
-import SecondarySection from "../components/home/secondary-section";
+import RecentPosts from "../components/home/RecentPosts";
 import TopSection from "../components/home/top-section";
 import { getMetadata } from "../config/mdx";
 
@@ -6,7 +6,7 @@ function Home({ posts }) {
   return (
     <>
       <TopSection />
-      <SecondarySection posts={posts}/>
+      <RecentPosts posts={posts}/>
     </>
   );
 }

@@ -4,7 +4,10 @@
     "about": "About",
     "blog": "Blog",
     "english": "English",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "github": "GitHub",
+    "linkedin": "Linkedin",
+    "cv": "My CV"
   },
   "home": {
     "title": "Hello there! I'm Mateo.",

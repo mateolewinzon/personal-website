@@ -35,6 +35,10 @@ export const getMetadata = async (locale) => {
       );
       const { data } = matter(source);
 
+      if (!data.isPublished) {
+        return allPosts
+      }
+
       return {
         ...allPosts,
         [data.locale]: [

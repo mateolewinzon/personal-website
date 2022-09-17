@@ -8,99 +8,12 @@
 } */
 
 html,
-body {
+body,
+#__next {
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.hide-mobile {
-  display: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.top-section {
-  min-height: 500px;
-  align-content: center;
-}
-
-.dark-section {
-  background: rgb(204, 212, 236);
-  background: linear-gradient(
-    240deg,
-    rgba(204, 212, 236, 1) 0%,
-    rgba(236, 241, 255, 1) 100%
-  );
-  align-items: center;
-  min-height: 400px;
-}
-
-.blogsTitle {
-  font-weight: bold;
-  padding-bottom: 20px;
-}
-
-.blogsItem {
-  padding-bottom: 15px;
-}
-
-.titleBlue {
-  color: #1e6dff;
-}
-
-.btn {
-  width: auto;
-  background-color: rgb(255, 255, 255) !important;
-  font-size: 20px;
-  color: #1e6dff !important;
-  border-color: #1e6dff !important;
-  margin: 10px;
-}
-.btn:hover {
-  color: #1a5bd4 !important;
-  border-color: #1a5bd4 !important;
-}
-
-.navbar {
-  margin-left: 10px;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: rgb(255, 255, 255) !important;
-  color: #0b5ed7;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.semititle {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 3rem;
-}
-
-.title,
-.description,
-.secondaryText {
-  text-align: left;
-}
-
-.secondaryText {
-  font-size: larger;
-  font-weight: 400;
-}
-
-.dropdown-menu {
-  min-width: 0px !important;
-  right: 0 !important;
-  left: auto !important;
-}

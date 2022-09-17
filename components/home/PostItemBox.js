@@ -9,8 +9,8 @@ export default function PostItemBox({ item }) {
 
   return (
     <Link href={`/blog/${item.slug}`}>
-      <a className="">
-        <div className="flex flex-col m-2 outline outline-1 rounded outline-gray-light hover:outline-gray dark:outline-black-800 dark:hover:outline-gray-dark p-2 pb-6">
+      <a className="m-2">
+        <div className="flex flex-col outline outline-1 rounded outline-gray-light hover:outline-gray dark:outline-black-800 dark:hover:outline-gray-dark p-4">
           <div className="pb-2">
             <SubHeading className="hover:text-black font-semibold text-2xl">
               {item.title}

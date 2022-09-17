@@ -4,7 +4,7 @@ import Header from "./header";
 
 function Layout({ children }) {
   return (
-    <div className="bg-white dark:bg-black min-h-max">
+    <div className="bg-white dark:bg-black min-h-[100%]">
       <div className="container mx-auto">
         <Header />
         {children}

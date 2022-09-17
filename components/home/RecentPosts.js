@@ -6,8 +6,8 @@ function SecondarySection({ posts }) {
   const i18n = useI18n();
 
   return (
-    <div className="flex flex-col items-center min-h-500">
-      <div className="py-8">
+    <div className="flex flex-col items-center ">
+      <div className="my-8">
         <SubHeading className="font-bold">
           {i18n.t("home.recent_posts")}
         </SubHeading>

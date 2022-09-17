@@ -1,10 +1,13 @@
 {
   "navbar": {
     "home": "Home",
-    "about": "About",
+    "about": "Acerca de",
     "blog": "Blog",
     "english": "Inglés",
-    "spanish": "Español"
+    "spanish": "Español",
+    "github": "GitHub",
+    "linkedin": "Linkedin",
+    "cv": "Mi CV"
   },
   "home": {
     "title": "¡Hola! Soy Mateo",
@@ -37,7 +40,7 @@
     "articles": {
       "mi-camino": { "en": "my-journey" },
       "mis-habilidades": { "en": "my-skills" },
-      "blog-carga-rapido": {"en":"fast-loading-blog"}
+      "blog-carga-rapido": { "en": "fast-loading-blog" }
     },
     "recent_posts": "Artículos recientes",
     "author": "Por: Mateo Lewinzon",
