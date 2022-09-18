@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Mateo Lewinzon - Software Developer</title>
         <meta
-          title="description"
+          name="description"
           content="Desarrollador front-end JR buscando una primera oportunidad laboral"
         />
       </Head>
