@@ -29,7 +29,7 @@ function TopSection() {
         </div>
       </div>
       <div className="hidden md:inline flex-none">
-        <Image width={300} height={300} src="/images/mateo_mountains2.jpg" />
+        <Image alt="mateo_mountains" width={300} height={300} src="/images/mateo_mountains2.jpg" />
       </div>
     </div>
   );

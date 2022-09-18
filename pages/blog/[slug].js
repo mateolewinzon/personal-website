@@ -9,6 +9,7 @@ import formatDate from "../../utils/date";
 import { getMetadata, getFileBySlug } from "../../config/mdx";
 import SpanSecondary from "../../components/common/SpanSecondary";
 import { useI18n } from "next-localization";
+import Head from "next/head";
 
 function Blog({ source, data }) {
   const { locale } = useRouter();
@@ -16,6 +17,13 @@ function Blog({ source, data }) {
 
   return (
     <div className="flex justify-center">
+      <Head>
+        <title>{data.title}</title>
+        <meta title="description" content={data.description}/>
+        <meta title="og:title" content={data.title}/>
+        <meta title="og:description" content={data.description}/>
+        <meta name="twitter:card" content={data.description}></meta>
+      </Head>
       <article className="flex flex-col md:w-[75%]">
         <Heading className="my-6">{data.title}</Heading>
         <div className="my-3 flex justify-between">
