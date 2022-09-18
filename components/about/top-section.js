@@ -25,7 +25,7 @@ function AboutMe() {
         </div>
       </div>
       <div className="hidden md:inline flex-none ">
-        <Image height={300} width={300} src="/images/mateo_mountains.jpg" />
+        <Image alt="mateo_mountains" height={300} width={300} src="/images/mateo_mountains.jpg" />
       </div>
     </div>
   );
