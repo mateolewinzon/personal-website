@@ -14,7 +14,6 @@
     "@reach/menu-button": "^0.17.0",
     "@reduxjs/toolkit": "^1.8.5",
     "@tailwindcss/typography": "^0.5.7",
-    "bootstrap": "^5.2.0",
     "flag-icons": "^6.6.6",
     "gray-matter": "^4.0.3",
     "moment": "^2.29.4",
@@ -29,7 +28,6 @@
     "tailwind-merge": "^1.6.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.3.0",
     "autoprefixer": "^10.4.8",
     "eslint": "8.17.0",
     "eslint-config-next": "12.1.6",
