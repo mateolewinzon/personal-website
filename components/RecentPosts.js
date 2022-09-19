@@ -1,8 +1,7 @@
 import { useI18n } from "next-localization";
-import SubHeading from "../common/SubHeading";
-import PostItemBox from "./PostItemBox";
+import { SubHeading, PostListItemHome } from "./";
 
-function SecondarySection({ posts }) {
+export function RecentPosts({ posts }) {
   const i18n = useI18n();
 
   return (
@@ -14,11 +13,9 @@ function SecondarySection({ posts }) {
       </div>
       <div className="flex flex-col lg:flex-row">
         {posts.map((post) => (
-          <PostItemBox key={post.slug} item={post} />
+          <PostListItemHome key={post.slug} item={post} />
         ))}
       </div>
     </div>
   );
 }
-
-export default SecondarySection;

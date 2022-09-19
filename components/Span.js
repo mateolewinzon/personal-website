@@ -1,6 +1,6 @@
-import TextComponent from "./TextComponent";
+import { TextComponent } from "./";
 
-export default function Span({ children, className, ...props }) {
+export function Span({ children, className, ...props }) {
   return (
     <TextComponent
       defaultStyles={"text-lg text-gray-dark dark:text-gray-light"}

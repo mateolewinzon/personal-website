@@ -1,10 +1,9 @@
 import { useI18n } from "next-localization";
 import Image from "next/image";
-import { typewriter } from "../../styles/typing-effect.module.css";
-import Heading from "../common/Heading";
-import Span from "../common/Span";
+import { typewriter } from "styles/typing-effect.module.css";
+import { Heading, Span } from "./";
 
-function AboutMe() {
+export function AboutMe() {
   const i18n = useI18n();
 
   return (
@@ -13,7 +12,10 @@ function AboutMe() {
         <div className="pb-4">
           <div className="text-black text-6xl">
             <Heading>{i18n.t("about.about")}</Heading>{" "}
-            <Heading as="span" className={`text-blue dark:text-blue ${typewriter}`}>
+            <Heading
+              as="span"
+              className={`text-blue dark:text-blue ${typewriter}`}
+            >
               {i18n.t("about.me")}
             </Heading>
           </div>
@@ -25,10 +27,14 @@ function AboutMe() {
         </div>
       </div>
       <div className="hidden md:inline flex-none ">
-        <Image alt="mateo_mountains" height={300} width={300} src="/images/mateo_mountains.jpg" />
+        <Image
+          alt="mateo_mountains"
+          height={300}
+          width={300}
+          src="/images/mateo_mountains.jpg"
+        />
       </div>
     </div>
   );
 }
 
-export default AboutMe;

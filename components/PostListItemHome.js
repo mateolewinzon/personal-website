@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import formatDate from "../../utils/date";
-import SpanSecondary from "../common/SpanSecondary";
-import SubHeading from "../common/SubHeading";
+import { SpanSecondary } from "./";
+import { SubHeading } from "./";
+import formatDate from "utils/date";
 
-export default function PostItemBox({ item }) {
+export function PostListItemHome({ item }) {
   const { locale } = useRouter();
 
   return (

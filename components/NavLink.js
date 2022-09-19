@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NavLink({ href, isActive, children }) {
+export function NavLink({ href, isActive, children }) {
   return (
     <Link href={href}>
       <a

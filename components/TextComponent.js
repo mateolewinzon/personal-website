@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export default function TextComponent({
+export function TextComponent({
   children,
   defaultStyles,
   overrideStyles,

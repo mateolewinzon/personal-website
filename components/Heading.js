@@ -1,6 +1,6 @@
-import TextComponent from "./TextComponent";
+import { TextComponent } from "./";
 
-export default function Heading({ children, className, as = 'h1', ...props }) {
+export function Heading({ children, className, as = "h1", ...props }) {
   return (
     <TextComponent
       {...props}

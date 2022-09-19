@@ -12,7 +12,7 @@ export const getFileBySlug = async (slug) => {
   const { data, content } = await matter(mdx);
 
   const source = await serialize(content, {
-    mdxOptions: { format:"mdx" },
+    mdxOptions: { format: "mdx" },
   });
 
   return {
@@ -36,7 +36,7 @@ export const getMetadata = async (locale) => {
       const { data } = matter(source);
 
       if (!data.isPublished) {
-        return allPosts
+        return allPosts;
       }
 
       return {

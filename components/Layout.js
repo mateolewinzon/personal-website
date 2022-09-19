@@ -1,8 +1,7 @@
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import Footer from "./footer";
-import Header from "./header";
+import { Footer, Header } from "./";
 
-function Layout({ children }) {
+export function Layout({ children }) {
   return (
     <div className="bg-white dark:bg-black min-h-[100%]">
       <div className="container mx-auto">
@@ -13,5 +12,3 @@ function Layout({ children }) {
     </div>
   );
 }
-
-export default Layout;

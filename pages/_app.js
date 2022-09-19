@@ -1,8 +1,8 @@
 import { I18nProvider } from "next-localization";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Layout from "../components/layout/layout";
-import "../styles/globals.css";
+import { Layout } from "components";
+import "styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const { lngDict, ...restOfProps } = pageProps;

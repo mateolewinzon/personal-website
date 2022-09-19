@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import {BsFillSunFill, BsFillMoonStarsFill} from 'react-icons/bs'
+import { BsFillSunFill, BsFillMoonStarsFill } from "react-icons/bs";
 
-export default function ThemeButton() {
+export function ThemeButton() {
   const [theme, setTheme] = useState("");
 
   useEffect(() => {
@@ -24,7 +24,11 @@ export default function ThemeButton() {
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="rounded-xl dark:text-white"
     >
-      {theme === 'dark' ? <BsFillSunFill size={'25'}/> : <BsFillMoonStarsFill size={'25'}/>}
+      {theme === "dark" ? (
+        <BsFillSunFill size={"25"} />
+      ) : (
+        <BsFillMoonStarsFill size={"25"} />
+      )}
     </button>
   );
 }

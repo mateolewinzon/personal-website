@@ -1,6 +1,6 @@
-import Span from "../common/Span";
+import { Span } from "./";
 
-export default function PostTags({ tags, ...props }) {
+export function PostTags({ tags, ...props }) {
   return (
     <div {...props}>
       {tags.map((tag) => (

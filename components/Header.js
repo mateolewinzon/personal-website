@@ -1,11 +1,9 @@
 import { useI18n } from "next-localization";
 import { useRouter } from "next/router";
-import NavLink from "./NavLink";
-import { pages } from "../../config/pageList";
-import LocaleSelector from "./LocaleSelector";
-import ThemeButton from "./ThemeButton";
+import { LocaleSelector, NavLink, ThemeButton } from "./";
+import { pages } from "config/pageList";
 
-function Header() {
+export function Header() {
   const { asPath, locale, query } = useRouter();
   const i18n = useI18n();
 
@@ -20,16 +18,14 @@ function Header() {
           ))}
         </div>
         <div className="flex">
-            <ThemeButton />
-            <LocaleSelector
-              asPath={asPath}
-              currentLocale={locale}
-              query={query}
-            />
+          <ThemeButton />
+          <LocaleSelector
+            asPath={asPath}
+            currentLocale={locale}
+            query={query}
+          />
         </div>
       </div>
     </nav>
   );
 }
-
-export default Header;

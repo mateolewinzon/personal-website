@@ -1,8 +1,7 @@
 import { useI18n } from "next-localization";
-import PostItem from "../../components/blogs/PostListItem";
-import Heading from "../../components/common/Heading";
-import { getMetadata } from "../../config/mdx";
-import { typewriter } from "../../styles/typing-effect.module.css";
+import { Heading, PostListItem } from "components";
+import { getMetadata } from "utils/mdx";
+import { typewriter } from "styles/typing-effect.module.css";
 
 export default function Blogs({ posts }) {
   const i18n = useI18n();
@@ -14,7 +13,7 @@ export default function Blogs({ posts }) {
       </Heading>
       <div className="pb-4 flex flex-col items-center">
         {posts.map((item) => (
-          <PostItem key={item.slug} item={item} />
+          <PostListItem key={item.slug} item={item} />
         ))}
       </div>
     </div>
@@ -24,7 +23,7 @@ export default function Blogs({ posts }) {
 export async function getStaticProps({ locale }) {
   const { currentLocaleFiles } = await getMetadata(locale);
   const { default: lngDict = {} } = await import(
-    `../../locales/${locale}.json`
+    `locales/${locale}.json`
   );
 
   return {

@@ -1,12 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import formatDate from "../../utils/date";
-import Span from "../common/Span";
-import SpanSecondary from "../common/SpanSecondary";
-import SubHeading from "../common/SubHeading";
-import PostTags from "./PostTags";
+import formatDate from "utils/date";
+import { PostTags, Span, SubHeading, SpanSecondary } from "./";
 
-export default function PostItem({ item }) {
+export function PostListItem({ item }) {
   const { locale } = useRouter();
 
   return (
@@ -17,13 +14,14 @@ export default function PostItem({ item }) {
             <SubHeading className="text-3xl">{item.title}</SubHeading>
           </div>
           <div className="pb-4">
-          <Span className='text-lg'>{item.description}</Span></div>
+            <Span className="text-lg">{item.description}</Span>
+          </div>
           <div className="flex flex-row">
             <SpanSecondary className="font-light text-gray-dark">
               {formatDate(locale, item.date)}
             </SpanSecondary>
-            <PostTags className='ml-4' tags={item.tags}/>
-           </div>
+            <PostTags className="ml-4" tags={item.tags} />
+          </div>
         </a>
       </Link>
     </div>

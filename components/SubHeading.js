@@ -1,6 +1,6 @@
-import TextComponent from "./TextComponent";
+import { TextComponent } from "./";
 
-export default function SubHeading({
+export function SubHeading({
   children,
   className,
   as = "h2",

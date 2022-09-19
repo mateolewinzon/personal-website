@@ -2,7 +2,7 @@ import { useI18n } from "next-localization";
 import Link from "next/link";
 import { Menu, MenuList, MenuButton, MenuLink } from "@reach/menu-button";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import { langs } from "../../config/i18n";
+import { langs } from "config/i18n";
 
 function LocaleLink({ name, lang, href }) {
   return (
@@ -12,7 +12,7 @@ function LocaleLink({ name, lang, href }) {
   );
 }
 
-export default function LocaleSelector({ currentLocale, asPath, query }) {
+export function LocaleSelector({ currentLocale, asPath, query }) {
   const i18n = useI18n();
   const isArticle = asPath.includes("/blog/");
 
