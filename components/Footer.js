@@ -3,8 +3,20 @@ import Link from "next/link";
 import footers from "config/footers";
 import { SpanSecondary } from "./";
 
+function FooterLink({ href, isExternal, children }) {
+  const Component = isExternal
+    ? ({ ...props }) => (
+        <a {...props} target="_blank">
+          {children}
+        </a>
+      )
+    : ({ ...props }) => <Link {...props}>{children}</Link>;
+  return <Component href={href}>{children}</Component>;
+}
+
 export function Footer() {
   const i18n = useI18n();
+
   return (
     <footer className="mt-20 mb-10 mx-auto max-w-2xl items-center">
       <hr className="text-gray-light dark:text-black-800" />
@@ -16,7 +28,9 @@ export function Footer() {
                 key={item.id}
                 className="my-3 text-gray font-semibold"
               >
-                <Link href={item.href}>{i18n.t(`navbar.${item.id}`)}</Link>
+                <FooterLink isExternal={item.isExternal} href={item.href}>
+                  {i18n.t(`navbar.${item.id}`)}
+                </FooterLink>
               </SpanSecondary>
             ))}
           </div>

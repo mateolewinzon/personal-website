@@ -5,8 +5,16 @@ const footers = [
     return { id: page.id, href: page.path };
   }),
   [
-    { id: "github", href: "https://github.com/mateolewinzon" },
-    { id: "linkedin", href: "https://www.linkedin.com/in/mateolewinzon/" },
+    {
+      id: "github",
+      href: "https://github.com/mateolewinzon",
+      isExternal: true,
+    },
+    {
+      id: "linkedin",
+      href: "https://www.linkedin.com/in/mateolewinzon/",
+      isExternal: true,
+    },
   ],
   [{ id: "cv", href: "/cv.pdf" }],
 ];
