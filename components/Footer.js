@@ -20,7 +20,7 @@ export function Footer() {
   return (
     <footer className="mt-20 mb-10 mx-auto max-w-2xl items-center">
       <hr className="text-gray-light dark:text-black-800" />
-      <div className="grid md:grid-cols-3">
+      <div className="grid grid-cols-3">
         {footers.map((footer, key) => (
           <div key={key} className="flex flex-col ">
             {footer.map((item) => (
