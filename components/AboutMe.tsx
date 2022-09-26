@@ -1,9 +1,9 @@
 import { useI18n } from "next-localization";
 import Image from "next/image";
-import { typewriter } from "styles/typing-effect.module.css";
-import { Heading, Span } from "./";
+import typewriter from "styles/typing-effect.module.css";
+import { Heading, Span } from ".";
 
-export function AboutMe() {
+export const AboutMe: React.FC = () => {
   const i18n = useI18n();
 
   return (
@@ -37,4 +37,3 @@ export function AboutMe() {
     </div>
   );
 }
-

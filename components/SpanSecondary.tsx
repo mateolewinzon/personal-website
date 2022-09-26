@@ -1,6 +1,6 @@
-import { TextComponent } from "./";
+import { TextComponent } from ".";
 
-export function SpanSecondary({ children, className, ...props }) {
+export const SpanSecondary: React.FC = ({ children, className, ...props }) => {
   return (
     <TextComponent
       defaultStyles={"text-gray-dark dark:text-gray"}

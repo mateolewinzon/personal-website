@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BsFillSunFill, BsFillMoonStarsFill } from "react-icons/bs";
 
-export function ThemeButton() {
+export const ThemeButton: React.FC = () => {
   const [theme, setTheme] = useState("");
 
   useEffect(() => {

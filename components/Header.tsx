@@ -1,9 +1,9 @@
 import { useI18n } from "next-localization";
 import { useRouter } from "next/router";
-import { LocaleSelector, NavLink, ThemeButton } from "./";
+import { LocaleSelector, NavLink, ThemeButton } from ".";
 import { pages } from "config/pageList";
 
-export function Header() {
+export const Header: React.FC = () => {
   const { asPath, locale, query } = useRouter();
   const i18n = useI18n();
 

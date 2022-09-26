@@ -1,6 +1,6 @@
-import { Span } from "./";
+import { Span } from ".";
 
-export function PostTags({ tags, ...props }) {
+export const PostTags: React.FC = ({ tags, ...props }) => {
   return (
     <div {...props}>
       {tags.map((tag) => (

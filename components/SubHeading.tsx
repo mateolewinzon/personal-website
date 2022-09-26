@@ -1,11 +1,11 @@
-import { TextComponent } from "./";
+import { TextComponent } from ".";
 
-export function SubHeading({
+export const SubHeading: React.FC = ({
   children,
   className,
   as = "h2",
   ...props
-}) {
+}) => {
   return (
     <TextComponent
       defaultStyles={"text-4xl font-semibold text-black dark:text-white"}

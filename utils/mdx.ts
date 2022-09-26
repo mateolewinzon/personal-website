@@ -5,11 +5,21 @@ import { serialize } from "next-mdx-remote/serialize";
 
 const root = process.cwd();
 
-export const getFiles = async () => fs.readdirSync(path.join(root, "blog"));
+export interface BlogInfo {
+  title: string;
+  description: string;
+  date: string;
+  isPublished: boolean;
+  locale: string;
+  slug: string;
+  tags: string[];
+}
 
-export const getFileBySlug = async (slug) => {
+export const getFiles = (): string[] => fs.readdirSync(path.join(root, "blog"));
+
+export const getFileBySlug = async (slug: string) => {
   const mdx = fs.readFileSync(path.join(root, "blog", `${slug}.mdx`), "utf-8");
-  const { data, content } = await matter(mdx);
+  const { data, content } = matter(mdx);
 
   const source = await serialize(content, {
     mdxOptions: { format: "mdx" },
@@ -24,10 +34,12 @@ export const getFileBySlug = async (slug) => {
   };
 };
 
-export const getMetadata = async (locale) => {
-  const files = await getFiles();
+export const getAllMetadata = () => {
+  const files = getFiles();
 
-  const filesByLocale = files.reduce(
+  const filesByLocale = files.reduce<{
+    [key: string]: BlogInfo[];
+  }>(
     (allPosts, postSlug) => {
       const source = fs.readFileSync(
         path.join(root, "blog", postSlug),
@@ -50,7 +62,12 @@ export const getMetadata = async (locale) => {
     { en: [], es: [] }
   );
 
+  return filesByLocale;
+};
+
+export const getCurrentLocaleMetadata = (locale: string): BlogInfo[] => {
+  const filesByLocale = getAllMetadata();
   const currentLocaleFiles = filesByLocale[locale];
 
-  return { filesByLocale, currentLocaleFiles };
+  return currentLocaleFiles;
 };

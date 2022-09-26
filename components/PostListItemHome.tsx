@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { SpanSecondary } from "./";
-import { SubHeading } from "./";
+import { SpanSecondary } from ".";
+import { SubHeading } from ".";
 import formatDate from "utils/date";
 
-export function PostListItemHome({ item }) {
+export const PostListItemHome: React.FC = ({ item }) => {
   const { locale } = useRouter();
 
   return (

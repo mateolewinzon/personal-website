@@ -1,12 +1,12 @@
 import { twMerge } from "tailwind-merge";
 
-export function TextComponent({
+export const TextComponent: React.FC = ({
   children,
   defaultStyles,
   overrideStyles,
   as: Component = 'span',
   ...props
-}) {
+}) => {
 
   const classes = twMerge(`${defaultStyles} ${overrideStyles ?? ""}`);
   

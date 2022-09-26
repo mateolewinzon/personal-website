@@ -1,5 +1,6 @@
 export { AboutMe } from "./AboutMe";
 export { BlogLayout } from "./BlogLayout";
+export { AppHead } from "./AppHead";
 export { Footer } from "./Footer";
 export { Header } from "./Header";
 export { Heading } from "./Heading";

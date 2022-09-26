@@ -1,6 +1,6 @@
-import { TextComponent } from "./";
+import { TextComponent } from ".";
 
-export function Heading({ children, className, as = "h1", ...props }) {
+export const Heading: React.FC = ({ children, className, as = "h1", ...props }) => {
   return (
     <TextComponent
       {...props}

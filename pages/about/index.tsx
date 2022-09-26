@@ -1,10 +1,11 @@
 import { AboutMe } from "components";
+import { GetStaticProps } from "next";
 
-function About() {
+const About: React.FC = () => {
   return <AboutMe />;
 }
 
-export async function getStaticProps({ locale }) {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const { default: lngDict = {} } = await import(
     `locales/${locale}.json`
   );

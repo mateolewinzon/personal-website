@@ -1,4 +1,4 @@
-import { Heading, Span, SubHeading } from "./";
+import { Heading, Span, SubHeading } from ".";
 
 export const MDXComponents = {
   h1: ({ children, ...props }) => (

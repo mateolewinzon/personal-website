@@ -1,20 +1,10 @@
 import { useI18n } from "next-localization";
 import Link from "next/link";
 import footers from "config/footers";
-import { SpanSecondary } from "./";
+import { SpanSecondary } from ".";
+import { FooterLink } from "./FooterLink";
 
-function FooterLink({ href, isExternal, children }) {
-  const Component = isExternal
-    ? ({ ...props }) => (
-        <a {...props} target="_blank">
-          {children}
-        </a>
-      )
-    : ({ ...props }) => <Link {...props}>{children}</Link>;
-  return <Component href={href}>{children}</Component>;
-}
-
-export function Footer() {
+export const Footer: React.FC = () => {
   const i18n = useI18n();
 
   return (

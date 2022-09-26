@@ -1,7 +1,11 @@
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import { Footer, Header } from "./";
+import { Footer, Header } from ".";
 
-export function Layout({ children }) {
+type Props = {
+  children: React.ReactNode
+}
+
+export const Layout: React.FC = ({ children }: Props) =>{
   return (
     <div className="bg-white dark:bg-black min-h-[100%]">
       <div className="container mx-auto">

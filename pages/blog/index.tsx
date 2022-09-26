@@ -1,9 +1,14 @@
 import { useI18n } from "next-localization";
 import { Heading, PostListItem } from "components";
-import { getMetadata } from "utils/mdx";
-import { typewriter } from "styles/typing-effect.module.css";
+import { BlogInfo, getCurrentLocaleMetadata } from "utils/mdx";
+import typewriter from "styles/typing-effect.module.css";
+import { GetStaticProps } from "next";
 
-export default function Blogs({ posts }) {
+type Props = {
+  posts: BlogInfo[]
+}
+
+export default function Blogs({ posts }: Props) {
   const i18n = useI18n();
 
   return (
@@ -20,8 +25,8 @@ export default function Blogs({ posts }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
-  const { currentLocaleFiles } = await getMetadata(locale);
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const currentLocaleFiles = getCurrentLocaleMetadata(locale || 'en');
   const { default: lngDict = {} } = await import(
     `locales/${locale}.json`
   );

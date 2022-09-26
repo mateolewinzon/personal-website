@@ -4,7 +4,7 @@ import { Menu, MenuList, MenuButton, MenuLink } from "@reach/menu-button";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { langs } from "config/i18n";
 
-function LocaleLink({ name, lang, href }) {
+function LocaleLink({ lang, href }) {
   return (
     <Link passHref href={href} locale={lang.locale}>
       <MenuLink className={"items-center"}>{lang.flag}</MenuLink>
@@ -12,7 +12,7 @@ function LocaleLink({ name, lang, href }) {
   );
 }
 
-export function LocaleSelector({ currentLocale, asPath, query }) {
+export const LocaleSelector: React.FC = ({ currentLocale, asPath, query }) => {
   const i18n = useI18n();
   const isArticle = asPath.includes("/blog/");
 
