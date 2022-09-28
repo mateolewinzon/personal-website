@@ -22,7 +22,7 @@ const footers: Footer[][] = [
       isExternal: true,
     },
   ],
-  [{ id: "cv", href: "/cv.pdf" }],
+  [{ id: "cv", href: "/Mateo_Lewinzon_CV.pdf" }],
 ];
 
 export default footers;
