@@ -20,7 +20,7 @@ function LocaleLink({ lang, href }: LocaleLinkProps) {
 }
 
 type Props = {
-  currentLocale: string,
+  currentLocale: string | undefined,
   asPath: string,
   query: NextParsedUrlQuery
 }
