@@ -6,7 +6,6 @@
     "jsx": "preserve",
     "target": "es5",
     "allowJs": true,
-    "baseUrl": ".",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "strict": false,
