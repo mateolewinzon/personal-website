@@ -1,4 +1,10 @@
-export const langs = [
+export type Lang = {
+  name: string,
+  locale: string,
+  flag: React.ReactNode
+}
+
+export const langs: Lang[] = [
   {
     name: "english",
     locale: "en",

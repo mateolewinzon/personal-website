@@ -1,9 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import formatDate from "utils/date";
+import { BlogInfo } from "utils/mdx";
 import { PostTags, Span, SubHeading, SpanSecondary } from ".";
 
-export const PostListItem: React.FC = ({ item }) => {
+type Props = {
+  item: BlogInfo
+}
+
+export const PostListItem = ({ item }: Props) => {
   const { locale } = useRouter();
 
   return (

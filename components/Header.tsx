@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { LocaleSelector, NavLink, ThemeButton } from ".";
 import { pages } from "config/pageList";
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const { asPath, locale, query } = useRouter();
   const i18n = useI18n();
 

@@ -1,6 +1,12 @@
 const { pages } = require("./pageList");
 
-const footers = [
+type Footer = {
+  id: string,
+  href: string,
+  isExternal?: boolean
+}
+
+const footers: Footer[][] = [
   pages.map((page) => {
     return { id: page.id, href: page.path };
   }),

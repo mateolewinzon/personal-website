@@ -1,10 +1,10 @@
 import { useI18n } from "next-localization";
 import Image from "next/image";
 import Link from "next/link";
-import { typewriter } from "styles/typing-effect.module.css";
+import typewriter from "styles/typing-effect.module.css";
 import { Heading, Span, SubHeading } from ".";
 
-export const HomePresentation: React.FC = () => {
+export const HomePresentation = () => {
   const i18n = useI18n();
 
   return (

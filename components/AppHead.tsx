@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-export const AppHead: React.FC = () => {
+export const AppHead = () => {
     return <Head>
         <title>Mateo Lewinzon - Software Developer</title>
         <meta

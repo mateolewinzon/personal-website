@@ -1,17 +1,23 @@
 import { TextComponent } from ".";
 
-export const SubHeading: React.FC = ({
+type Props = {
+  children: React.ReactNode,
+  className: string,
+  as?: React.ElementType
+}
+
+export const SubHeading = ({
   children,
   className,
-  as = "h2",
+  as,
   ...props
-}) => {
+}: Props) => {
   return (
     <TextComponent
       defaultStyles={"text-4xl font-semibold text-black dark:text-white"}
       overrideStyles={className}
       {...props}
-      as={as}
+      as={as || 'h2'}
     >
       {children}
     </TextComponent>

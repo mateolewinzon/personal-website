@@ -1,7 +1,9 @@
 import Head from "next/head"
 import { BlogInfo } from "utils/mdx"
 
-const BlogHead: React.FC = ({ data }: { data: BlogInfo }) => <Head>
+type Props = { data: BlogInfo }
+
+const BlogHead = ({ data }: Props) => <Head>
   <title>{data.title}</title>
   <meta name="description" content={data.description} />
   <meta name="og:title" content={data.title} />

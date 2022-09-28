@@ -3,8 +3,13 @@ import { useRouter } from "next/router";
 import { SpanSecondary } from ".";
 import { SubHeading } from ".";
 import formatDate from "utils/date";
+import { BlogInfo } from "utils/mdx";
 
-export const PostListItemHome: React.FC = ({ item }) => {
+type Props = {
+  item: BlogInfo
+}
+
+export const PostListItemHome = ({ item }: Props) => {
   const { locale } = useRouter();
 
   return (

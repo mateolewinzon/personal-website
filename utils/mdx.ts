@@ -10,7 +10,7 @@ export interface BlogInfo {
   description: string;
   date: string;
   isPublished: boolean;
-  locale: string;
+  locale: string | undefined;
   slug: string;
   tags: string[];
 }
@@ -34,7 +34,7 @@ export const getFileBySlug = async (slug: string) => {
   };
 };
 
-export const getAllMetadata = () => {
+export const getAllMetadataByLocales = () => {
   const files = getFiles();
 
   const filesByLocale = files.reduce<{
@@ -65,9 +65,9 @@ export const getAllMetadata = () => {
   return filesByLocale;
 };
 
-export const getCurrentLocaleMetadata = (locale: string): BlogInfo[] => {
-  const filesByLocale = getAllMetadata();
-  const currentLocaleFiles = filesByLocale[locale];
+export const getCurrentLocaleMetadata = (locale: string | undefined): BlogInfo[] => {
+  const filesByLocale = getAllMetadataByLocales();
+  const currentLocaleFiles = filesByLocale[locale as string];
 
   return currentLocaleFiles;
 };

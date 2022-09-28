@@ -1,6 +1,11 @@
 import { TextComponent } from ".";
 
-export const Span: React.FC = ({ children, className, ...props }) => {
+type Props = {
+  className?: string,
+  children: React.ReactNode
+}
+
+export const Span = ({ children, className, ...props }: Props) => {
   return (
     <TextComponent
       defaultStyles={"text-lg text-gray-dark dark:text-gray-light"}

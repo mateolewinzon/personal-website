@@ -5,14 +5,14 @@ import "styles/globals.css";
 
 import { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps<{ lngDict: {} }>) {
   const { lngDict, ...rest } = pageProps;
   const router = useRouter();
 
   return (
     <I18nProvider locale={router?.locale as string} lngDict={lngDict}>
       <Layout>
-        <AppHead/>
+        <AppHead />
         <Component {...rest} />
       </Layout>
     </I18nProvider>

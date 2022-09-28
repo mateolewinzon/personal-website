@@ -2,7 +2,11 @@ import { useI18n } from "next-localization";
 import { BlogInfo } from "utils/mdx";
 import { SubHeading, PostListItemHome } from ".";
 
-export const RecentPosts: React.FC = ({ posts }: { posts: BlogInfo[] }) => {
+type Props = {
+  posts: BlogInfo[]
+}
+
+export const RecentPosts = ({ posts }: Props) => {
   const i18n = useI18n();
 
   return (

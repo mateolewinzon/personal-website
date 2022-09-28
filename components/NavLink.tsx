@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-export const NavLink: React.FC = ({ href, isActive, children }) => {
+type Props = {
+  href: string,
+  isActive?: boolean,
+  children: React.ReactNode
+}
+
+export const NavLink = ({ href, isActive, children }: Props) => {
   return (
     <Link href={href}>
       <a

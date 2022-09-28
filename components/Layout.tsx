@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode
 }
 
-export const Layout: React.FC = ({ children }: Props) =>{
+export const Layout = ({ children }: Props) =>{
   return (
     <div className="bg-white dark:bg-black min-h-[100%]">
       <div className="container mx-auto">

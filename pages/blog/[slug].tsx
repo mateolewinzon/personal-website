@@ -1,15 +1,16 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { MDXComponents, BlogLayout } from "components";
-import { getAllMetadata, getFileBySlug } from "utils/mdx";
+import { getAllMetadataByLocales, getFileBySlug } from "utils/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import type { BlogInfo } from "utils/mdx";
 
 type Props = {
-  data: BlogInfo
+  data: BlogInfo,
+  source: any
 }
 
-const Blog: React.FC = ({ source, data }: Props) => {
-  console.log(data)
+const Blog = ({ source, data }: Props) => {
+
   return (
     <BlogLayout data={data}>
       <MDXRemote components={MDXComponents} {...source} />
@@ -25,9 +26,9 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filesByLocale = getAllMetadata();
+  const filesByLocale = getAllMetadataByLocales();
 
-  interface pagePaths {
+  type pagePaths = {
     params: { slug: string }, locale: string
   }
 

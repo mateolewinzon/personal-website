@@ -3,7 +3,7 @@ import Image from "next/image";
 import typewriter from "styles/typing-effect.module.css";
 import { Heading, Span } from ".";
 
-export const AboutMe: React.FC = () => {
+export const AboutMe = () => {
   const i18n = useI18n();
 
   return (

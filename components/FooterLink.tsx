@@ -1,12 +1,19 @@
 import Link from "next/link";
 
-export const FooterLink: React.FC = ({ href, isExternal, children }) => {
-    const Component: React.FC = isExternal
+type Props = {
+    href: string,
+    isExternal?: boolean,
+    children: React.ReactNode
+}
+
+export const FooterLink = ({ href, isExternal, children }: Props) => {
+    const Component = isExternal
         ? ({ ...props }) => (
             <a {...props} target="_blank">
                 {children}
             </a>
         )
-        : ({ ...props }) => <Link {...props}>{children}</Link>;
+        : ({ ...props }: Props) => <Link {...props}>{children}</Link>;
+        
     return <Component href={href}>{children}</Component>;
 }

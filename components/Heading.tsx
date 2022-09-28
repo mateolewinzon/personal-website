@@ -1,6 +1,12 @@
 import { TextComponent } from ".";
 
-export const Heading: React.FC = ({ children, className, as = "h1", ...props }) => {
+type Props = {
+  children: React.ReactNode,
+  className?: string,
+  as?: React.ElementType,
+}
+
+export const Heading = ({ children, className, as = "h1", ...props }: Props) => {
   return (
     <TextComponent
       {...props}

@@ -1,7 +1,7 @@
 import { AboutMe } from "components";
 import { GetStaticProps } from "next";
 
-const About: React.FC = () => {
+const About = () => {
   return <AboutMe />;
 }
 

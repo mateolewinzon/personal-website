@@ -4,7 +4,7 @@ import footers from "config/footers";
 import { SpanSecondary } from ".";
 import { FooterLink } from "./FooterLink";
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   const i18n = useI18n();
 
   return (
