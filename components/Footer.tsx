@@ -1,8 +1,7 @@
 import { useI18n } from "next-localization";
-import Link from "next/link";
+import { SpanSecondary, FooterLink } from ".";
 import footers from "config/footers";
-import { SpanSecondary } from ".";
-import { FooterLink } from "./FooterLink";
+
 
 export const Footer = () => {
   const i18n = useI18n();

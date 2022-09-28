@@ -1,10 +1,10 @@
-import { useI18n } from "next-localization";
 import Link from "next/link";
+import { useI18n } from "next-localization";
 import { Menu, MenuList, MenuButton, MenuLink } from "@reach/menu-button";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { langs } from "config/i18n";
 import type { Lang } from "config/i18n"
-import { NextParsedUrlQuery } from "next/dist/server/request-meta";
+import type { NextParsedUrlQuery } from "next/dist/server/request-meta";
 
 type LocaleLinkProps = {
   lang: Lang,

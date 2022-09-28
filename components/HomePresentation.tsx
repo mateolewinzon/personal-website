@@ -1,8 +1,8 @@
-import { useI18n } from "next-localization";
 import Image from "next/image";
 import Link from "next/link";
-import typewriter from "styles/typing-effect.module.css";
+import { useI18n } from "next-localization";
 import { Heading, Span, SubHeading } from ".";
+import typewriter from "styles/typing-effect.module.css";
 
 export const HomePresentation = () => {
   const i18n = useI18n();
