@@ -1,9 +1,8 @@
 import { useRouter } from "next/router";
 import { useI18n } from "next-localization";
-import { SpanSecondary, Heading, PostTags } from ".";
+import { SpanSecondary, Heading, PostTags, BlogHead } from ".";
 import formatDate from "utils/date";
 import { BlogInfo } from "utils/mdx";
-import BlogHead from "./BlogHead";
 
 type Props = { data: BlogInfo, children: JSX.Element }
 

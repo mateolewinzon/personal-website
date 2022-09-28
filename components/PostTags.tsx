@@ -1,12 +1,13 @@
 import { Span } from ".";
 
 type Props = {
-  tags: string[]
+  tags: string[],
+  className?: string
 }
 
-export const PostTags = ({ tags, ...props }) => {
+export const PostTags = ({ tags, className }: Props) => {
   return (
-    <div {...props}>
+    <div className={className}>
       {tags.map((tag) => (
         <Span
           key={tag}

@@ -1,5 +1,5 @@
-import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { Footer, Header } from ".";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 type Props = {
   children: React.ReactNode

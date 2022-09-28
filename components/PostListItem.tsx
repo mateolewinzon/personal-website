@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import formatDate from "utils/date";
-import { BlogInfo } from "utils/mdx";
 import { PostTags, Span, SubHeading, SpanSecondary } from ".";
+import formatDate from "utils/date";
+import type { BlogInfo } from "utils/mdx";
 
 type Props = {
   item: BlogInfo
