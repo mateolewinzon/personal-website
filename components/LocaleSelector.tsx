@@ -28,9 +28,9 @@ type Props = {
 
 export const LocaleSelector = ({ currentLocale, asPath }: Props) => {
   const isArticle = asPath.includes("/blog/");
+  const article = useContext(BlogMeta)
 
   const getAlternativeArticleHref = (targetLocale: string): string =>{
-    const article = useContext(BlogMeta)
     return article[targetLocale+'Version'] || asPath
   }
  

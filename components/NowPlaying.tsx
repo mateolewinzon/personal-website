@@ -30,7 +30,7 @@ export const NowPlaying = () => {
       {isPlaying && (
         <div className="flex">
           <div className="pr-4">
-            <Image src={albumImageUrl} height="100" width="100" />
+            <Image alt={album} src={albumImageUrl} height="100" width="100" />
           </div>
           <div className="flex grid ">
             <Span className="font-semibold leading-none">{title}</Span>
