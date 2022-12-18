@@ -1,16 +1,18 @@
-import { AboutMe } from "components";
+import { AboutMe, Container } from "components";
 import { GetStaticProps } from "next";
 
 const About = () => {
-  return <AboutMe />;
-}
+  return (
+    <Container>
+      <AboutMe />
+    </Container>
+  );
+};
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const { default: lngDict = {} } = await import(
-    `locales/${locale}.json`
-  );
+  const { default: lngDict = {} } = await import(`locales/${locale}.json`);
 
   return { props: { lngDict } };
-}
+};
 
 export default About;

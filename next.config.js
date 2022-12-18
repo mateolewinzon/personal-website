@@ -5,6 +5,7 @@ const nextConfig = {
     locales: ["en", "es"],
     defaultLocale: "en",
   },
+  images: { domains: ["i.scdn.co"] },
 };
 
 module.exports = nextConfig;

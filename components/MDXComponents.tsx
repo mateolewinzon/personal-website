@@ -20,4 +20,9 @@ export const MDXComponents = {
       {children}
     </Span>
   ),
+  a: ({ children, ...props }: Props) => (
+    <a className="my-3 text-blue underline" {...props}>
+      {children}
+    </a>
+  ),
 };

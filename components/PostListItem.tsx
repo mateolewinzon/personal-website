@@ -5,8 +5,8 @@ import formatDate from "utils/date";
 import type { BlogInfo } from "utils/mdx";
 
 type Props = {
-  item: BlogInfo
-}
+  item: BlogInfo;
+};
 
 export const PostListItem = ({ item }: Props) => {
   const { locale } = useRouter();
@@ -22,13 +22,15 @@ export const PostListItem = ({ item }: Props) => {
             <Span className="text-lg">{item.description}</Span>
           </div>
           <div className="flex flex-row">
-            <SpanSecondary className="font-light text-gray-dark">
-              {formatDate(locale, item.date)}
-            </SpanSecondary>
+            {item.date_created && (
+              <SpanSecondary className="font-light text-gray-dark">
+                {formatDate(locale, item.date_created)}
+              </SpanSecondary>
+            )}
             <PostTags className="ml-4" tags={item.tags} />
           </div>
         </a>
       </Link>
     </div>
   );
-}
+};

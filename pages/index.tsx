@@ -1,19 +1,18 @@
-import { RecentPosts, HomePresentation } from "components";
+import { RecentPosts, HomePresentation, Container } from "components";
 import { getCurrentLocaleMetadata } from "utils/mdx";
 import type { BlogInfo } from "utils/mdx";
-import type { GetStaticProps } from 'next'
+import type { GetStaticProps } from "next";
 
-type Props = { 
-  posts: BlogInfo[]
-}
+type Props = {
+  posts: BlogInfo[];
+};
 
 export default function Home({ posts }: Props) {
-
   return (
-    <>
+    <Container>
       <HomePresentation />
       <RecentPosts posts={posts} />
-    </>
+    </Container>
   );
 }
 
@@ -24,5 +23,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: { posts: currentLocaleFiles, lngDict },
   };
-}
-
+};

@@ -13,7 +13,7 @@ export const Header = () => {
         <div>
           {pages.map((page, key) => (
             <NavLink key={key} isActive={asPath === page.path} href={page.path}>
-              {i18n.t(`navbar.${page.id}`)}
+              {i18n.t(`layout.${page.id}`)}
             </NavLink>
           ))}
         </div>

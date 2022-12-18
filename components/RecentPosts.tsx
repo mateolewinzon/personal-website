@@ -17,7 +17,7 @@ export const RecentPosts = ({ posts }: Props) => {
         </SubHeading>
       </div>
       <div className="flex flex-col lg:flex-row">
-        {posts.map((post) => (
+        {posts.filter(post=>!post.isHidden).map((post) => (
           <PostListItemHome key={post.slug} item={post} />
         ))}
       </div>

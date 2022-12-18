@@ -8,11 +8,15 @@ const root = process.cwd();
 export interface BlogInfo {
   title: string;
   description: string;
-  date: string;
+  date_created: string;
+  date_updated: string;
   isPublished: boolean;
+  isHidden?: boolean;
   locale: string | undefined;
   slug: string;
   tags: string[];
+  enVersion?: string
+  esVersion?: string 
 }
 
 export const getFiles = (): string[] => fs.readdirSync(path.join(root, "blog"));

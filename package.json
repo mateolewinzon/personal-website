@@ -24,6 +24,7 @@
     "react-icons": "^4.4.0",
     "react-svg": "^15.1.7",
     "remark-breaks": "^3.0.2",
+    "swr": "^2.0.0",
     "tailwind-merge": "^1.6.0"
   },
   "devDependencies": {

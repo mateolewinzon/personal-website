@@ -1,15 +1,16 @@
+import { useContext } from "react";
 import Link from "next/link";
-import { useI18n } from "next-localization";
 import { Menu, MenuList, MenuButton, MenuLink } from "@reach/menu-button";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { langs } from "config/i18n";
-import type { Lang } from "config/i18n"
+import type { Lang } from "config/i18n";
 import type { NextParsedUrlQuery } from "next/dist/server/request-meta";
+import { BlogMeta } from "pages/blog/[slug]";
 
 type LocaleLinkProps = {
-  lang: Lang,
-  href: string
-}
+  lang: Lang;
+  href: string;
+};
 
 function LocaleLink({ lang, href }: LocaleLinkProps) {
   return (
@@ -20,19 +21,19 @@ function LocaleLink({ lang, href }: LocaleLinkProps) {
 }
 
 type Props = {
-  currentLocale: string | undefined,
-  asPath: string,
-  query: NextParsedUrlQuery
-}
+  currentLocale: string | undefined;
+  asPath: string;
+  query: NextParsedUrlQuery;
+};
 
-export const LocaleSelector = ({ currentLocale, asPath, query }: Props) => {
-  const i18n = useI18n();
+export const LocaleSelector = ({ currentLocale, asPath }: Props) => {
   const isArticle = asPath.includes("/blog/");
 
-  function getAlternativeHref(targetedLang) {
-    return i18n.t(`blogs.articles.${query.slug}.${targetedLang}`);
+  const getAlternativeArticleHref = (targetLocale: string): string =>{
+    const article = useContext(BlogMeta)
+    return article[targetLocale+'Version'] || asPath
   }
-
+ 
   return (
     <Menu>
       {({ isOpen }) => (
@@ -52,7 +53,7 @@ export const LocaleSelector = ({ currentLocale, asPath, query }: Props) => {
                   <LocaleLink
                     lang={lang}
                     key={lang.locale}
-                    href={isArticle ? getAlternativeHref(lang.locale) : asPath}
+                    href={isArticle ? getAlternativeArticleHref(lang.locale): asPath}
                   />
                 )
             )}
@@ -61,4 +62,4 @@ export const LocaleSelector = ({ currentLocale, asPath, query }: Props) => {
       )}
     </Menu>
   );
-}
+};
