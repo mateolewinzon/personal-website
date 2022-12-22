@@ -30,7 +30,7 @@ export const BlogLayout = ({ children }: Props) => {
         <Heading className="my-6">{data.title}</Heading>
         <PostTags tags={data.tags} />
 
-        <div className="flex justify-between py-3">
+        <div className="flex flex-col sm:flex-row justify-between py-3">
           {data.dateCreated && (
             <SpanSecondary className="font-light text-sm">
               {`${i18n.t("blogs.author")} / ${i18n.t(
