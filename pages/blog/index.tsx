@@ -1,5 +1,5 @@
 import { useI18n } from "next-localization";
-import { Container, Heading, PostListItem } from "components";
+import { Container, Heading, PostCard } from "components";
 import { BlogInfo, getCurrentLocaleMetadata } from "utils/mdx";
 import typewriter from "styles/typing-effect.module.css";
 import { GetStaticProps } from "next";
@@ -14,14 +14,14 @@ export default function Blogs({ posts }: Props) {
   return (
     <Container>
       <div className="flex min-h-400 justify-center items-center flex-col">
-        <Heading className={`my-8 ${typewriter}`}>
-          {i18n.t("blogs.recent_posts")}
+        <Heading className={`my-8 justify-center ${typewriter}`}>
+          {i18n.t("blogs.heading")}
         </Heading>
         <div className="pb-4 flex flex-col items-center">
           {posts
             .filter((item) => !item.isHidden)
             .map((item) => (
-              <PostListItem key={item.slug} item={item} />
+              <PostCard key={item.slug} item={item} />
             ))}
         </div>
       </div>

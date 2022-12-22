@@ -32,10 +32,10 @@ export const NowPlaying = () => {
           <div className="pr-4">
             <Image alt={album} src={albumImageUrl} height="100" width="100" />
           </div>
-          <div className="flex grid ">
+          <div className="flex flex-col">
             <Span className="font-semibold leading-none">{title}</Span>
-            <SpanSecondary className="leading-none">{album}</SpanSecondary>
-            <SpanSecondary className="self-end">{artist}</SpanSecondary>
+            <SpanSecondary className="leading-none pt-2 font-light">{album}</SpanSecondary>
+            <SpanSecondary className="mt-auto">{artist}</SpanSecondary>
           </div>
         </div>
       )}

@@ -1,10 +1,11 @@
 import { useI18n } from "next-localization";
+import Link from "next/link";
 import { BlogInfo } from "utils/mdx";
-import { SubHeading, PostListItemHome } from ".";
+import { SubHeading, PostCard, Span } from ".";
 
 type Props = {
-  posts: BlogInfo[]
-}
+  posts: BlogInfo[];
+};
 
 export const RecentPosts = ({ posts }: Props) => {
   const i18n = useI18n();
@@ -17,10 +18,17 @@ export const RecentPosts = ({ posts }: Props) => {
         </SubHeading>
       </div>
       <div className="flex flex-col lg:flex-row">
-        {posts.filter(post=>!post.isHidden).map((post) => (
-          <PostListItemHome key={post.slug} item={post} />
-        ))}
+        {posts
+          .filter((post) => !post.isHidden)
+          .map((post) => (
+            <PostCard key={post.slug} item={post} />
+          ))}
+      </div>
+      <div>
+        <Span className="hover:underline">
+          <Link href="/blog">{i18n.t("home.view_all_blogs")}</Link>
+        </Span>
       </div>
     </div>
   );
-}
+};

@@ -1,34 +1,32 @@
 {
   "layout": {
-    "home": "Home",
     "about": "About",
     "blog": "Blog",
-    "english": "English",
-    "spanish": "Spanish",
-    "github": "GitHub",
-    "linkedin": "Linkedin",
     "cv": "My CV",
+    "english": "English",
+    "github": "GitHub",
+    "home": "Home",
+    "linkedin": "Linkedin",
     "not_playing": "Not Playing",
-    "playing": "Currently Playing"
+    "playing": "Currently Playing",
+    "spanish": "Spanish"
   },
   "home": {
-    "title": "Hello there! I'm Mateo.",
-    "subtitle": "software developer,",
-    "welcome_text": "I'm a fast learning, result-focused fullstack developer from Buenos Aires.",
-    "learn_more": "About me",
     "about": "About",
-    "me": "me,",
     "blog": "Blog",
-    "recent_posts": "Recent posts"
+    "learn_more": "About me",
+    "me": "me,",
+    "recent_posts": "Recent posts",
+    "subtitle": "software developer,",
+    "title": "Hello there! I'm Mateo.",
+    "view_all_blogs": "View all blog posts >",
+    "welcome_text": "I'm a fast learning, result-focused fullstack developer from Buenos Aires."
   },
   "about": {
     "about": "About",
-    "me": "me,",
     "about_description": "A good career and life, as I believe, is one in which you voluntarily face bigger responsibilities every day. I consider myself a proactive person, with a restless curiosity and always ready to solve new challenges.  I'm looking forward to devoting myself to meaningful projects and growing in the industry.",
-    "technologies": "Stack and tools",
-    "react": "I've built several user interfaces with ReactJs and React Native, applying modern techniques for state management (Redux, Context), integrating APIs, authentication and testing (React-Testing-Library with Jest). I'm also familiar with creating React apps using NextJs for pre-fetching and server-side rendering.",
     "javascript": "Through courses and projects, I've been familiarizing myself with the language with ever-increasing depths. Having already learned the best industry-quality code standards and practices (SOLID principles) as well as OOP and functional paradigms, I continue to learn advanced under-the-hood concepts (such as closures, prototypal inheritence, the engine, etc.)",
-    "nodejs": "I've developed APIs for end-to-end applications with ExpressJs using MongoDb for databases (mongoose) and passportjs for authenticating requests (local and external strategies) and creating sessions. I've also implemented Sendgrid, Firebase, MercadoPago (Checkout Pro) and AWS (for uploading images into s3 buckets) SDKs, among others.",
+    "me": "me,",
     "my_journey": "Joruney",
     "my_journey_paragraphs": [
       "From an early age, I've always been atracted to the practicalities of software UIs, and curious about programming. Starting as a hobby, I became interested in building full stack apps in 2020.",
@@ -36,11 +34,16 @@
       "Starting 2022, I heard about Alkemy.org, an acceleration program offering apprenticeship to trainees. Determined to take a leap and become a professional software developer, I submitted the admission challenge and was accepted.",
       "Alkemy was a great, valuable experience. Under the leadership and mentorship of a senior MercadoLibre engineer, my team and I built a modern UI for an ONG. Working under a simulated realistic environment, I became familiar with Agile methodologies, its workflow and its tools. During this process, I enjoyed helping the others and saw myself as a team-player. Besides, having my code reviewed by an experienced developer significantly improved my code quality."
     ],
-    "my_skills": "Skills"
+    "my_skills": "Skills",
+    "nodejs": "I've developed APIs for end-to-end applications with ExpressJs using MongoDb for databases (mongoose) and passportjs for authenticating requests (local and external strategies) and creating sessions. I've also implemented Sendgrid, Firebase, MercadoPago (Checkout Pro) and AWS (for uploading images into s3 buckets) SDKs, among others.",
+    "react": "I've built several user interfaces with ReactJs and React Native, applying modern techniques for state management (Redux, Context), integrating APIs, authentication and testing (React-Testing-Library with Jest). I'm also familiar with creating React apps using NextJs for pre-fetching and server-side rendering.",
+    "technologies": "Stack and tools"
   },
   "blogs": {
-    "recent_posts": "Recent posts",
     "author": "By: Mateo Lewinzon",
-    "published_on": "Published on"
+    "heading": "Blog",
+    "published_on": "Published on",
+    "reading_time": "min read",
+    "view_count": "views"
   }
 }

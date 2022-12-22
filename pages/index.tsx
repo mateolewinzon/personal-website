@@ -1,4 +1,4 @@
-import { RecentPosts, HomePresentation, Container } from "components";
+import { RecentPosts, HomeWelcome, Container } from "components";
 import { getCurrentLocaleMetadata } from "utils/mdx";
 import type { BlogInfo } from "utils/mdx";
 import type { GetStaticProps } from "next";
@@ -10,7 +10,7 @@ type Props = {
 export default function Home({ posts }: Props) {
   return (
     <Container>
-      <HomePresentation />
+      <HomeWelcome />
       <RecentPosts posts={posts} />
     </Container>
   );

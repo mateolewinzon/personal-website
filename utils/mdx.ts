@@ -6,17 +6,18 @@ import { serialize } from "next-mdx-remote/serialize";
 const root = process.cwd();
 
 export interface BlogInfo {
-  title: string;
   description: string;
-  date_created: string;
-  date_updated: string;
+  dateCreated: string;
+  dateUpdated: string;
+  enVersion?: string
+  esVersion?: string 
   isPublished: boolean;
   isHidden?: boolean;
   locale: string | undefined;
+  readingTime?: Number 
   slug: string;
   tags: string[];
-  enVersion?: string
-  esVersion?: string 
+  title: string;
 }
 
 export const getFiles = (): string[] => fs.readdirSync(path.join(root, "blog"));

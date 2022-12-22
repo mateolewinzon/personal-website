@@ -4,17 +4,17 @@ import { useI18n } from "next-localization";
 import { Heading, Span, SubHeading } from ".";
 import typewriter from "styles/typing-effect.module.css";
 
-export const HomePresentation = () => {
+export const HomeWelcome = () => {
   const i18n = useI18n();
 
   return (
-    <div className="flex min-h-400 justify-between items-center p-2">
+    <div className="flex min-h-400 justify-between items-center">
       <div className="flex flex-col">
         <Heading className="pb-2">{i18n.t("home.title")}</Heading>
         <SubHeading className={`${typewriter} text-blue dark:text-blue pb-2`}>
           {i18n.t("home.subtitle")}
         </SubHeading>
-        <Span className="text-gray-dark  pb-7 text-xl">
+        <Span className="text-gray-dark pb-7 text-xl">
           {i18n.t("home.welcome_text")}
         </Span>
         <div>
