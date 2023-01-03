@@ -1,6 +1,6 @@
 import { RecentPosts, HomeWelcome, Container } from "components";
-import { getCurrentLocaleMetadata } from "utils/mdx";
-import type { BlogInfo } from "utils/mdx";
+import { getCurrentLocaleMetadata } from "lib/mdx";
+import type { BlogInfo } from "lib/mdx";
 import type { GetStaticProps } from "next";
 
 type Props = {

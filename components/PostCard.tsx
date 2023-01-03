@@ -5,7 +5,7 @@ import {
   SubHeading,
   ViewCount,
 } from ".";
-import type { BlogInfo } from "utils/mdx";
+import type { BlogInfo } from "lib/mdx";
 
 type Props = {
   item: BlogInfo;
@@ -14,7 +14,7 @@ type Props = {
 export const PostCard= ({ item }: Props) => {
 
   return (
-    <div className="flex flex-col outline outline-1 rounded-md outline-gray-light hover:outline-gray dark:outline-black-800 dark:hover:outline-gray-dark p-4 m-4 md:w-3/4 rem py-5">
+    <div className="flex flex-col outline outline-1 rounded-md outline-gray-100 hover:outline-gray dark:outline-black-800 dark:hover:outline-gray-500 p-4 m-4 md:w-3/4 rem py-5">
       <Link href={`/blog/${item.slug}`}>
         <a className="flex flex-col h-full">
           <div className="pb-3">

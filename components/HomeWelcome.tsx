@@ -14,7 +14,7 @@ export const HomeWelcome = () => {
         <SubHeading className={`${typewriter} text-blue dark:text-blue pb-2`}>
           {i18n.t("home.subtitle")}
         </SubHeading>
-        <Span className="text-gray-dark pb-7 text-xl">
+        <Span className="text-gray-900 pb-7 text-xl">
           {i18n.t("home.welcome_text")}
         </Span>
         <div>

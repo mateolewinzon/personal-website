@@ -1,5 +1,5 @@
 import Head from "next/head"
-import type { BlogInfo } from "utils/mdx"
+import type { BlogInfo } from "lib/mdx"
 
 type Props = { data: BlogInfo }
 

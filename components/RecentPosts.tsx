@@ -1,6 +1,6 @@
 import { useI18n } from "next-localization";
 import Link from "next/link";
-import { BlogInfo } from "utils/mdx";
+import { BlogInfo } from "lib/mdx";
 import { SubHeading, PostCard, Span } from ".";
 
 type Props = {

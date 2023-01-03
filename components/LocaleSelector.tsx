@@ -43,7 +43,7 @@ export const LocaleSelector = ({ currentLocale, asPath }: Props) => {
             {isOpen ? (
               <BiChevronUp className="text-black dark:text-white" />
             ) : (
-              <BiChevronDown className="text-gray dark:text-white hover:text-black dark:hover:text-gray-light" />
+              <BiChevronDown className="text-gray dark:text-white hover:text-black dark:hover:text-gray-100" />
             )}
           </MenuButton>
           <MenuList>

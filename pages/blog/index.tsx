@@ -1,6 +1,6 @@
 import { useI18n } from "next-localization";
 import { Container, Heading, PostCard } from "components";
-import { BlogInfo, getCurrentLocaleMetadata } from "utils/mdx";
+import { BlogInfo, getCurrentLocaleMetadata } from "lib/mdx";
 import typewriter from "styles/typing-effect.module.css";
 import { GetStaticProps } from "next";
 

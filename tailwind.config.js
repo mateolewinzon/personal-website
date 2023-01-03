@@ -20,16 +20,6 @@ module.exports = {
       minHeight: { 500: "500px", 400: "400px", 300: "300px" },
 
       colors: {
-        white: "#ffffff",
-        purple: "#7e5bef",
-        pink: "#ff49db",
-        orange: "#ff7849",
-        green: "#13ce66",
-        yellow: "#ffc82c",
-        "gray-100": "#f2f2ff",
-        "gray-light": "#e6e6e6",
-        gray: "#888888",
-        "gray-dark": "#454555",
         "blue-dark": "#0553e3",
         black: "#111111",
         'black-800': "#1E1E1E",

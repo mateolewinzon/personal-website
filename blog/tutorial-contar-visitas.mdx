@@ -1,0 +1,234 @@
+---
+title: "Cómo agregar un contador de visitas a cualquier página"
+description: "Comparto los pasos que seguí para mostrar la cantidad de visualizaciones que tiene cada artículo de mi blog."
+locale: "es"
+dateCreated: "2022-12-31"
+dateUpdated: "2022-12-31"
+isPublished: true
+enVersion: "tutorial-view-count"
+tags:
+  - Código
+  - Guía
+---
+
+En este artículo, les voy a compartir los pasos que seguí para implementar un contador de visitas como el que uso en mis blogs.
+
+## ¿Cómo funciona?
+
+En primer lugar, cada página necesita un string que la identifique. Esto es importante para poder almacenar en una base de datos la cantidad de visitas que tiene cada pagina. Para mis blogs, uso el slug (la sección única en la URL y el nombre del archivo). 
+Cada vez que visitemos una página, hacemos una POST request a nuestra ruta view-count, especificando la página en la última sección del la URL.
+
+```
+POST  /api/view-count/tutorial-view-count
+```
+También crearemos un componente ViewCount que va a hacer un fetch con la cuenta actual. 
+Dentro de este componente, hacemos un GET request a la misma URL. Esta request va a caer en otro handler, que simplemente va a enviar la cuenta actual. 
+
+```
+GET  /api/view-count/tutorial-view-count
+```
+Cambiar entre POST y GET de esta manera es una buena forma de organizar las rutas ya que nos evitaríamos el uso de query params y body, y lo único que necesitamos en ambas operaciones es esa URL que especifique la página. POST para sumar una visita, y GET para obtener la cantidad actual.
+
+Ahora vamos a poner esto en práctica y agregar la feature a nuestros proyectos. 
+
+## Esto es lo que vamos a usar:
+
+- Una REST API (yo uso las [API routes de NextJs](https://nextjs.org/docs/api-routes/introduction)) Para crear los route handlers para GET y POST.
+- [Prisma](https://prisma.io/). Esto nos va a ayudar a settear la base de datos y el schema que necesitamos en unos pocos minutos, y nos da una manera muy fácil de hacer queries server-side.  (Se puede usar con muchas opciones de bases de datos. Yo siempre uso MongoDb porque se puede tener storage gratis muy fácil con Atlas).
+- [SWR](https://swr.vercel.app/): La mejor opción para data-fetching en React.
+
+**Y eso es todo. Ahora vamos a construirlo paso por paso.**
+
+## 1. Agregá Prisma a tu proyecto
+
+[Seguí la guia oficial acá](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project)
+
+> As a first step, navigate into it your project directory that contains the package.json file. Next, add the Prisma CLI as a development dependency to your project:
+
+```
+npm install prisma --save-dev
+```
+
+> You can now invoke the Prisma CLI by prefixing it with npx:
+
+```
+npx prisma
+```
+
+> Next, set up your Prisma project by creating your Prisma schema file template with the following command:
+
+```
+npx prisma init
+```
+
+> This command does two things: 1) creates a new directory called prisma that contains a file called schema.prisma, which contains the Prisma schema with your database connection variable and schema models. 2) creates the .env file in the root directory of the project, which is used for defining environment variables (such as your database connection)
+
+## 2. Diseñar el schema de nuestra base de datos
+
+Ahora tenemos que diseñar el schema para la colección/tabla de las páginas. Esto lo hacemos en el archivo que se generó en el paso anterior: `prisma/schema.prisma`. Incluiremos un string único que identifieuqe la página, y in integer con la cuenta de visitas.
+
+```no-lang:prisma/schema.prisma {10-14}
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model blogs {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  slug String  @unique
+  view_count Int
+}
+
+```
+
+## 3. Crea tu cluster de MongoDB y guardá el string de conexión en una variables de entorno
+
+Creá una cuenta en [https://account.mongodb.com/account/login](https://account.mongodb.com/account/login) y creá un "shared" cluster gratis.
+
+![Create a cluster](/images/blogs/tutorial-view-count/create-cluster.png)
+
+Los settings default están bien. Podés cambiar la ubicación del server si querés.
+
+![Set the cluster](/images/blogs/tutorial-view-count/set-cluster.png)
+
+En el próximo paso, tenemos que crear un usuario. Esto es lo que nos permitirá consultar y modificar la base de datos. El usuario puede ser lo que quieras, y creá una contraseña segura usando el botón para auto-generar una contraseña. Guardá estos credenciales para el siguiente paso.
+
+![Create a user](/images/blogs/tutorial-view-count/db-user.png)
+
+Atlas nos pide que especifiquemos cuáles son las IPs que se van a conectar a la base de datos. Agregá 0.0.0.0/0 para permitir todas las conexiones. No parece ser la mejor práctica, pero no significa que la base de datos no vaya a ser segura (a no ser que tu contraseña sea 123). De hecho, [es la única manera en apps Vercel](https://vercel.com/guides/how-to-allowlist-deployment-ip-address).
+
+![Whitelist IPs](/images/blogs/tutorial-view-count/db-connection.png)
+
+Una vez que el Cluster esté creado, clickeá "Connect", y después "Connect your application"
+
+![Click "connect"](/images/blogs/tutorial-view-count/connect.png)
+
+Ahora deberías ver el string de conexión. Insertá tu usuario y contraseña, y el cluster al final después del `/` (el predeterminado es cluster0). Guardalo como una variable de entorno `DATABASE_URL` en tu archivo .env. Prisma va a usar esto para intentar establecer una conexión. Debería quedar algo así:
+
+```
+DATABASE_URL=mongodb+srv://username:password@cluster0.abcdefg.mongodb.net/cluster0
+```
+Después, instalá el Prisma Client. Esto también va a correr el comando `generate`, que modifica el cliente de acuerdo a tu schema personalizado. Una ventaja que nos da Prisma es que haremos las queries usando métodos sobre nuestro esquema, como propiedades definidas sobre la instancia del cliente. Por ejemplo, `prisma.blogs.upsert()`. Esto nos da una muy buena experiencia de desarrollo.
+
+```
+npm install @prisma/client
+```
+
+También haremos el siguiente comando para pushear el schema a la base de datos.
+
+```
+npx prisma db push
+```
+
+_Cada vez que hagas cambios al schema, deberías usar `npx prisma db push` y `npx prisma generate` para que los cambios se apliquen en el cliente y en la base de datos._
+
+Por último, creá y exportá una instancia de PrismaClient. Si estás usando NextJs, [usá este ejemplo para evitar un error de múltiples instancias siendo creadas en entorno development](https://pris.ly/d/help/next-js-best-practices).
+
+```tsx:lib/prisma.ts
+import { PrismaClient } from "@prisma/client";
+
+declare global {
+  var prisma: PrismaClient | undefined;
+}
+
+const prisma = global.prisma || new PrismaClient();
+
+if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+
+export default prisma;
+```
+
+Importá y usá **esa** instancia en cualquier parte server-side de tu app (API routes o funciones de page, para NextJs).
+
+## 4. Creá el route handler
+
+Este es el único archivo que necesitás para manejar ambos GET y POST de la ruta. Notá la manera en que aprovechamos las rutas dinámicas de NextJs en las API rotues: Los slugs de la ruta se capturan en `req.query`.
+En cuanto a Prisma, usé [upsert](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) para que en el caso de que la página no exista en la base de datos (está siendo visitada por primera vez), sea creada con la view-count en 1. Si la página existe, el query incriementa el view-count en +1.
+
+```tsx:pages/api/views/[slug].ts
+import prisma from "lib/prisma";
+import type { NextApiRequest, NextApiResponse } from "next";
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const slug = req.query.slug as string;
+
+  if (req.method === "POST") {
+    const blog = await prisma.blogs.upsert({
+      where: {
+        slug,
+      },
+      update: {
+        view_count: { increment: 1 },
+      },
+      create: {
+        slug,
+        view_count: 1,
+      },
+    });
+
+    return res.send(blog.view_count);
+  }
+
+  const blog = await prisma.blogs.findUnique({
+    where: {
+      slug,
+    },
+  });
+
+  res.send(blog?.view_count || 0);
+}
+```
+
+## 5. Componente ViewCount con SWR
+
+Creá el componente que va a hacer el fetch de la data y mostrar la cuenta actual. Acá, lo mejor es usar [SRW](https://swr.vercel.app/) para primero buscár la data en el cache, y también evitar el uso de useEffects innecesarios. Yo desactivé la opción `revalidateOnFocus` para que la cuenta de visitas esté estrictamente ligada a la cantidad de veces que la página fue visitada. 
+
+```tsx:components/ViewCount.tsx
+import useSWR from "swr";
+import { fetcher } from "utils/fetcher";
+import { SpanSecondary } from "./SpanSecondary";
+
+export const ViewCount = ({ slug }: { slug: string }) => {
+  const i18n = useI18n();
+
+  const { data: views } = useSWR(`/api/views/${slug}`, fetcher, {
+    revalidateOnFocus: false,
+  });
+
+  return (
+    <SpanSecondary className="text-sm self-center">
+      {views ? views : "-"} visitas 
+    </SpanSecondary>
+  );
+};
+```
+```tsx:utils/fetcher.ts
+export const fetcher = async (
+    input: RequestInfo,
+    init: RequestInit,
+  ) => {
+    const res = await fetch(input, init);
+    return res.json();
+  };
+```
+
+## 6. Do a POST when visiting a page.
+
+En la page, agregá un useEffect para hacer el POST.
+
+```tsx:pages/blog/[slug].tsx
+useEffect(() => {
+  fetch(`/api/views/${data.slug}`, { method: "POST" });
+}, []);
+```
+
+*NOTA: En mi app Typescript Nextjs, los useEffects estaban siendo triggereados dos veces en entorno de desarrollo porque ReactStrict estaba en true. Si te pasa lo mismo, [se puede desactivar en `next.config.js`](https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode). En este caso, la request duplicada causaba un error (No vi que haga +2 views en una visita, solamente causa un error de la base de datos). Cuando usamos useEffect para hacer requests, siempre hay que fijarse la Network tab de los developer tools y asegurarse de que las requests solo se hagan una vez* 
+
+Eso es todo! Esto es lo que estoy usando en los blogs de mi página personal. Sentite cómodo de mirar [la repo de mi página](https://github.com/mateolewinzon/personal-website) y sugerir cambios o fixes. Gracias por leer!

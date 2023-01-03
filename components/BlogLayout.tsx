@@ -9,7 +9,7 @@ import {
   ReadingTime,
 } from "components";
 import formatDate from "utils/date";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { BlogMeta } from "pages/blog/[slug]";
 
 type Props = { children: JSX.Element };
@@ -19,17 +19,12 @@ export const BlogLayout = ({ children }: Props) => {
   const data = useContext(BlogMeta);
   const i18n = useI18n();
 
-  useEffect(() => {
-    fetch(`/api/views/${data.slug}`, { method: "POST" });
-  }, []);
-
   return (
     <div className="flex justify-center">
       <BlogHead data={data} />
-      <article className="flex flex-col md:w-[75%]">
+      <article className="prose max-w-2xl dark:prose-invert flex flex-col w-full">
         <Heading className="my-6">{data.title}</Heading>
         <PostTags tags={data.tags} />
-
         <div className="flex flex-col sm:flex-row justify-between py-3">
           {data.dateCreated && (
             <SpanSecondary className="font-light text-sm">
@@ -43,7 +38,8 @@ export const BlogLayout = ({ children }: Props) => {
             {data.readingTime && <ReadingTime minutes={data.readingTime} />}
           </div>
         </div>
-        {children}
+        <div>
+        {children}</div>
       </article>
     </div>
   );
