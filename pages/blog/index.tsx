@@ -20,6 +20,9 @@ export default function Blogs({ posts }: Props) {
         <div className="pb-4 flex flex-col items-center">
           {posts
             .filter((item) => !item.isHidden)
+            .sort(
+              (a, b) => Date.parse(b.dateCreated) - Date.parse(a.dateCreated)
+            )
             .map((item) => (
               <PostCard key={item.slug} item={item} />
             ))}
