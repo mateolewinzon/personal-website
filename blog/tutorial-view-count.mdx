@@ -33,7 +33,7 @@ Inside this component, we do a GET request to the same URL. The request will fal
 GET  /api/view-count/tutorial-view-count
 ```
 
-Switching between POST and GET like this is a good approach since we avoid using query params and body, and all we use is the same URL for both operations. POST for adding a view, and GET for returning the current amount.
+Switching between POST and GET like this is a good approach since we avoid using query params and body, and all we use is the same URL for both operations. POST for adding a view, and GET for returning the current number.
 Now let's get to work and add this feature to our projects.
 
 ## This is what you will use:
@@ -46,7 +46,7 @@ Now let's get to work and add this feature to our projects.
 
 ## 1. Add Prisma to your project
 
-[Follow the oficial guide here](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project)
+[Follow the official guide here](https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project)
 
 > As a first step, navigate into it your project directory that contains the package.json file. Next, add the Prisma CLI as a development dependency to your project:
 
@@ -92,7 +92,7 @@ model blogs {
 
 ## 3. Create your MongoDB cluster and set the connection string in the environment variables.
 
-Setup an account on [https://account.mongodb.com/account/login](https://account.mongodb.com/account/login) and create a free "shared" cluster.
+Set up an account on [https://account.mongodb.com/account/login](https://account.mongodb.com/account/login) and create a free "shared" cluster.
 
 ![Create a cluster](/images/blogs/tutorial-view-count/create-cluster.png)
 
@@ -112,7 +112,7 @@ Once the Cluster is created, click "Connect", then "Connect your application"
 
 ![Click "connect"](/images/blogs/tutorial-view-count/connect.png)
 
-Now you should see the connection string. Add your username and password, and the cluster at the end (cluster0 by default). Store it as an environment variable named `DATABASE_URL` in your .env file. Prisma will pickup this and try to establish a connection. It should be something like this:
+Now you should see the connection string. Add your username and password, and the cluster at the end (cluster0 by default). Store it as an environment variable named `DATABASE_URL` in your .env file. Prisma will pick this up and try to establish a connection. It should be something like this:
 
 ```
 DATABASE_URL=mongodb+srv://username:password@cluster0.abcdefg.mongodb.net/cluster0
@@ -148,12 +148,12 @@ if (process.env.NODE_ENV !== "production") global.prisma = prisma;
 export default prisma;
 ```
 
-Import and use **that** instance wherever you want in the server-side of your app (For NextJs—in API routes or page functions).
+Import and use **that** instance wherever you want in the server side of your app (For NextJs—in API routes or page functions).
 
 ## 4. Create the route handler
 
 This is the only file I created to handle both POST and GET. Notice the way we take advantage of Next dynamic paths in the Next API Routes: The slugs of the route are captured in `req.query`.
-Regarding Prisma, I'm using [upsert](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) so that in the case the page doesn't exist in the database (it's being visited for the first time), it creates it with the view-count of 1. If the page exists, it increments view-count by one.
+Regarding Prisma, I'm using [upsert](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference#upsert) so that in case the page doesn't exist in the database (it's being visited for the first time), it creates it with the view-count of 1. If the page exists, it increments view-count by one.
 
 ```tsx:pages/api/views/[slug].ts
 import prisma from "lib/prisma";
@@ -194,7 +194,7 @@ export default async function handler(
 
 ## 5. ViewCount component with SWR.
 
-Create the component that will fetch the data and return the current count. Here, let's use the [SRW](https://swr.vercel.app/) approach to fetch in the cache first, and also avoid using those ugly useEffects. I turned off the `revalidateOnFocus` option so that the view count is stricly tied to the amount of times the page has been loaded.
+Create the component that will fetch the data and return the current count. Here, let's use the [SRW](https://swr.vercel.app/) approach to fetch in the cache first, and also avoid using those ugly useEffects. I turned off the `revalidateOnFocus` option so that the view count is strictly tied to the number of times the page has been loaded.
 
 ```tsx:components/ViewCount.tsx
 import { useI18n } from "next-localization";
@@ -236,6 +236,6 @@ useEffect(() => {
 }, []);
 ```
 
-_NOTE: In my Typescript Nextjs app, useEffects were triggered twice in development becasue ReactStrict was set to true. If you encounter the same, [you can disable it in `next.config.js`](https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode). In this case, the duplicate request lead to an error (I've never seen it increment two views at once, it just throws a database error). When using useEffect to make requests, always check the browser's developer tools network tab. Make sure each request is made only once._
+_NOTE: In my Typescript Nextjs app, useEffects were triggered twice in development because ReactStrict was set to true. If you encounter the same, [you can disable it in `next.config.js`](https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode). In this case, the duplicate request lead to an error (I've never seen it increment two views at once, it just throws a database error). When using useEffect to make requests, always check the browser's developer tools network tab. Make sure each request is made only once._
 
-That is all! This is what I'm currently using in this site. Please feel free to take a look at [the repo](https://github.com/mateolewinzon/personal-website) and suggest changes or fixes. Thanks for reading!
+That is all! This is what I'm currently using on this site. Please feel free to take a look at [the repo](https://github.com/mateolewinzon/personal-website) and suggest changes or fixes. Thanks for reading!

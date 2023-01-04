@@ -13,7 +13,7 @@ body,
 }
 
 .prose img{
-  @apply shadow-xl
+  @apply shadow-xl rounded-xl
 }
 
 .rehype-code-title {
@@ -25,7 +25,7 @@ body,
 }
 
 .prose pre {
-  @apply dark:bg-[#000000]
+  @apply dark:bg-[#000000] shadow-md
 }
 
 pre {
