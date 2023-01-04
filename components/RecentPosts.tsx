@@ -11,13 +11,13 @@ export const RecentPosts = ({ posts }: Props) => {
   const i18n = useI18n();
 
   return (
-    <div className="flex flex-col items-center ">
-      <div className="my-8">
+    <div className="flex flex-col items-center">
+      <div className="">
         <SubHeading className="font-bold">
           {i18n.t("home.recent_posts")}
         </SubHeading>
       </div>
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col-reverse lg:flex-row-reverse">
         {posts
           .filter((post) => !post.isHidden)
           .map((post) => (

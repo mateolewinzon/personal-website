@@ -11,7 +11,7 @@ export default function Home({ posts }: Props) {
   return (
     <Container>
       <HomeWelcome />
-      <RecentPosts posts={posts} />
+      <RecentPosts posts={posts.sort((a, b)=> Date.parse(b.dateCreated) - Date.parse(a.dateCreated)).slice(0,3)} />
     </Container>
   );
 }

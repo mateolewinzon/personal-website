@@ -8,7 +8,7 @@ export const HomeWelcome = () => {
   const i18n = useI18n();
 
   return (
-    <div className="flex min-h-400 justify-between items-center">
+    <div className="flex min-h-400 md:min-h-500 justify-between items-center">
       <div className="flex flex-col">
         <Heading className="pb-2">{i18n.t("home.title")}</Heading>
         <SubHeading className={`${typewriter} text-blue dark:text-blue pb-2`}>
@@ -30,7 +30,7 @@ export const HomeWelcome = () => {
           alt="mateo_mountains"
           width={300}
           height={300}
-          src="/images/mateo_mountains2.jpg"
+          src="/images/mateo_mountains.jpg"
         />
       </div>
     </div>

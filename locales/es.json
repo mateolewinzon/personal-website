@@ -25,6 +25,11 @@
   "about": {
     "about": "Acerca de",
     "about_description": "Una buena carrera y vida, según creo yo, es una en la que voluntariamente enfrentás responsabilidades más grandes cada día. Me considero una persona proactiva, con una curiosidad incesante, y siempre dispuesto a resolver nuevos desafíos. Busco ser parte de un proyecto valioso y desarrollarme en la industria. ",
+    "about_experience": "Conocé más acerca de mi experiencia",
+    "about_experience_url": "/blog/mi-camino",
+    "about_skills": "Conocé más acerca de mis habilidades y tecnologías",
+    "about_skills_url": "/blog/mis-Habilidades",
+    "cv":"Descargar mi CV",
     "javascript": "Mediante cursos y proyectos, me he estado familiarizando con el lenguaje con una profundidad cada vez mayor. Ya habiendo aprendido los mejores estándares y prácticas en cuanto a calidad de código (principios SOLID) además de los paradigmas OOP y funcional, sigo aprendiendo conceptos avanzados (como closures, prototipos, el motor de javascript, etc.)  ",
     "me": "mí,",
     "my_journey": "Mi camino",
