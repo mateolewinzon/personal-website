@@ -12,6 +12,10 @@ body,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.prose img{
+  @apply shadow-xl
+}
+
 .rehype-code-title {
   @apply px-5 py-3 text-sm font-bold rounded-t-lg bg-gray-800 dark:bg-[#000000] text-gray-300 border-b-2 border-gray-700 dark:border-[#111111] 
 }
