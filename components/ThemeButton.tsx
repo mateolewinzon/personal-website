@@ -13,7 +13,8 @@ export const ThemeButton = () => {
       }
       localStorage.setItem("theme", theme);
     } else {
-      const startingTheme = localStorage.getItem("theme") || "light";
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+      const startingTheme = localStorage.getItem("theme") || systemTheme;
       setTheme(startingTheme);
       document.body.classList.add(startingTheme);
     }
