@@ -19,8 +19,8 @@ export default function Portfolio({locale}) {
     <div className="flex flex-col items-center">
       <Heading>{i18n.t("portfolio.heading")}</Heading>
       <div className="flex flex-col items-center my-4">
-        {projects[locale].map((project) => (
-          <PortfolioCard project={project} />
+        {projects[locale].map((project, key) => (
+          <PortfolioCard key={key} project={project} />
         ))}
       </div></div>
     </Container>
