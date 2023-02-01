@@ -1,7 +1,7 @@
 import Head from "next/head"
-import type { BlogInfo } from "lib/mdx"
+import type { PostInfo } from "lib/mdx"
 
-type Props = { data: BlogInfo }
+type Props = { data: PostInfo }
 
 export const BlogHead = ({ data }: Props) => <Head>
   <title>{data.title}</title>

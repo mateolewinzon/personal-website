@@ -12,6 +12,7 @@ export { LocaleSelector } from "./LocaleSelector";
 export { MDXComponents } from "./MDXComponents";
 export { NavLink } from "./NavLink";
 export { NowPlaying } from "./NowPlaying";
+export { PortfolioCard } from "./PortfolioCard"
 export { PostCard } from "./PostCard";
 export { PostTags } from "./PostTags";
 export { ReadingTime } from "./ReadingTIme";

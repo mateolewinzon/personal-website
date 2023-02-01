@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { PostTags, Span, SubHeading, ViewCount } from ".";
-import type { BlogInfo } from "lib/mdx";
+import type { PostInfo } from "lib/mdx";
 
 type Props = {
-  item: BlogInfo;
+  item: PostInfo;
 };
 
 export const PostCard = ({ item }: Props) => {
