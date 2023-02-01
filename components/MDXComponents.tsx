@@ -4,7 +4,7 @@ type Props = {
 
 export const MDXComponents = {
   a: ({ children, ...props }: Props) => (
-    <a target='_blank' rel="noopener" className="my-3 text-blue underline" {...props}>
+    <a target='_blank' rel="noreferrer" className="my-3 text-blue underline" {...props}>
       {children}
     </a>
   ),

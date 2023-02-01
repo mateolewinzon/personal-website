@@ -10,7 +10,7 @@ type Props = {
 export const PortfolioCard = ({ project }: Props) => (
   <div className="grid sm:grid-cols-3 gap-2 outline outline-1 rounded-md outline-neutral-200 hover:outline-neutral-300 dark:outline-neutral-800 dark:hover:outline-neutral-700 p-4 m-4 md:max-w-2xl rem py-5">
     <div className="flex flex-col sm:col-span-2 gap-3 sm:gap-0 justify-between">
-      <a target="_blank" rel="noopener" href={project.url}>
+      <a target="_blank" rel="noreferrer" href={project.url}>
         <div className="flex items-center gap-2">
           <Span className="text-3xl font-semibold hover:underline">
             {project.title}
@@ -37,7 +37,7 @@ export const PortfolioCard = ({ project }: Props) => (
       <Span className="text-base">{project.description}</Span>
       <div className="flex items-center">
         <PostTags tags={project.tags} />
-        <a href={project.repoURL} rel="noopener" target="_blank">
+        <a href={project.repoURL} rel="noreferrer" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -53,11 +53,12 @@ export const PortfolioCard = ({ project }: Props) => (
     </div>
     <div className="hidden sm:block">
       <Image
-      className="rounded-xl"
-        width='300px'
-        height='300px'
+        alt={project.title}
+        className="rounded-xl"
+        width="300px"
+        height="300px"
         src={`/images/projects/${project.thumbnail}`}
-        objectFit='cover'
+        objectFit="cover"
       />
     </div>
   </div>
