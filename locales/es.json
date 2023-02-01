@@ -9,7 +9,8 @@
     "linkedin": "Linkedin",
     "not_playing": "No estoy escuchando",
     "playing": "Estoy escuchando",
-    "spanish": "Español"
+    "spanish": "Español",
+    "portfolio": "Portfolio"
   },
   "home": {
     "about": "Acerca de",
@@ -50,5 +51,8 @@
     "published_on": "Publicado el",
     "reading_time": "min de lectura",
     "view_count": "visitas"
+  },
+  "portfolio": {
+    "heading": "Mi Portfolio"
   }
 }

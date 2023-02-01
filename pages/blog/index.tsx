@@ -1,11 +1,11 @@
 import { useI18n } from "next-localization";
 import { Container, Heading, PostCard } from "components";
-import { BlogInfo, getCurrentLocaleMetadata } from "lib/mdx";
+import { PostInfo, getCurrentLocaleMetadata } from "lib/mdx";
 import typewriter from "styles/typing-effect.module.css";
 import { GetStaticProps } from "next";
 
 type Props = {
-  posts: BlogInfo[];
+  posts: PostInfo[];
 };
 
 export default function Blogs({ posts }: Props) {

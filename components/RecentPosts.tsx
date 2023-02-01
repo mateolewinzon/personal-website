@@ -1,10 +1,10 @@
 import { useI18n } from "next-localization";
 import Link from "next/link";
-import { BlogInfo } from "lib/mdx";
+import { PostInfo } from "lib/mdx";
 import { SubHeading, PostCard, Span } from ".";
 
 type Props = {
-  posts: BlogInfo[];
+  posts: PostInfo[];
 };
 
 export const RecentPosts = ({ posts }: Props) => {

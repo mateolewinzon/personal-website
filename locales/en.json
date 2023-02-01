@@ -9,7 +9,8 @@
     "linkedin": "Linkedin",
     "not_playing": "Not Playing",
     "playing": "Currently Playing",
-    "spanish": "Spanish"
+    "spanish": "Spanish",
+    "portfolio": "Portfolio"
   },
   "home": {
     "about": "About",
@@ -50,5 +51,8 @@
     "published_on": "Published on",
     "reading_time": "min read",
     "view_count": "views"
+  },
+  "portfolio": {
+    "heading": "Mi Portfolio"
   }
 }

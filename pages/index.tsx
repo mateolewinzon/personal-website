@@ -1,10 +1,10 @@
 import { RecentPosts, HomeWelcome, Container } from "components";
 import { getCurrentLocaleMetadata } from "lib/mdx";
-import type { BlogInfo } from "lib/mdx";
+import type { PostInfo } from "lib/mdx";
 import type { GetStaticProps } from "next";
 
 type Props = {
-  posts: BlogInfo[];
+  posts: PostInfo[];
 };
 
 export default function Home({ posts }: Props) {

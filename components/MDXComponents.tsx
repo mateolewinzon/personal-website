@@ -1,5 +1,3 @@
-import { Heading, Span, SubHeading } from ".";
-
 type Props = {
   children: React.ReactNode;
 };

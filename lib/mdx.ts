@@ -7,12 +7,13 @@ import { serialize } from "next-mdx-remote/serialize";
 
 const root = process.cwd();
 
-export type BlogInfo = {
+export type PostInfo = {
   description: string;
   dateCreated: string;
   dateUpdated: string;
   enVersion?: string;
   esVersion?: string;
+  isPortfolio?: boolean;
   isPublished: boolean;
   isHidden?: boolean;
   locale: string | undefined;
@@ -20,6 +21,7 @@ export type BlogInfo = {
   slug: string;
   tags: string[];
   title: string;
+  thumbnail?: string
 };
 
 export const getFiles = (): string[] => fs.readdirSync(path.join(root, "blog"));
@@ -47,7 +49,7 @@ export const getAllMetadataByLocales = () => {
   const files = getFiles();
 
   const filesByLocale = files.reduce<{
-    [key: string]: BlogInfo[];
+    [key: string]: PostInfo[];
   }>(
     (allPosts, postSlug) => {
       const source = fs.readFileSync(
@@ -76,7 +78,7 @@ export const getAllMetadataByLocales = () => {
 
 export const getCurrentLocaleMetadata = (
   locale: string | undefined
-): BlogInfo[] => {
+): PostInfo[] => {
   const filesByLocale = getAllMetadataByLocales();
   const currentLocaleFiles = filesByLocale[locale as string];
 

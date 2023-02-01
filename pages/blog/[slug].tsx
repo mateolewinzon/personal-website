@@ -3,14 +3,14 @@ import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { MDXComponents, BlogLayout, Container } from "components";
 import { getAllMetadataByLocales, getFileBySlug } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
-import type { BlogInfo } from "lib/mdx";
+import type { PostInfo } from "lib/mdx";
 
 type Props = {
-  data: BlogInfo;
+  data: PostInfo;
   source: any;
 };
 
-export const BlogMeta = createContext<BlogInfo>(null!);
+export const BlogMeta = createContext<PostInfo>(null!);
 
 const Blog = ({ source, data }: Props) => {
   useEffect(() => {
