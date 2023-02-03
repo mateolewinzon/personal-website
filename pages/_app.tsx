@@ -1,7 +1,8 @@
 import { I18nProvider } from "next-localization";
 import { useRouter } from "next/router";
+import { Analytics } from "@vercel/analytics/react";
 
-import "styles/code-highlight.css"
+import "styles/code-highlight.css";
 
 import "styles/globals.css";
 
@@ -13,7 +14,10 @@ function MyApp({ Component, pageProps }: AppProps<{ lngDict: {} }>) {
 
   return (
     <I18nProvider locale={router?.locale as string} lngDict={lngDict}>
+      <>
         <Component {...rest} />
+        <Analytics />
+      </>
     </I18nProvider>
   );
 }
