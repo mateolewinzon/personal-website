@@ -5,9 +5,9 @@ const projects = {
         "A social platfom made for publishing and adopting pets. Currently in MVP stage: Google sign-in, browsing, posting, image uploading. Using NextJs w/ API routes, Prisma and PlanetScale database.",
       repoURL: "https://github.com/mateolewinzon/pet-adoption-app/",
       tags: ["Typescript", "React", "Fullstack"],
-      title: "Pets Adoption",
+      title: "PetAdopters",
       thumbnail: "post-a-pet.png",
-      url: "https://pets-adoption-next.vercel.app",
+      url: "https://petadopters.org",
     },
     {
       description:
@@ -34,9 +34,9 @@ const projects = {
         "Una plataforma social creada para publicar y adoptar mascotas. Actualmente en etapa de MVP: Google sign-in, navegación, posteos con imagenes. Usando NextJs con API routes, Prisma y PlanetScale Database.",
       repoURL: "https://github.com/mateolewinzon/pet-adoption-app/",
       tags: ["Typescript", "React", "Fullstack"],
-      title: "Pets Adoption",
+      title: "PetAdopters",
       thumbnail: "post-a-pet.png",
-      url: "https://pets-adoption-next.vercel.app",
+      url: "https://petadopters.org",
     },
     {
       description:
