@@ -1,5 +1,5 @@
 import { useI18n } from "next-localization";
-import { SpanSecondary, FooterLink, NowPlaying } from ".";
+import { FooterLink, NowPlaying } from "components";
 import footers from "config/footers";
 
 
@@ -7,21 +7,21 @@ export const Footer = () => {
   const i18n = useI18n();
 
   return (
-    <footer className="mt-20 mb-10 mx-auto max-w-2xl items-center">
+    <footer className="mt-20 mb-10 mx-auto max-w-2xl p-4 items-center">
       <NowPlaying/>
-      <hr className="text-gray-100 dark:text-gray-800" />
+      <hr className="dark:border-slate-700 my-3" />
       <div className="grid grid-cols-3">
         {footers.map((footer, key) => (
-          <div key={key} className="flex flex-col ">
+          <div key={key} className="flex flex-col gap-3">
             {footer.map((item) => (
-              <SpanSecondary
+              <span
+              className="text-gray-800 dark:text-gray-100"
                 key={item.id}
-                className="my-3 font-semibold"
               >
                 <FooterLink isExternal={item.isExternal} href={item.href}>
                   {i18n.t(`layout.${item.id}`)}
                 </FooterLink>
-              </SpanSecondary>
+              </span>
             ))}
           </div>
         ))}

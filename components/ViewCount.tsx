@@ -1,7 +1,6 @@
 import { useI18n } from "next-localization";
 import useSWR from "swr";
 import { fetcher } from "utils/fetcher";
-import { SpanSecondary } from "./SpanSecondary";
 
 export const ViewCount = ({ slug }: { slug: string }) => {
   const i18n = useI18n();
@@ -11,8 +10,8 @@ export const ViewCount = ({ slug }: { slug: string }) => {
   });
 
   return (
-    <SpanSecondary className="text-sm self-center">
+    <span className="text-sm self-center dark:text-gray-300">
       {views ? views : "-"} {i18n.t("blogs.view_count")}
-    </SpanSecondary>
+    </span>
   );
 };

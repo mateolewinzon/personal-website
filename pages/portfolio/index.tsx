@@ -1,11 +1,10 @@
 import { useI18n } from "next-localization";
-import { Container, Heading, PortfolioCard } from "components";
-import { getCurrentLocaleMetadata } from "lib/mdx";
+import { Container, PortfolioCard, FadeOnView } from "components";
 import type { GetStaticProps } from "next";
 import projects from "config/projects";
 import Head from "next/head";
 
-export default function Portfolio({locale}) {
+export default function Portfolio({ locale }) {
   const i18n = useI18n();
   return (
     <Container>
@@ -16,13 +15,15 @@ export default function Portfolio({locale}) {
           content="Dale una mirada a mis projectos personales!"
         />
       </Head>
-    <div className="flex flex-col items-center">
-      <Heading>{i18n.t("portfolio.heading")}</Heading>
-      <div className="flex flex-col items-center my-4">
-        {projects[locale].map((project, key) => (
-          <PortfolioCard key={key} project={project} />
-        ))}
-      </div></div>
+      <div className="pt-28 flex flex-col items-center mx-auto max-w-5xl p-4 gap-10">
+        <h1>{i18n.t("portfolio.heading")}</h1>
+        <div className="grid items-center my-4 gap-12">
+          {projects[locale].map((project, key) => (
+            <FadeOnView key={key}>
+            <PortfolioCard  project={project} /></FadeOnView>
+          ))}
+        </div>
+      </div>
     </Container>
   );
 }
@@ -33,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       lngDict,
-      locale
+      locale,
     },
   };
 };

@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { Analytics } from "@vercel/analytics/react";
 
 import "styles/code-highlight.css";
-
 import "styles/globals.css";
 
 import { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps<{ lngDict: {} }>) {
   const { lngDict, ...rest } = pageProps;
@@ -14,10 +14,10 @@ function MyApp({ Component, pageProps }: AppProps<{ lngDict: {} }>) {
 
   return (
     <I18nProvider locale={router?.locale as string} lngDict={lngDict}>
-      <>
+      <ThemeProvider attribute="class">
         <Component {...rest} />
         <Analytics />
-      </>
+      </ThemeProvider>
     </I18nProvider>
   );
 }

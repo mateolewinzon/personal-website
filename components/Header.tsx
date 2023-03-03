@@ -14,7 +14,7 @@ export const Header = () => {
       data-collapse-toggle="navbar-default"
       type="button"
       onClick={() => setToggleCollapse((current) => !current)}
-      className="inline-flex items-center w-max text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      className="p-4 inline-flex items-center w-max text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       aria-controls="navbar-default"
       aria-expanded="false"
     >
@@ -37,7 +37,7 @@ export const Header = () => {
 
   const Navigation = () => (
     <div
-      className={`${toggleCollapse ? "hidden" : ""} w-full md:block md:w-auto`}
+      className={`${toggleCollapse ? "hidden" : ""} w-full md:block md:w-auto mx-2`}
       id="navbar-default"
     >
       <ul className="flex flex-col md:flex-row">
@@ -53,18 +53,17 @@ export const Header = () => {
   );
 
   return (
-    <nav>
-      <div className="flex justify-between w-full py-2 my-0 md:py-4">
+    <nav className="z-30 fixed top-0 w-full justify-between py-2 my-0 md:py-4 shadow backdrop-blur-lg">
+      <div className="flex max-w-5xl mx-auto">
         <div className="flex flex-col w-full">
           <ToggleButton />
           <Navigation />
         </div>
-        <div className="flex self-start">
+        <div className="flex items-center self-start p-4 md:p-2 gap-3">
           <ThemeButton />
           <LocaleSelector
             asPath={asPath}
             currentLocale={locale}
-            query={query}
           />
         </div>
       </div>

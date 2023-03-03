@@ -1,65 +1,31 @@
 import { useContext } from "react";
 import Link from "next/link";
-import { Menu, MenuList, MenuButton, MenuLink } from "@reach/menu-button";
-import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import { langs } from "config/i18n";
-import type { Lang } from "config/i18n";
-import type { NextParsedUrlQuery } from "next/dist/server/request-meta";
+import { es, en } from "config/i18n";
 import { BlogMeta } from "pages/blog/[slug]";
-
-type LocaleLinkProps = {
-  lang: Lang;
-  href: string;
-};
-
-function LocaleLink({ lang, href }: LocaleLinkProps) {
-  return (
-    <Link passHref href={href} locale={lang.locale}>
-      <MenuLink className={"items-center"}>{lang.flag}</MenuLink>
-    </Link>
-  );
-}
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 type Props = {
   currentLocale: string | undefined;
   asPath: string;
-  query: NextParsedUrlQuery;
 };
 
 export const LocaleSelector = ({ currentLocale, asPath }: Props) => {
   const isArticle = asPath.includes("/blog/");
-  const article = useContext(BlogMeta)
+  const article = useContext(BlogMeta);
 
-  const getAlternativeArticleHref = (targetLocale: string): string =>{
-    return article[targetLocale+'Version'] || asPath
-  }
- 
+  const lang = currentLocale === "en" ? es : en;
+
+  const getAlternativeArticleHref = (targetLocale: string): string => {
+    return article[targetLocale + "Version"] || asPath;
+  };
+
   return (
-    <Menu>
-      {({ isOpen }) => (
-        <div className="pl-4">
-          <MenuButton className="flex flex-row items-center">
-            {langs.find((lang) => lang.locale === currentLocale)?.flag}
-            {isOpen ? (
-              <BiChevronUp className="text-black dark:text-white" />
-            ) : (
-              <BiChevronDown className="text-gray dark:text-white hover:text-black dark:hover:text-gray-100" />
-            )}
-          </MenuButton>
-          <MenuList>
-            {langs.map(
-              (lang) =>
-                lang.locale !== currentLocale && (
-                  <LocaleLink
-                    lang={lang}
-                    key={lang.locale}
-                    href={isArticle ? getAlternativeArticleHref(lang.locale): asPath}
-                  />
-                )
-            )}
-          </MenuList>
-        </div>
-      )}
-    </Menu>
+    <Link
+      href={isArticle ? getAlternativeArticleHref(lang.locale) : asPath}
+      locale={lang.locale}
+      className='cursor-pointer'
+    >
+      {lang.flag}
+    </Link>
   );
 };

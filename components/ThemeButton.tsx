@@ -1,24 +1,18 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { BsFillSunFill, BsFillMoonStarsFill } from "react-icons/bs";
 
 export const ThemeButton = () => {
-  const [theme, setTheme] = useState("");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (theme) {
-      if (theme === "dark") {
-        document.body.classList.replace("light", "dark");
-      } else if (theme === "light") {
-        document.body.classList.replace("dark", "light");
-      }
-      localStorage.setItem("theme", theme);
-    } else {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-      const startingTheme = localStorage.getItem("theme") || systemTheme;
-      setTheme(startingTheme);
-      document.body.classList.add(startingTheme);
-    }
-  }, [theme]);
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <button
@@ -32,4 +26,4 @@ export const ThemeButton = () => {
       )}
     </button>
   );
-}
+};

@@ -15,13 +15,14 @@
   "home": {
     "about": "Acerca de",
     "blog": "Blog",
+    "developer": "developer,",
     "learn_more": "Más acerca de mí",
     "me": "mí,",
     "recent_posts": "Posts recientes",
-    "subtitle": "desarrollador react,",
-    "title": "¡Hola! Soy Mateo",
-    "view_all_blogs": "Ver todos los posts >",
-    "welcome_text": "Developer Jr de rápido aprendizaje, orientado a entregar el mejor resultado."
+    "software": "software",
+    "title": "¡Hola! Soy Mateo.",
+    "view_all_blogs": "Ver todos los posts",
+    "welcome_text": "Desarrollador full-stack orientado a entregar el mejor resultado."
   },
   "about": {
     "about": "Acerca de",

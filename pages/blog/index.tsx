@@ -1,8 +1,9 @@
 import { useI18n } from "next-localization";
-import { Container, Heading, PostCard } from "components";
+import { Container, PostCard } from "components";
 import { PostInfo, getCurrentLocaleMetadata } from "lib/mdx";
-import typewriter from "styles/typing-effect.module.css";
+import styles from "styles/typing-effect.module.css";
 import { GetStaticProps } from "next";
+import { FadeOnView } from "components/FadeOnView";
 
 type Props = {
   posts: PostInfo[];
@@ -13,11 +14,11 @@ export default function Blogs({ posts }: Props) {
 
   return (
     <Container>
-      <div className="flex min-h-400 justify-center items-center flex-col">
-        <Heading className={`my-8 justify-center ${typewriter}`}>
+      <div className="pt-28 xl:pt-20 flex flex-col max-w-5xl mx-auto min-h-screen items-center p-4 gap-10">
+        <h1>
           {i18n.t("blogs.heading")}
-        </Heading>
-        <div className="pb-4 flex flex-col items-center">
+        </h1>
+        <div className="flex flex-col items-center gap-4">
           {posts
             .filter((item) => !item.isHidden)
             .sort(

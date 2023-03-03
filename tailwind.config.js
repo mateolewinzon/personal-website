@@ -4,31 +4,20 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./blog/*.mdx"
+    "./blog/*.mdx",
   ],
   theme: {
-    container: {
-      padding: {
-        DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "4rem",
-        xl: "5rem",
-        "2xl": "15rem",
-      },
-    },
     extend: {
-      minHeight: { 500: "500px", 400: "400px", 300: "300px" },
-
-      colors: {
-        "blue-dark": "#0553e3",
-        black: "#111111",
-        'black-800': "#1E1E1E",
-        red: "#EE0047",
-        "red-light": "#FFE4E1",
-        "red-dark": "#AD001C",
-        blue: "#1e6dff",
+      animation: {
+        fadeIn: "fadeIn 1s ease-in-out",
       },
+      keyframes: (theme) => ({
+        fadeIn: {
+          "0%": { opacity: "0%",  paddingTop: '20px'},
+          "100%": { opacity: "100%", paddingTop: '0px'},
+        },
+      }),
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require("@tailwindcss/typography")],
 };

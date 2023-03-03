@@ -1,13 +1,6 @@
 import { useRouter } from "next/router";
 import { useI18n } from "next-localization";
-import {
-  SpanSecondary,
-  Heading,
-  PostTags,
-  BlogHead,
-  ViewCount,
-  ReadingTime,
-} from "components";
+import { PostTags, BlogHead, ViewCount, ReadingTime } from "components";
 import formatDate from "utils/date";
 import { useContext } from "react";
 import { BlogMeta } from "pages/blog/[slug]";
@@ -20,26 +13,25 @@ export const BlogLayout = ({ children }: Props) => {
   const i18n = useI18n();
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mt-16 p-4">
       <BlogHead data={data} />
       <article className="prose max-w-2xl dark:prose-invert flex flex-col w-full">
-        <Heading className="my-6">{data.title}</Heading>
+        <h1 className="my-6">{data.title}</h1>
         <PostTags tags={data.tags} />
         <div className="flex flex-col sm:flex-row justify-between py-3">
           {data.dateCreated && (
-            <SpanSecondary className="font-light text-sm">
+            <span className="font-light text-sm">
               {`${i18n.t("blogs.author")} / ${i18n.t(
                 "blogs.published_on"
               )} ${formatDate(locale, data.dateCreated)}`}
-            </SpanSecondary>
+            </span>
           )}
           <div>
             <ViewCount slug={data.slug} />
             {data.readingTime && <ReadingTime minutes={data.readingTime} />}
           </div>
         </div>
-        <div>
-        {children}</div>
+        <div>{children}</div>
       </article>
     </div>
   );

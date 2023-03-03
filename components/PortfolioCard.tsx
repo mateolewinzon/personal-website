@@ -1,20 +1,20 @@
 import projects from "config/projects";
 import Image from "next/image";
-import { PostTags } from "./PostTags";
-import { Span } from "./Span";
+import { PostTags } from "components";
+import Slider from "./Slider";
 
 type Props = {
   project: typeof projects["en"][0];
 };
 
 export const PortfolioCard = ({ project }: Props) => (
-  <div className="grid sm:grid-cols-3 gap-2 outline outline-1 rounded-md outline-neutral-200 hover:outline-neutral-300 dark:outline-neutral-800 dark:hover:outline-neutral-700 p-4 m-4 md:max-w-2xl rem py-5">
-    <div className="flex flex-col sm:col-span-2 gap-3 sm:gap-0 justify-between">
+  <div className="flex flex-col items-between w-full gap-3 rounded-lg p-4">
+    <div className="flex flex-col gap-3 sm:gap-3">
       <a target="_blank" rel="noreferrer" href={project.url}>
         <div className="flex items-center gap-2">
-          <Span className="text-3xl font-semibold hover:underline">
+          <span className="text-3xl font-semibold hover:underline text-gray-900 dark:text-gray-100">
             {project.title}
-          </Span>
+          </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -34,8 +34,10 @@ export const PortfolioCard = ({ project }: Props) => (
           </svg>
         </div>
       </a>
-      <Span className="text-base">{project.description}</Span>
-      <div className="flex items-center">
+      <span className="text-base text-gray-800 dark:text-gray-300">
+        {project.description}
+      </span>
+      <div className="flex items-center my-2">
         <PostTags tags={project.tags} />
         <a href={project.repoURL} rel="noreferrer" target="_blank">
           <svg
@@ -52,14 +54,7 @@ export const PortfolioCard = ({ project }: Props) => (
       </div>
     </div>
     <div className="hidden sm:block">
-      <Image
-        alt={project.title}
-        className="rounded-xl"
-        width="300px"
-        height="300px"
-        src={`/images/projects/${project.thumbnail}`}
-        objectFit="cover"
-      />
+     <Slider images={[project.thumbnail]}/>
     </div>
   </div>
 );

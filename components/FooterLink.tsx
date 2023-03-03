@@ -7,6 +7,7 @@ type Props = {
 }
 
 export const FooterLink = ({ href, isExternal, children }: Props) => {
+
     const Component = isExternal
         ? ({ ...props }) => (
             <a {...props} target="_blank">

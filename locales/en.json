@@ -15,12 +15,13 @@
   "home": {
     "about": "About",
     "blog": "Blog",
+    "developer": "developer,",
     "learn_more": "About me",
     "me": "me,",
     "recent_posts": "Recent posts",
-    "subtitle": "software developer,",
+    "software": "software",
     "title": "Hello there! I'm Mateo.",
-    "view_all_blogs": "View all blog posts >",
+    "view_all_blogs": "View all blog posts",
     "welcome_text": "I'm a fast learning, result-focused fullstack developer from Buenos Aires."
   },
   "about": {

@@ -1,18 +1,17 @@
 export type Lang = {
-  name: string,
-  locale: string,
-  flag: React.ReactNode
-}
+  name: string;
+  locale: string;
+  flag: React.ReactNode;
+};
 
-export const langs: Lang[] = [
-  {
-    name: "english",
-    locale: "en",
-    flag: <span className="fi text-xl fi-us"></span>,
-  },
-  {
-    name: "spanish",
-    locale: "es",
-    flag: <span className="fi text-xl fi-ar"></span>,
-  },
-];
+export const en: Lang = {
+  name: "english",
+  locale: "en",
+  flag: <i className="fi text-xl fi-us cursor-pointer"></i>,
+};
+
+export const es: Lang = {
+  name: "spanish",
+  locale: "es",
+  flag: <i className="fi text-xl fi-ar cursor-pointer"></i>,
+};
