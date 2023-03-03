@@ -6,7 +6,6 @@ html,
 body,
 #__next {
   height: 100%;
-  width: 100% !important;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -30,7 +29,7 @@ footer a {
 }
 
 .button {
-  @apply w-max rounded-md bg-sky-700 dark:bg-slate-700 font-semibold p-2 my-2 shadow-lg hover:shadow-xl text-gray-100
+  @apply max-w-fit text-start rounded-md bg-sky-700 dark:bg-slate-700 font-semibold p-2 my-2 shadow-lg hover:shadow-xl text-gray-100
 }
 
 .prose img {
