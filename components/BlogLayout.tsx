@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useI18n } from "next-localization";
-import { PostTags, BlogHead, ViewCount, ReadingTime } from "components";
+import { PostTags, BlogHead, ViewCount, ReadTime } from "components";
 import formatDate from "utils/date";
 import { useContext } from "react";
 import { BlogMeta } from "pages/blog/[slug]";
@@ -28,7 +28,7 @@ export const BlogLayout = ({ children }: Props) => {
           )}
           <div>
             <ViewCount slug={data.slug} />
-            {data.readingTime && <ReadingTime minutes={data.readingTime} />}
+            {data.readingTime && <ReadTime minutes={data.readingTime} />}
           </div>
         </div>
         <div>{children}</div>

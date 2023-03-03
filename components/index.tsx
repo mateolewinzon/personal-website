@@ -15,7 +15,7 @@ export { NowPlaying } from "./NowPlaying";
 export { PortfolioCard } from "./PortfolioCard";
 export { PostCard } from "./PostCard";
 export { PostTags } from "./PostTags";
-export { ReadingTime } from "./ReadingTime";
+export { ReadTime } from "./ReadTime";
 export { RecentPosts } from "./RecentPosts";
 export { ThemeButton } from "./ThemeButton";
 export { ViewCount } from "./ViewCount";

@@ -1,6 +1,6 @@
 import { useI18n } from "next-localization";
 
-export const ReadingTime = ({ minutes }: { minutes: Number }) => {
+export const ReadTime = ({ minutes }: { minutes: Number }) => {
   const i18n = useI18n();
 
   return (
