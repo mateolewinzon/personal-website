@@ -10,7 +10,6 @@ export const AboutMe = () => {
 
   return (
     <section className="bg-home-gradient">
-      <FadeOnView>
         <div className="flex max-w-5xl mx-auto min-h-screen items-center p-4 gap-4">
           <div className="flex flex-col gap-3">
             <h1>
@@ -52,7 +51,6 @@ export const AboutMe = () => {
             />
           </div>
         </div>
-      </FadeOnView>
     </section>
   );
 };

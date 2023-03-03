@@ -10,7 +10,6 @@ export const HomeWelcome = () => {
 
   return (
     <section className="bg-home-gradient">
-      <FadeOnView>
         <div className="flex max-w-5xl mx-auto items-center justify-between min-h-screen p-4 gap-4">
           <div className="flex flex-col gap-2">
             <h1>{i18n.t("home.title")}</h1>
@@ -32,7 +31,6 @@ export const HomeWelcome = () => {
             />
           </div>
         </div>
-      </FadeOnView>
     </section>
   );
 };
