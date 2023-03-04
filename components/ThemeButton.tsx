@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { BsFillSunFill, BsFillMoonStarsFill } from "react-icons/bs";
 
 export const ThemeButton = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -16,10 +16,10 @@ export const ThemeButton = () => {
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="rounded-xl dark:text-white"
     >
-      {theme === "dark" ? (
+      {resolvedTheme === "dark" ? (
         <BsFillSunFill size={"25"} />
       ) : (
         <BsFillMoonStarsFill size={"25"} />
