@@ -13,9 +13,9 @@ export const LocaleSelector = ({ currentLocale }: Props) => {
   const pathname = usePathname();
   const isArticle = pathname.includes("/blog/");
   const lang = currentLocale === "en" ? es : en;
+  const translatedSlugs = useContext(TranslatedSlugs);
 
   const getAlternativeArticleHref = (targetLocale: string): string => {
-    const translatedSlugs = useContext(TranslatedSlugs);
 
     return `/blog/${translatedSlugs[targetLocale]}`;
   };
