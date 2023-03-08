@@ -5,7 +5,7 @@ export const ReadTime = ({ minutes }: { minutes: Number }) => {
 
   return (
     <span className="text-sm self-center">
-      {` ● ${minutes} ${t("blogs.reading_time")}`}
+      {`${minutes} ${t("blogs.reading_time")}`}
     </span>
   );
 };
