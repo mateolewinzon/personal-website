@@ -55,10 +55,12 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths: { slug: string }[] = await client.fetch(GET_SLUGS);
+  const paths: { slug: string; locale: string }[] = await client.fetch(
+    GET_SLUGS
+  );
 
   return {
-    paths: paths.map(({ slug }) => ({ params: { slug } })),
+    paths: paths.map(({ slug, locale }) => ({ params: { slug }, locale })),
     fallback: "blocking",
   };
 };

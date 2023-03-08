@@ -41,7 +41,7 @@ export const GET_RELATED = `*[${posts} && category->.name == $category && _id !=
 }
 `;
 
-export const GET_SLUGS = `*[${posts} && ${isPublished} ] {"slug": slug.current}`;
+export const GET_SLUGS = `*[${posts} && ${isPublished} ] {"slug": slug.current, "locale": locale->.id }`;
 
 export const GET_CATEGORIES = `*[${categories}]`;
 
