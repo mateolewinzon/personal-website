@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useI18n } from "next-localization";
 import { usePathname } from "next/navigation";
 import { LocaleSelector, NavLink, ThemeButton } from "components";
+import useTranslation from "hooks/useTranslation";
 import { pages } from "config/pageList";
 
 export const Header = () => {
   const [toggleCollapse, setToggleCollapse] = useState(true);
   const pathname = usePathname();
-  const i18n = useI18n();
+  const { t, locale } = useTranslation();
 
   const ToggleButton = () => (
     <button
@@ -37,14 +37,16 @@ export const Header = () => {
 
   const Navigation = () => (
     <div
-      className={`${toggleCollapse ? "hidden" : ""} w-full md:block md:w-auto mx-2`}
+      className={`${
+        toggleCollapse ? "hidden" : ""
+      } w-full md:block md:w-auto mx-2`}
       id="navbar-default"
     >
       <ul className="flex flex-col md:flex-row">
         {pages.map((page, key) => (
           <li key={key}>
             <NavLink isActive={pathname === page.path} href={page.path}>
-              {i18n.t(`layout.${page.id}`)}
+              {t(`layout.${page.id}`)}
             </NavLink>
           </li>
         ))}
@@ -61,9 +63,7 @@ export const Header = () => {
         </div>
         <div className="flex items-center self-start p-4 md:p-2 gap-3">
           <ThemeButton />
-          <LocaleSelector
-            currentLocale={i18n.locale()}
-          />
+          <LocaleSelector currentLocale={locale} />
         </div>
       </div>
     </nav>

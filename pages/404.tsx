@@ -1,39 +1,34 @@
-import { Container } from "components/Container";
-import { GetStaticProps } from "next";
-import { useI18n } from "next-localization";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Container } from "components/Container";
+import useTranslation from "hooks/useTranslation";
+import { GetStaticProps } from "next";
 
 export default function NotFoundPage() {
-  const router = useRouter();
-  const isBlog = router.asPath.includes("/blog/");
-  const i18n = useI18n();
+  const pathname = usePathname();
+  const isBlog = pathname.includes("/blog/");
+  const { t } = useTranslation();
 
   return (
     <Container>
       <div className="flex items-center min-h-screen max-w-5xl mx-auto p-4">
         <div className="flex flex-col gap-5">
-          <h1>
-            {i18n.t(isBlog ? "notFound.blog.heading" : "notFound.heading")}
-          </h1>
+          <h1>{t(isBlog ? "notFound.blog.heading" : "notFound.heading")}</h1>
           <div className="flex flex-col gap-2">
             {isBlog ? (
               <>
-                <h3>{i18n.t("notFound.blog.subHeading")}</h3>
-                <Link locale="en" href="/blog">
-                  <a className="button">
-                    {i18n.t("notFound.blog.link_en")}
-                  </a>
+                <h3>{t("notFound.blog.subHeading")}</h3>
+                <Link locale="en" href="/blog" className="button">
+                  {t("notFound.blog.link_en")}
                 </Link>
-                <Link locale="es" href="/blog">
-                  <a className="button">
-                    {i18n.t("notFound.blog.link_es")}
-                  </a>
+                <Link locale="es" href="/blog" className="button">
+                  {t("notFound.blog.link_es")}
                 </Link>
               </>
             ) : (
               <>
-                <h3>{i18n.t("notFound.subHeading")}</h3>
+                <h3>{t("notFound.subHeading")}</h3>
               </>
             )}
           </div>
@@ -44,7 +39,9 @@ export default function NotFoundPage() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const { default: lngDict = {} } = await import(`locales/${locale}.json`);
-
-  return { props: { lngDict } };
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!)),
+    },
+  };
 };

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useI18n } from "next-localization";
+import useTranslation from "hooks/useTranslation";
 import { PostCard } from ".";
 import { FadeOnView } from "./FadeOnView";
 import type { Post } from "lib/types";
@@ -9,13 +9,13 @@ type Props = {
 };
 
 export const RecentPosts = ({ posts }: Props) => {
-  const i18n = useI18n();
+  const { t } = useTranslation();
 
   return (
     <section className="max-w-5xl mx-auto my-16 md:my-10 w-full p-4">
       <div className="flex flex-col items-center gap-10">
         <FadeOnView>
-          <h2>{i18n.t("home.recent_posts")}</h2>
+          <h2>{t("home.recent_posts")}</h2>
         </FadeOnView>
         <div className="flex gap-10 flex-col">
           {posts
@@ -28,7 +28,7 @@ export const RecentPosts = ({ posts }: Props) => {
         </div>
         <div>
           <span className="button">
-            <Link href="/blog">{i18n.t("home.view_all_blogs")}</Link>
+            <Link href="/blog">{t("home.view_all_blogs")}</Link>
           </span>
         </div>
       </div>

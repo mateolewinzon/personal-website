@@ -1,3 +1,4 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { RecentPosts, HomeWelcome, Container } from "components";
 import type { GetStaticProps } from "next";
 import type { Post } from "lib/types";
@@ -23,9 +24,11 @@ export default function Home({ posts }: Props) {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts: Post[] = await client.fetch(GET_POSTS, { locale });
-  const { default: lngDict = {} } = await import(`locales/${locale}.json`);
 
   return {
-    props: { posts, lngDict },
+    props: {
+      ...(await serverSideTranslations(locale!)),
+      posts,
+    },
   };
 };

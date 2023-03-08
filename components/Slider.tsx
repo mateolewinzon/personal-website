@@ -16,7 +16,7 @@ export default function Slider({ images }: Props) {
 
   return (
     <div className="grid grid-cols-3 gap-2">
-      {images.map((image, key) => (
+      {/* {images.map((image, key) => (
         <Image
           key={key}
           width={800}
@@ -24,7 +24,7 @@ export default function Slider({ images }: Props) {
           objectFit="cover"
           src={getUrl(image).height(600).width(800).url()}
         />
-      ))}
+      ))} */}
     </div>
   );
 }

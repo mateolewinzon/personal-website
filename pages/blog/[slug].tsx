@@ -1,5 +1,6 @@
 import { useEffect, createContext } from "react";
 import { MDXRemote } from "next-mdx-remote";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { MDXComponents, BlogLayout, Container } from "components";
 import { mdxToHtml } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -42,15 +43,13 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
 
   const content = await mdxToHtml(post.content);
 
-  const { default: lngDict = {} } = await import(`locales/${locale}.json`);
-
   return {
     props: {
+      ...(await serverSideTranslations(locale!)),
       post: {
         ...post,
         content,
       },
-      lngDict,
     },
   };
 };

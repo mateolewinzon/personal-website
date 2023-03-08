@@ -1,3 +1,4 @@
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { AboutMe, Container } from "components";
 import { GetStaticProps } from "next";
 
@@ -10,9 +11,7 @@ const About = () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const { default: lngDict = {} } = await import(`locales/${locale}.json`);
-
-  return { props: { lngDict } };
+  return { props: { ...(await serverSideTranslations(locale!)) } };
 };
 
 export default About;

@@ -1,6 +1,5 @@
-import { I18nProvider } from "next-localization";
-import { useRouter } from "next/router";
 import { Analytics } from "@vercel/analytics/react";
+import { appWithTranslation } from "next-i18next";
 
 import "styles/code-highlight.css";
 import "styles/globals.css";
@@ -10,16 +9,13 @@ import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps<{ lngDict: {} }>) {
   const { lngDict, ...rest } = pageProps;
-  const router = useRouter();
 
   return (
-    <I18nProvider locale={router?.locale as string} lngDict={lngDict}>
-      <ThemeProvider attribute="class">
-        <Component {...rest} />
-        <Analytics />
-      </ThemeProvider>
-    </I18nProvider>
+    <ThemeProvider attribute="class">
+      <Component {...rest} />
+      <Analytics />
+    </ThemeProvider>
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

@@ -14,7 +14,7 @@ export const PostCard = ({ item }: Props) => {
       }
     >
       <Link href={`/blog/${item.slug}`}>
-        <a className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3">
           <span className="text-xl text-gray-800 dark:text-gray-100 font-semibold">
             {item.title}
           </span>
@@ -25,7 +25,7 @@ export const PostCard = ({ item }: Props) => {
             <PostTags tags={item.categories} />
             <ViewCount slug={item.slug} />
           </div>
-        </a>
+        </div>
       </Link>
     </div>
   );

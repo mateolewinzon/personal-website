@@ -1,17 +1,20 @@
 import Image from "next/image";
 import useSWR from "swr";
-import { useI18n } from "next-localization";
+import useTranslation from "hooks/useTranslation";
 import { fetcher } from "utils/fetcher";
 
 export const NowPlaying = () => {
   const { data } = useSWR("/api/now-playing", fetcher);
-  const i18n = useI18n();
+  const { t } = useTranslation();
 
   const { isPlaying, title, artist, albumImageUrl, album } = data || {};
 
   return (
     <div className="flex flex-col gap-3">
-     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/loadbar-sound.css' rel='stylesheet'/>
+      <link
+        href="https://unpkg.com/css.gg@2.0.0/icons/css/loadbar-sound.css"
+        rel="stylesheet"
+      />
       <div className="flex items-center gap-4  dark:text-gray-200">
         <svg className="h-5 w-5" viewBox="0 0 168 168">
           <path
@@ -20,11 +23,9 @@ export const NowPlaying = () => {
           />
         </svg>
         <span className="dark:text-gray-100 font-medium">
-          {isPlaying ? i18n.t("layout.playing") : i18n.t("layout.not_playing")}
+          {isPlaying ? t("layout.playing") : t("layout.not_playing")}
         </span>
-        {isPlaying && (
-          <i className="gg-loadbar-sound"></i>
-        )}
+        {isPlaying && <i className="gg-loadbar-sound"></i>}
         <span className="text-lg">– Spotify</span>
       </div>
       {isPlaying && (

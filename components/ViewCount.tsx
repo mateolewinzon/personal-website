@@ -1,9 +1,9 @@
-import { useI18n } from "next-localization";
 import useSWR from "swr";
+import useTranslation from "hooks/useTranslation";
 import { fetcher } from "utils/fetcher";
 
 export const ViewCount = ({ slug }: { slug: string }) => {
-  const i18n = useI18n();
+  const { t } = useTranslation();
 
   const { data: views } = useSWR(`/api/views/${slug}`, fetcher, {
     revalidateOnFocus: false,
@@ -11,7 +11,7 @@ export const ViewCount = ({ slug }: { slug: string }) => {
 
   return (
     <span className="text-sm self-center dark:text-gray-300">
-      {views ? views : "-"} {i18n.t("blogs.view_count")}
+      {views ? views : "-"} {t("blogs.view_count")}
     </span>
   );
 };
