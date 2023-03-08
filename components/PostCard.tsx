@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { PostTags, ViewCount } from "components";
-import type { PostInfo } from "lib/mdx";
+import { Post } from "lib/types";
 
 type Props = {
-  item: PostInfo;
+  item: Post;
 };
 
 export const PostCard = ({ item }: Props) => {
@@ -19,10 +19,10 @@ export const PostCard = ({ item }: Props) => {
             {item.title}
           </span>
           <span className="text-base text-gray-600 dark:text-gray-300">
-            {item.description}
+            {item.teaser}
           </span>
           <div className="flex flex-row my-2">
-            <PostTags tags={item.tags} />
+            <PostTags tags={item.categories} />
             <ViewCount slug={item.slug} />
           </div>
         </a>

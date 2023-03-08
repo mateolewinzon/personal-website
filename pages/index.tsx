@@ -1,10 +1,11 @@
 import { RecentPosts, HomeWelcome, Container } from "components";
-import { getCurrentLocaleMetadata } from "lib/mdx";
-import type { PostInfo } from "lib/mdx";
 import type { GetStaticProps } from "next";
+import type { Post } from "lib/types";
+import { client } from "lib/sanity";
+import { GET_POSTS } from "lib/queries";
 
 type Props = {
-  posts: PostInfo[];
+  posts: Post[];
 };
 
 export default function Home({ posts }: Props) {
@@ -13,7 +14,7 @@ export default function Home({ posts }: Props) {
       <HomeWelcome />
       <RecentPosts
         posts={posts
-          .sort((a, b) => Date.parse(b.dateCreated) - Date.parse(a.dateCreated))
+          .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
           .slice(0, 3)}
       />
     </Container>
@@ -21,10 +22,10 @@ export default function Home({ posts }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const currentLocaleFiles = getCurrentLocaleMetadata(locale as string);
+  const posts: Post[] = await client.fetch(GET_POSTS, { locale });
   const { default: lngDict = {} } = await import(`locales/${locale}.json`);
 
   return {
-    props: { posts: currentLocaleFiles, lngDict },
+    props: { posts, lngDict },
   };
 };

@@ -1,10 +1,9 @@
-import projects from "config/projects";
-import Image from "next/image";
 import { PostTags } from "components";
 import Slider from "./Slider";
+import { Project } from "lib/types";
 
 type Props = {
-  project: typeof projects["en"][0];
+  project: Project;
 };
 
 export const PortfolioCard = ({ project }: Props) => (
@@ -38,7 +37,7 @@ export const PortfolioCard = ({ project }: Props) => (
         {project.description}
       </span>
       <div className="flex items-center my-2">
-        <PostTags tags={project.tags} />
+        <PostTags tags={project.techs} />
         <a href={project.repoURL} rel="noreferrer" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,8 +52,6 @@ export const PortfolioCard = ({ project }: Props) => (
         </a>
       </div>
     </div>
-    <div className="hidden sm:block">
-     <Slider images={[project.thumbnail]}/>
-    </div>
+    <Slider images={project.images} />
   </div>
 );

@@ -55,5 +55,15 @@
   },
   "portfolio": {
     "heading": "Mi Portfolio"
+  },
+  "notFound": {
+    "heading": "404 - No encontrada :(",
+    "subHeading": "La página que estás solicitando no existe",
+    "blog": {
+      "heading": "Este blog no existe",
+      "subHeading": "Es posible que este blog no tenga traducción en español. Te invito a que disfrutes la otra versión :)",
+      "link_en": "Ver todos mis blogs en inglés",
+      "link_es": "Ver todos mis blogs en español"
+    }
   }
 }

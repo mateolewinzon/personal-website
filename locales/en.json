@@ -55,5 +55,15 @@
   },
   "portfolio": {
     "heading": "My Portfolio"
+  },
+  "notFound": {
+    "blog": {
+      "heading": "This blog doesn't exist :(",
+      "subHeading": "Most likely the article doesn't have an English translation. I invite you to check all of my articles available :)",
+      "link_en": "Articles in english",
+      "link_es": "Articles in español"
+    },
+    "heading": "404 - Not found :(",
+    "subHeading": "looks like I haven't added an index.tsx for this one yet"
   }
 }

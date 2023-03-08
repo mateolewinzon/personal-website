@@ -1,86 +1,37 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import rehypePrism from "rehype-prism-plus";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeExtractHeadings from "./extractHeadings";
 import { serialize } from "next-mdx-remote/serialize";
+import type { Heading } from "./types";
+import readingTime from "reading-time";
 
-const root = process.cwd();
+export async function mdxToHtml(mdx: any) {
+  const headings: Heading[] = [];
 
-export type PostInfo = {
-  description: string;
-  dateCreated: string;
-  dateUpdated: string;
-  enVersion?: string;
-  esVersion?: string;
-  isPortfolio?: boolean;
-  isPublished: boolean;
-  isHidden?: boolean;
-  locale: string | undefined;
-  readingTime?: Number;
-  slug: string;
-  tags: string[];
-  title: string;
-  thumbnail?: string
-};
-
-export const getFiles = (): string[] => fs.readdirSync(path.join(root, "blog"));
-
-export const getFileBySlug = async (slug: string) => {
-  const mdx = fs.readFileSync(path.join(root, "blog", `${slug}.mdx`), "utf-8");
-  const { data, content } = matter(mdx);
-  const source = await serialize(content, {
+  const mdxSource = await serialize(mdx, {
     mdxOptions: {
-      rehypePlugins: [rehypeCodeTitles, [rehypePrism, { ignoreMissing: true }]],
-      format: "mdx",
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            properties: {
+              className: ["anchor"],
+            },
+          },
+        ],
+        [rehypeExtractHeadings, { rank: 2, headings }],
+        rehypeCodeTitles,
+        [rehypePrism, { ignoreMissing: true }],
+      ],
     },
   });
 
   return {
-    source,
-    data: {
-      slug,
-      ...data,
-    },
+    ...mdxSource,
+    headings,
+    readingTime: Math.ceil(readingTime(mdx).minutes),
   };
-};
-
-export const getAllMetadataByLocales = () => {
-  const files = getFiles();
-
-  const filesByLocale = files.reduce<{
-    [key: string]: PostInfo[];
-  }>(
-    (allPosts, postSlug) => {
-      const source = fs.readFileSync(
-        path.join(root, "blog", postSlug),
-        "utf-8"
-      );
-      const { data } = matter(source);
-
-      if (!data.isPublished) {
-        return allPosts;
-      }
-
-      return {
-        ...allPosts,
-        [data.locale]: [
-          ...allPosts[data.locale],
-          { ...data, slug: postSlug.replace(".mdx", "") },
-        ],
-      };
-    },
-    { en: [], es: [] }
-  );
-
-  return filesByLocale;
-};
-
-export const getCurrentLocaleMetadata = (
-  locale: string | undefined
-): PostInfo[] => {
-  const filesByLocale = getAllMetadataByLocales();
-  const currentLocaleFiles = filesByLocale[locale as string];
-
-  return currentLocaleFiles;
-};
+}

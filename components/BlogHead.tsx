@@ -1,12 +1,12 @@
 import Head from "next/head"
-import type { PostInfo } from "lib/mdx"
+import type { Post } from "lib/types"
 
-type Props = { data: PostInfo }
+type Props = { data: Post }
 
 export const BlogHead = ({ data }: Props) => <Head>
   <title>{data.title}</title>
-  <meta name="description" content={data.description} />
+  <meta name="description" content={data.teaser} />
   <meta name="og:title" content={data.title} />
-  <meta name="og:description" content={data.description} />
-  <meta name="twitter:card" content={data.description}></meta>
+  <meta name="og:description" content={data.teaser} />
+  <meta name="twitter:card" content={data.teaser}></meta>
 </Head>

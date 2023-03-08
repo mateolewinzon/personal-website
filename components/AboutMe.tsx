@@ -3,7 +3,6 @@ import { useI18n } from "next-localization";
 import styles from "styles/typing-effect.module.css";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
-import { FadeOnView } from "./FadeOnView";
 
 export const AboutMe = () => {
   const i18n = useI18n();

@@ -1,58 +1,66 @@
-import { createContext, useEffect } from "react";
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
+import { useEffect, createContext } from "react";
+import { MDXRemote } from "next-mdx-remote";
 import { MDXComponents, BlogLayout, Container } from "components";
-import { getAllMetadataByLocales, getFileBySlug } from "lib/mdx";
+import { mdxToHtml } from "lib/mdx";
 import { GetStaticPaths, GetStaticProps } from "next";
-import type { PostInfo } from "lib/mdx";
+import { Post } from "lib/types";
+import { client } from "lib/sanity";
+import { GET_POST, GET_SLUGS } from "lib/queries";
 
 type Props = {
-  data: PostInfo;
-  source: any;
+  post: Post;
 };
 
-export const BlogMeta = createContext<PostInfo>(null!);
+export const TranslatedSlugs = createContext({});
 
-const Blog = ({ source, data }: Props) => {
+const Blog = ({ post }: Props) => {
   useEffect(() => {
-    fetch(`/api/views/${data.slug}`, { method: "POST" });
-  }, [data.slug]);
+    fetch(`/api/views/${post.slug}`, { method: "POST" });
+  }, [post.slug]);
 
   return (
-    <BlogMeta.Provider value={data}>
+    <TranslatedSlugs.Provider
+      value={{ es: post.esVersion, en: post.enVersion }}
+    >
       <Container>
-        <BlogLayout>
-          <MDXRemote components={MDXComponents} {...source} />
+        <BlogLayout post={post}>
+          <MDXRemote components={MDXComponents} {...post.content} />
         </BlogLayout>
       </Container>
-    </BlogMeta.Provider>
+    </TranslatedSlugs.Provider>
   );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  const { source, data } = await getFileBySlug(params?.slug as string);
+  const post: Post = await client.fetch(GET_POST, { slug: params!.slug });
+
+  if (!post.content) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const content = await mdxToHtml(post.content);
+
   const { default: lngDict = {} } = await import(`locales/${locale}.json`);
-  return { props: { source, data, lngDict } };
+
+  return {
+    props: {
+      post: {
+        ...post,
+        content,
+      },
+      lngDict,
+    },
+  };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const filesByLocale = getAllMetadataByLocales();
-
-  type pagePaths = {
-    params: { slug: string };
-    locale: string;
-  };
-
-  let paths: pagePaths[] = [];
-
-  for (let locale in filesByLocale) {
-    filesByLocale[locale].map((file) =>
-      paths.push({ params: { slug: file.slug }, locale })
-    );
-  }
+  const paths: { slug: string }[] = await client.fetch(GET_SLUGS);
 
   return {
-    paths,
-    fallback: false,
+    paths: paths.map(({ slug }) => ({ params: { slug } })),
+    fallback: "blocking",
   };
 };
 

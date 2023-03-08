@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useI18n } from "next-localization";
-import { useRouter } from "next/router";
-import { LocaleSelector, NavLink, ThemeButton } from ".";
+import { usePathname } from "next/navigation";
+import { LocaleSelector, NavLink, ThemeButton } from "components";
 import { pages } from "config/pageList";
 
 export const Header = () => {
   const [toggleCollapse, setToggleCollapse] = useState(true);
-  const { asPath, locale, query } = useRouter();
+  const pathname = usePathname();
   const i18n = useI18n();
 
   const ToggleButton = () => (
@@ -43,7 +43,7 @@ export const Header = () => {
       <ul className="flex flex-col md:flex-row">
         {pages.map((page, key) => (
           <li key={key}>
-            <NavLink isActive={asPath === page.path} href={page.path}>
+            <NavLink isActive={pathname === page.path} href={page.path}>
               {i18n.t(`layout.${page.id}`)}
             </NavLink>
           </li>
@@ -62,8 +62,7 @@ export const Header = () => {
         <div className="flex items-center self-start p-4 md:p-2 gap-3">
           <ThemeButton />
           <LocaleSelector
-            asPath={asPath}
-            currentLocale={locale}
+            currentLocale={i18n.locale()}
           />
         </div>
       </div>

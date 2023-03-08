@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "next-localization";
 import style from "styles/typing-effect.module.css";
-import { twMerge } from "tailwind-merge";
-import { FadeOnView } from "./FadeOnView";
 
 export const HomeWelcome = () => {
   const i18n = useI18n();

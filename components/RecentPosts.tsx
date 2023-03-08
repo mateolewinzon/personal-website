@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { useI18n } from "next-localization";
 import { PostCard } from ".";
-import { PostInfo } from "lib/mdx";
 import { FadeOnView } from "./FadeOnView";
+import type { Post } from "lib/types";
 
 type Props = {
-  posts: PostInfo[];
+  posts: Post[];
 };
 
 export const RecentPosts = ({ posts }: Props) => {
