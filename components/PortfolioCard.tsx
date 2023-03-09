@@ -1,5 +1,4 @@
 import { PostTags } from "components";
-import Slider from "./Slider";
 import { Project } from "lib/types";
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
 };
 
 export const PortfolioCard = ({ project }: Props) => (
-  <div className="flex flex-col items-between w-full gap-3 rounded-lg p-4">
+  <div className="flex flex-col w-full gap-3 rounded-lg p-4">
     <div className="flex flex-col gap-3 sm:gap-3">
       <a target="_blank" rel="noreferrer" href={project.url}>
         <div className="flex items-center gap-2">
@@ -38,7 +37,7 @@ export const PortfolioCard = ({ project }: Props) => (
       </span>
       <div className="flex items-center my-2">
         <PostTags tags={project.techs} />
-        <a href={project.repoURL} rel="noreferrer" target="_blank">
+        <a href={project.repoUrl} rel="noreferrer" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="25"
@@ -52,6 +51,5 @@ export const PortfolioCard = ({ project }: Props) => (
         </a>
       </div>
     </div>
-    <Slider images={project.images} />
   </div>
 );

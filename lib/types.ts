@@ -30,7 +30,7 @@ export type Project = {
   images: string[]
   isPublished: boolean
   locale: string
-  repoURL: string
+  repoUrl: string
   techs: string[]
   title: string
   url: string

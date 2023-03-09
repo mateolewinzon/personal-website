@@ -8,6 +8,8 @@ import { GET_PROJECTS } from "lib/queries";
 import type { GetStaticProps } from "next";
 
 export default function Portfolio({ projects }) {
+  console.log(projects[0].url);
+
   const { t } = useTranslation();
   return (
     <Container>
@@ -20,13 +22,9 @@ export default function Portfolio({ projects }) {
       </Head>
       <div className="pt-28 flex flex-col items-center mx-auto max-w-5xl p-4 gap-10">
         <h1>{t("portfolio.heading")}</h1>
-        <div className="grid items-center my-4 gap-12">
-          {projects.map((project, key) => (
-            <FadeOnView key={key}>
-              <PortfolioCard project={project} />
-            </FadeOnView>
-          ))}
-        </div>
+        {projects.map((project, key) => (
+          <PortfolioCard key={key} project={project} />
+        ))}
       </div>
     </Container>
   );

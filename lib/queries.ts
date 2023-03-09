@@ -18,6 +18,8 @@ const projectFields = `
   description,
   images,
   techs,
+  url,
+  repoUrl,
   "locale": locale->.id,
 `;
 
