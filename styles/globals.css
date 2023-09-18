@@ -106,5 +106,12 @@ pre {
   background: linear-gradient(90deg, #BD0336 0%, #710B7A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: rgba(62,212,170,1)!important
+}
+
+.dark .colorful-text{
+  background: rgb(255,0,87);
+  background: linear-gradient(90deg, rgba(255,0,87,1) 0%, rgba(225,69,252,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
