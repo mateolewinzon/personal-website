@@ -8,8 +8,8 @@ export const HomeWelcome = () => {
 
   return (
     <section className="bg-home-gradient">
-      <div className="flex max-w-5xl mx-auto items-center justify-between min-h-screen p-4 gap-4">
-        <div className="flex flex-col gap-2">
+      <div className="flex max-w-5xl mx-auto items-center justify-center text-center min-h-screen p-4 gap-4">
+        <div className="flex flex-col gap-2 items-center">
           <h1>{t("home.title")}</h1>
           <h2 className="font-black text-5xl colorful-text">
             <span> {t("home.software")}</span>
@@ -20,14 +20,7 @@ export const HomeWelcome = () => {
             {t("home.learn_more")}
           </Link>
         </div>
-        <div className="hidden md:inline">
-          <Image
-            alt="mateo_mountains"
-            width={300}
-            height={300}
-            src="/images/mateo_mountains.jpg"
-          />
-        </div>
+      
       </div>
     </section>
   );
