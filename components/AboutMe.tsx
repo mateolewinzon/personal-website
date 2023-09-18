@@ -14,7 +14,7 @@ export const AboutMe = () => {
           <h1>
             <span className="text-4xl">{t("about.about")}</span>{" "}
             <span
-              className={twMerge("text-4xl colorful-text", styles.typewriter)}
+              className={twMerge("text-4xl")}
             >
               {t("about.me")}
             </span>
