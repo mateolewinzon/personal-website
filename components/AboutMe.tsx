@@ -8,7 +8,7 @@ export const AboutMe = () => {
   const {t, locale} = useTranslation();
 
   return (
-    <section className="bg-home-gradient">
+    <section>
       <div className="flex max-w-5xl mx-auto min-h-screen items-center p-4 gap-4">
         <div className="flex flex-col gap-3">
           <h1>

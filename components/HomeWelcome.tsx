@@ -7,7 +7,7 @@ export const HomeWelcome = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="bg-home-gradient">
+    <section>
       <div className="flex max-w-5xl mx-auto items-center justify-center text-center min-h-screen p-4 gap-4">
         <div className="flex flex-col gap-2 items-center">
           <h1>{t("home.title")}</h1>
