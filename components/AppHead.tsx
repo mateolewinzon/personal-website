@@ -2,10 +2,10 @@ import Head from "next/head"
 
 export const AppHead = () => {
     return <Head>
-        <title>Mateo Lewinzon - Software Developer</title>
+        <title>Mateo Lewinzon</title>
         <meta
             name="description"
-            content="Desarrollador front-end JR buscando una primera oportunidad laboral"
+            content="Full-stack developer working in the fintech industry"
         />
     </Head>
 }
