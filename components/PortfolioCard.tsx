@@ -48,7 +48,7 @@ type Props = {
 
 
 export const PortfolioCard = ({ project }: Props) => (
-  <div className="flex flex-col gap-3 sm:gap-3">
+  <div className="flex flex-col gap-3 sm:gap-3 bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg border dark:border-neutral-700">
     <div className="flex  items-center gap-3  ">
       {project.url ? <TitleWithLink title={project.title} url={project.url} /> : <Title title={project.title} />}
       {project.repoUrl && <Github repoUrl={project.repoUrl} />}

@@ -10,7 +10,7 @@ export const PostCard = ({ item }: Props) => {
   return (
     <div
       className={
-        "flex flex-col w-full"
+        "flex flex-col bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg border dark:border-neutral-700"
       }
     >
       <Link href={`/blog/${item.slug}`}>
