@@ -5,7 +5,7 @@ export const AppHead = () => {
         <title>Mateo Lewinzon</title>
         <meta
             name="description"
-            content="Full-stack developer working in the fintech industry"
+            content="Full-stack developer working in fintech"
         />
     </Head>
 }
