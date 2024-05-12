@@ -29,7 +29,7 @@ footer a {
 }
 
 .button {
-  @apply max-w-fit text-start rounded-md bg-sky-700 dark:bg-slate-700 font-semibold p-2 my-2 shadow-lg hover:shadow-xl text-gray-100
+  @apply max-w-fit text-start rounded-md bg-sky-700 dark:bg-gray-700 font-semibold p-2 my-2 shadow-lg hover:shadow-xl text-gray-100
 }
 
 .prose img {
@@ -93,13 +93,8 @@ pre {
   content: attr(line);
 }
 
-.dark .bg-home-gradient {
-  background: rgb(9,51,122);
-  background: linear-gradient(180deg, rgba(9,51,122,1) 0%, rgba(0,16,66,1) 100%);
-}
-
 .dark {
-  background:  rgba(0,16,66,1)
+  background: #1d1d1d
 }
 
 .colorful-text {
