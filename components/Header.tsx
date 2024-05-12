@@ -39,10 +39,10 @@ export const Header = () => {
     <div
       className={`${
         toggleCollapse ? "hidden" : ""
-      } w-full md:block md:w-auto mx-2`}
+      } w-full md:block md:w-auto`}
       id="navbar-default"
     >
-      <ul className="flex flex-col md:flex-row">
+      <ul className="flex flex-col md:flex-row gap-4 px-4 md:px-0">
         {pages.map((page, key) => (
           <li key={key}>
             <NavLink isActive={pathname === page.path} href={page.path}>
@@ -56,7 +56,7 @@ export const Header = () => {
 
   return (
     <nav className="z-30 fixed top-0 w-full justify-between py-2 my-0 md:py-4 shadow backdrop-blur-lg">
-      <div className="flex max-w-5xl mx-auto">
+      <div className="flex max-w-2xl mx-auto">
         <div className="flex flex-col w-full">
           <ToggleButton />
           <Navigation />

@@ -10,7 +10,7 @@ export const PostCard = ({ item }: Props) => {
   return (
     <div
       className={
-        "flex flex-col w-full p-4 py-5"
+        "flex flex-col w-full"
       }
     >
       <Link href={`/blog/${item.slug}`}>
@@ -21,7 +21,7 @@ export const PostCard = ({ item }: Props) => {
           <span className="text-base text-gray-600 dark:text-gray-300">
             {item.teaser}
           </span>
-          <div className="flex flex-row my-2">
+          <div className="flex flex-row gap-3">
             <PostTags tags={item.categories} />
             <ViewCount slug={item.slug} />
           </div>

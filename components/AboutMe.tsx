@@ -8,8 +8,7 @@ export const AboutMe = () => {
   const {t, locale} = useTranslation();
 
   return (
-    <section>
-      <div className="flex max-w-5xl mx-auto min-h-screen items-center p-4 gap-4">
+    <section className="flex items-center min-h-screen">
         <div className="flex flex-col gap-3">
           <h1>
             <span className="text-4xl">{t("about.about")}</span>{" "}
@@ -36,15 +35,6 @@ export const AboutMe = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden md:inline flex-none">
-          <Image
-            alt="mateo_mountains"
-            height={300}
-            width={300}
-            src="/images/mateo_mountains.jpg"
-          />
-        </div>
-      </div>
     </section>
   );
 };

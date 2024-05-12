@@ -20,14 +20,12 @@ export default function Portfolio({ projects }) {
           content="Dale una mirada a mis projectos personales!"
         />
       </Head>
-      <div className="pt-28 flex flex-col items-center mx-auto max-w-5xl p-4 gap-10">
         <h1>{t("portfolio.heading")}</h1>
         {projects.map((project, key) => (
           <FadeOnView key={key}>
             <PortfolioCard project={project} />
           </FadeOnView>
         ))}
-      </div>
     </Container>
   );
 }

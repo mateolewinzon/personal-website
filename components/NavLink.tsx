@@ -12,7 +12,7 @@ export const NavLink = ({ href, isActive, children }: Props) => {
     <Link
       href={href}
       className={twMerge(
-        "block font-medium text-gray-800 dark:text-white dark:hover:text-gray-100 text-lg px-3 py-1 rounded-lg",
+        "block font-medium text-gray-800 dark:text-white dark:hover:text-gray-100 text-lg py-1 rounded-lg",
         isActive && "dark:text-gray-100 text-gray-700"
       )}
     >

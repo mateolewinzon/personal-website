@@ -9,7 +9,7 @@ export const BlogLayout = ({ children, post }: Props) => {
   const { t, locale } = useTranslation();
 
   return (
-    <div className="flex justify-center mt-16 p-4">
+    <div className="flex justify-center">
       <BlogHead data={post} />
       <article className="prose max-w-2xl dark:prose-invert flex flex-col w-full">
         <h1 className="my-6">{post.title}</h1>

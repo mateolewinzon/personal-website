@@ -9,7 +9,7 @@ export const Container = ({ children }: Props) => {
     <>
       <AppHead />
       <Header />
-      <main>{children}</main>
+      <main className="max-w-2xl flex mx-auto min-h-screen flex-col mt-28 gap-12 px-4 md:px-0">{children}</main>
       <Footer />
     </>
   );

@@ -3,13 +3,13 @@ type Props = {
   className?: string;
 };
 
-export const PostTags = ({ tags, className }: Props) => {
+export const PostTags = ({ tags }: Props) => {
   return (
-    <div className={className}>
+    <div className='flex flex-wrap gap-3'>
       {tags?.map((tag) => (
         <span
           key={tag}
-          className="text-base text-black rounded-xl mr-3 bg-gray-100 dark:text-gray-100 dark:bg-gray-700 py-1.5 px-2"
+          className="text-base text-black rounded-xl bg-gray-100 dark:text-gray-100 dark:bg-gray-700 py-1.5 px-2"
         >
           {tag}
         </span>

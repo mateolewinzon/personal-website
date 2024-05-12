@@ -15,16 +15,12 @@ export default function Blogs({ posts }: Props) {
 
   return (
     <Container>
-      <div className="pt-28 xl:pt-20 flex flex-col max-w-5xl mx-auto min-h-screen items-center p-4 gap-10">
-        <h1>{t("blogs.heading")}</h1>
-        <div className="flex flex-col items-center gap-4">
-          {posts
-            .filter((item) => !item.isHidden)
-            .map((item) => (
-              <PostCard key={item.slug} item={item} />
-            ))}
-        </div>
-      </div>
+      <h1>{t("blogs.heading")}</h1>
+      {posts
+        .filter((item) => !item.isHidden)
+        .map((item) => (
+          <PostCard key={item.slug} item={item} />
+        ))}
     </Container>
   );
 }
@@ -33,8 +29,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const posts: Post[] = await client.fetch(GET_POSTS, { locale });
 
   return {
-    props: { 
+    props: {
       ...(await serverSideTranslations(locale!)),
-      posts },
+      posts
+    },
   };
 };

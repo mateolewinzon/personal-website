@@ -12,8 +12,8 @@ export const RecentPosts = ({ posts }: Props) => {
   const { t } = useTranslation();
 
   return (
-    <section className="max-w-5xl mx-auto my-16 md:my-10 w-full p-4">
-      <div className="flex flex-col items-center gap-10">
+    <section>
+      <div className="flex flex-col gap-10">
         <FadeOnView>
           <h2>{t("home.recent_posts")}</h2>
         </FadeOnView>

@@ -8,19 +8,13 @@ export const HomeWelcome = () => {
 
   return (
     <section>
-      <div className="flex max-w-5xl mx-auto items-center justify-center text-center min-h-screen p-4 gap-4">
-        <div className="flex flex-col gap-2 items-center">
-          <h1>{t("home.title")}</h1>
-          <h2 className="font-black text-5xl colorful-text">
-            <span> {t("home.software")}</span>
-            <span className={style.typewriter}> {t("home.developer")}</span>
-          </h2>
-          <h3>{t("home.welcome_text")}</h3>
-          <Link href="/about" className="button">
-            {t("home.learn_more")}
-          </Link>
-        </div>
-      
+      <div className="flex flex-col gap-2">
+        <h1>{t("home.title")}</h1>
+        <h2 className="font-black colorful-text">
+          <span> {t("home.software")}</span>
+          <span className={style.typewriter}> {t("home.developer")}</span>
+        </h2>
+        <h4 className="text-gray-600 dark:text-gray-300">{t("about.about_description")}</h4>
       </div>
     </section>
   );
