@@ -6,11 +6,11 @@ type Props = { data: Post };
 export const BlogHead = ({ data }: Props) => (
   <Head>
     <title>{data.title}</title>
+    <meta name="twitter:card" content="summary"></meta>
+    <meta name="twitter:creator" content="@mateolewinzon" />
     <meta name="description" content={data.teaser} />
     <meta name="og:title" content={data.title} />
     <meta name="og:description" content={data.teaser} />
-    <meta name="twitter:card" content="summary"></meta>
-    <meta name="twitter:creator" content="@mateolewinzon" />
     {data.image && <meta name="og:image" content={data.image} />}
   </Head>
 );
