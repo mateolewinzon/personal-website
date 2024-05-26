@@ -7,20 +7,34 @@ type Props = { data: Post };
 export const BlogHead = ({ data }: Props) => (
   <Head>
     <title>{data.title}</title>
-    <meta name="twitter:card" content="summary"></meta>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={data.title} />
+    <meta name="twitter:description" content={data.teaser} />
     <meta name="twitter:creator" content="@mateolewinzon" />
     <meta name="description" content={data.teaser} />
     <meta name="og:title" content={data.title} />
     <meta name="og:description" content={data.teaser} />
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={data.date} />
     {data.image && (
-      <meta
-        name="og:image"
-        content={getUrl(data.image)
-          .format("jpg")
-          .fit("crop")
-          .size(1200, 630)
-          .url()}
-      />
+      <>
+        <meta
+          name="og:image"
+          content={getUrl(data.image)
+            .format("jpg")
+            .fit("crop")
+            .size(1200, 630)
+            .url()}
+        />
+        <meta
+          name="twitter:image"
+          content={getUrl(data.image)
+            .format("jpg")
+            .fit("crop")
+            .size(1200, 630)
+            .url()}
+        />
+      </>
     )}
   </Head>
 );
