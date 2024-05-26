@@ -8,9 +8,10 @@ export const BlogHead = ({ data }: Props) => (
   <Head>
     <title>{data.title}</title>
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@mateolewinzon" />
+    <meta name="twitter:creator" content="@mateolewinzon" />
     <meta name="twitter:title" content={data.title} />
     <meta name="twitter:description" content={data.teaser} />
-    <meta name="twitter:creator" content="@mateolewinzon" />
     <meta name="description" content={data.teaser} />
     <meta name="og:title" content={data.title} />
     <meta name="og:description" content={data.teaser} />
