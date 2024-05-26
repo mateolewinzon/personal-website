@@ -11,6 +11,6 @@ export const BlogHead = ({ data }: Props) => (
     <meta name="description" content={data.teaser} />
     <meta name="og:title" content={data.title} />
     <meta name="og:description" content={data.teaser} />
-    {data.image && <meta name="og:image" content={data.image} />}
+    {data.image && <meta name="og:image" content={data.image.url} />}
   </Head>
 );

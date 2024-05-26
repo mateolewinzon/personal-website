@@ -9,7 +9,7 @@ export type Post = {
   date: string;
   enVersion?: string;
   esVersion?: string;
-  image?: string;
+  image?: { url: string };
   isPublished: boolean;
   isHidden?: boolean;
   locale: string;
@@ -25,13 +25,13 @@ export type Heading = {
 };
 
 export type Project = {
-  date: string
-  description: string
-  images: string[]
-  isPublished: boolean
-  locale: string
-  repoUrl: string
-  techs: string[]
-  title: string
-  url: string
-}
+  date: string;
+  description: string;
+  images: string[];
+  isPublished: boolean;
+  locale: string;
+  repoUrl: string;
+  techs: string[];
+  title: string;
+  url: string;
+};
