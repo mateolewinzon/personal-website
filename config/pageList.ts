@@ -6,5 +6,5 @@ function Page(id, path) {
 export const pages = [
   new Page("home", "/"),
   new Page("blog", "/blog"),
-  new Page("portfolio", "/portfolio")
+  // new Page("portfolio", "/portfolio")
 ];
