@@ -20,7 +20,7 @@ export const RecentPosts = ({ posts }: Props) => {
             .filter((post) => !post.isHidden)
             .map((post) => (
               // <FadeOnView key={post.slug}>
-                <PostCard item={post} />
+              <PostCard key={post.slug} item={post} />
               // </FadeOnView>
             ))}
         </div>
