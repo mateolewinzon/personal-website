@@ -1,6 +1,7 @@
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .10em solid #710B7A; /* The typwriter cursor */
+  border-right: .10em solid white;
+    /* The typwriter cursor */
   animation: 
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
@@ -16,6 +17,6 @@
     border-color: transparent;
   }
   50% {
-    border-color: #710B7A;
+    border-color: inherit;
   }
 }

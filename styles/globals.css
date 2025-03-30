@@ -13,7 +13,7 @@ body,
 }
 
 h1 {
-  @apply text-5xl font-bold text-black dark:text-white inline;
+  @apply text-2xl font-semibold text-black dark:text-white inline;
 }
 
 h2 {

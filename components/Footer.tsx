@@ -7,7 +7,6 @@ export const Footer = () => {
 
   return (
     <footer className="mt-20 mb-10 mx-auto max-w-2xl p-4 md:p-0 items-center">
-      <NowPlaying />
       <hr className="dark:border-gray-700 my-3" />
       <div className="grid grid-cols-3">
         {footers.map((footer, key) => (

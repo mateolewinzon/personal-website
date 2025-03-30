@@ -1,5 +1,5 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { RecentPosts, HomeWelcome, Container } from "components";
+import { RecentPosts, HomeWelcome, Container, NowPlaying } from "components";
 import type { GetStaticProps } from "next";
 import type { Post } from "lib/types";
 import { client } from "lib/sanity";
@@ -16,8 +16,9 @@ export default function Home({ posts }: Props) {
       <RecentPosts
         posts={posts
           .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
-          .slice(0, 3)}
+        }
       />
+      <NowPlaying />
     </Container>
   );
 }

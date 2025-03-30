@@ -19,7 +19,7 @@ export const ThemeButton = () => {
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="rounded-xl dark:text-white"
     >
-      {resolvedTheme === "dark" ? (
+      {resolvedTheme === "light" ? (
         <BsFillSunFill size={"25"} />
       ) : (
         <BsFillMoonStarsFill size={"25"} />

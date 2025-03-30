@@ -10,20 +10,20 @@ export const PostCard = ({ item }: Props) => {
   return (
     <div
       className={
-        "flex flex-col bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg border dark:border-neutral-700"
+        "flex flex-col"
       }
     >
       <Link href={`/blog/${item.slug}`}>
-        <div className="flex flex-col gap-3">
-          <span className="text-xl text-gray-800 dark:text-gray-100 font-semibold">
-            {item.title}
+        <div className="flex flex-col gap-1">
+          <span className="text-gray-600 dark:text-gray-400">
+            {item.title} 
           </span>
-          <span className="text-base text-gray-600 dark:text-gray-300">
+          {/* <span className="text-sm text-gray-600 dark:text-gray-300">
             {item.teaser}
-          </span>
+          </span> */}
           <div className="flex flex-row gap-3">
-            <PostTags tags={item.categories} />
-            <ViewCount slug={item.slug} />
+            {/* <PostTags tags={item.categories} /> */}
+            {/* <ViewCount slug={item.slug} /> */}
           </div>
         </div>
       </Link>

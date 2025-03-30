@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "styles/typing-effect.module.css";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import useTranslation from "hooks/useTranslation";
@@ -8,8 +6,8 @@ export const AboutMe = () => {
   const {t, locale} = useTranslation();
 
   return (
-    <section className="flex items-center min-h-screen">
-        <div className="flex flex-col gap-3">
+    <section className="flex items-center">
+      <div className="flex flex-col">
           <h1>
             <span className="text-4xl">{t("about.about")}</span>{" "}
             <span

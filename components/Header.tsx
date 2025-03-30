@@ -63,7 +63,7 @@ export const Header = () => {
         </div>
         <div className="flex items-center self-start p-4 md:p-2 gap-3">
           <ThemeButton />
-          <LocaleSelector currentLocale={locale} />
+          {/* <LocaleSelector currentLocale={locale} /> */}
         </div>
       </div>
     </nav>

@@ -12,10 +12,10 @@ export default function NotFoundPage() {
 
   return (
     <Container>
-      <div className="flex items-center min-h-screen max-w-5xl mx-auto p-4">
+      <div className="flex items-center max-w-5xl mx-auto p-4 ">
         <div className="flex flex-col gap-5">
           <h1>{t(isBlog ? "notFound.blog.heading" : "notFound.heading")}</h1>
-          <div className="flex flex-col gap-2">
+          {/* <div className="flex flex-col gap-2">
             {isBlog ? (
               <>
                 <h3>{t("notFound.blog.subHeading")}</h3>
@@ -31,7 +31,7 @@ export default function NotFoundPage() {
                 <h3>{t("notFound.subHeading")}</h3>
               </>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </Container>

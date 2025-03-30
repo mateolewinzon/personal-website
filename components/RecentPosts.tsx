@@ -13,24 +13,18 @@ export const RecentPosts = ({ posts }: Props) => {
 
   return (
     <section>
-      <div className="flex flex-col gap-10">
-        <FadeOnView>
-          <h2>{t("home.recent_posts")}</h2>
-        </FadeOnView>
-        <div className="flex gap-10 flex-col">
+      <div className="flex flex-col gap-3">
+        <span className="font-semibold">Writing</span>
+        <div className="flex gap-2 flex-col">
           {posts
             .filter((post) => !post.isHidden)
             .map((post) => (
-              <FadeOnView key={post.slug}>
+              // <FadeOnView key={post.slug}>
                 <PostCard item={post} />
-              </FadeOnView>
+              // </FadeOnView>
             ))}
         </div>
-        <div>
-          <span className="button">
-            <Link href="/blog">{t("home.view_all_blogs")}</Link>
-          </span>
-        </div>
+
       </div>
     </section>
   );
