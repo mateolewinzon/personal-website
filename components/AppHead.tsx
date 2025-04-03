@@ -13,5 +13,6 @@ export const AppHead = () => {
         <meta property="og:description" content="Full-stack developer working in fintech" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://lewinzon.dev" />
+        <link rel="sitemap" href="https://lewinzon.dev/sitemap.xml" />
     </Head>
 }
